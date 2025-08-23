@@ -9,7 +9,7 @@ import com.flightinfo.app.data.model.TrackedFlight
 @Database(
     entities = [TrackedFlight::class],
     version = 1,
-    exportSchema = false
+    exportSchema = false,
 )
 @TypeConverters(Converters::class)
 abstract class FlightInfoDatabase : RoomDatabase() {

@@ -15,7 +15,6 @@ import android.os.Message
 import android.os.Process
 import androidx.core.app.NotificationCompat
 import com.flightinfo.app.R
-import com.flightinfo.app.data.model.FlightInfo
 import com.flightinfo.app.data.repository.FlightRepository
 import com.flightinfo.app.ui.MainActivity
 import com.flightinfo.app.utils.NotificationHelper
@@ -50,7 +49,7 @@ class FlightStatusCheckService : Service() {
         override fun handleMessage(msg: Message) {
             // Check flight statuses periodically
             checkFlightStatuses()
-            
+
             // Schedule next check
             serviceHandler.sendEmptyMessageDelayed(0, CHECK_INTERVAL)
         }
@@ -58,18 +57,18 @@ class FlightStatusCheckService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        
+
         // Initialize notification helper
         notificationHelper = NotificationHelper(this)
-        
+
         // Create a background thread for handling flight status checks
         handlerThread = HandlerThread("FlightStatusCheckService", Process.THREAD_PRIORITY_BACKGROUND)
         handlerThread.start()
-        
+
         // Get the HandlerThread's Looper and use it for our Handler
         val looper = handlerThread.looper
         serviceHandler = ServiceHandler(looper)
-        
+
         createNotificationChannel()
         startForeground(NOTIFICATION_ID, createNotification())
     }
@@ -77,7 +76,7 @@ class FlightStatusCheckService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         // Start the periodic flight status check
         serviceHandler.sendEmptyMessage(0)
-        
+
         // If we get killed, after returning from here, restart
         return START_STICKY
     }
@@ -99,7 +98,7 @@ class FlightStatusCheckService : Service() {
         // 2. Check each flight's current status
         // 3. Compare with previous status
         // 4. If status changed, send notification
-        
+
         // For demonstration, we'll just log that we're checking
         // In a real app, you would implement the actual checking logic here
         serviceScope.launch {
@@ -131,11 +130,11 @@ class FlightStatusCheckService : Service() {
             val channel = NotificationChannel(
                 CHANNEL_ID,
                 CHANNEL_NAME,
-                NotificationManager.IMPORTANCE_LOW
+                NotificationManager.IMPORTANCE_LOW,
             ).apply {
                 description = CHANNEL_DESCRIPTION
             }
-            
+
             // Register the channel with the system
             val notificationManager: NotificationManager =
                 getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -148,12 +147,14 @@ class FlightStatusCheckService : Service() {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
-        
+
         val pendingIntent = PendingIntent.getActivity(
-            this, 0, intent, 
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+            this,
+            0,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
-        
+
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_flight)
             .setContentTitle("Checking Flight Statuses")

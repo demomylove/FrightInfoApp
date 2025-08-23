@@ -1,0 +1,1035 @@
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:16: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk 34
+        ~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:51: Warning: A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.17.0 [GradleDependency]
+    implementation 'androidx.core:core-ktx:1.12.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:52: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1 [GradleDependency]
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:53: Warning: A newer version of com.google.android.material:material than 1.10.0 is available: 1.12.0 [GradleDependency]
+    implementation 'com.google.android.material:material:1.10.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:54: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1 [GradleDependency]
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:57: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.9.2 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:58: Warning: A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.7.0 is available: 2.9.2 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:59: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.9.2 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:62: Warning: A newer version of androidx.activity:activity-ktx than 1.8.1 is available: 1.10.1 [GradleDependency]
+    implementation 'androidx.activity:activity-ktx:1.8.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:63: Warning: A newer version of androidx.fragment:fragment-ktx than 1.6.2 is available: 1.8.9 [GradleDependency]
+    implementation 'androidx.fragment:fragment-ktx:1.6.2'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:66: Warning: A newer version of androidx.navigation:navigation-fragment-ktx than 2.7.0 is available: 2.9.3 [GradleDependency]
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:67: Warning: A newer version of androidx.navigation:navigation-ui-ktx than 2.7.0 is available: 2.9.3 [GradleDependency]
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:70: Warning: A newer version of com.squareup.retrofit2:retrofit than 2.9.0 is available: 2.11.0 [GradleDependency]
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:72: Warning: A newer version of com.squareup.okhttp3:logging-interceptor than 4.11.0 is available: 4.12.0 [GradleDependency]
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.11.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:75: Warning: A newer version of androidx.room:room-runtime than 2.6.1 is available: 2.7.2 [GradleDependency]
+    implementation 'androidx.room:room-runtime:2.6.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:76: Warning: A newer version of androidx.room:room-ktx than 2.6.1 is available: 2.7.2 [GradleDependency]
+    implementation 'androidx.room:room-ktx:2.6.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:77: Warning: A newer version of androidx.room:room-compiler than 2.6.1 is available: 2.7.2 [GradleDependency]
+    kapt 'androidx.room:room-compiler:2.6.1'
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:80: Warning: A newer version of com.google.firebase:firebase-messaging than 23.1.2 is available: 25.0.0 [GradleDependency]
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:83: Warning: A newer version of com.google.dagger:hilt-android than 2.48 is available: 2.51.1 [GradleDependency]
+    implementation 'com.google.dagger:hilt-android:2.48'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:84: Warning: A newer version of com.google.dagger:hilt-compiler than 2.48 is available: 2.51.1 [GradleDependency]
+    kapt 'com.google.dagger:hilt-compiler:2.48'
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:88: Warning: A newer version of androidx.recyclerview:recyclerview than 1.3.2 is available: 1.4.0 [GradleDependency]
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:94: Warning: A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.7.3 is available: 1.10.1 [GradleDependency]
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:98: Warning: A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.3.0 [GradleDependency]
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:99: Warning: A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.7.0 [GradleDependency]
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/item_flight.xml:152: Warning: Use app:drawableStartCompat instead of android:drawableStart [UseCompatTextViewDrawableXml from androidx.appcompat]
+                android:drawableStart="@drawable/ic_gate"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/item_flight.xml:164: Warning: Use app:drawableStartCompat instead of android:drawableStart [UseCompatTextViewDrawableXml from androidx.appcompat]
+                android:drawableStart="@drawable/ic_terminal"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UseCompatTextViewDrawableXml":
+   TextView uses android: compound drawable attributes instead of app: ones
+
+   Vendor: Android Open Source Project
+   Identifier: androidx.appcompat
+   Feedback: https://issuetracker.google.com/issues/new?component=460343
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:5: Error: "search_hint" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="search_hint">Enter flight number (e.g., CA1234)</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:6: Error: "search_flights" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="search_flights">Search Flights</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:7: Error: "tab_search_results" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="tab_search_results">Search Results</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:8: Error: "tab_realtime" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="tab_realtime">Real-time</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:11: Error: "status_on_time" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="status_on_time">ON TIME</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:12: Error: "status_delayed" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="status_delayed">DELAYED</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:13: Error: "status_cancelled" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="status_cancelled">CANCELLED</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:14: Error: "status_boarding" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="status_boarding">BOARDING</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:15: Error: "status_departed" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="status_departed">DEPARTED</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:16: Error: "status_arrived" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="status_arrived">ARRIVED</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:17: Error: "status_in_flight" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="status_in_flight">IN FLIGHT</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:20: Error: "gate_format" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="gate_format">Gate %s</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:21: Error: "terminal_format" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="terminal_format">Terminal %s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:22: Error: "delay_format" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="delay_format">Delayed %d min</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:23: Error: "duration_format" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="duration_format">%dh %dm</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:26: Error: "loading" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="loading">Loading…</string>
+            ~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:27: Error: "no_flights_found" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="no_flights_found">No flights found</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:28: Error: "try_different_search" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="try_different_search">Try searching for a different flight</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:29: Error: "error_occurred" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="error_occurred">Something went wrong</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:30: Error: "check_connection_retry" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="check_connection_retry">Please check your connection and try again</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:31: Error: "retry" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="retry">Retry</string>
+            ~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:32: Error: "refresh" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="refresh">Refresh</string>
+            ~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:35: Error: "network_error" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="network_error">Network error</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:36: Error: "server_error" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="server_error">Server error</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:37: Error: "timeout_error" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="timeout_error">Request timeout</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:38: Error: "no_internet" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="no_internet">No internet connection</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:41: Error: "search_by_flight_number" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="search_by_flight_number">Search by flight number</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:42: Error: "search_by_route" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="search_by_route">Search by route</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:43: Error: "departure_airport" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="departure_airport">Departure Airport</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:44: Error: "arrival_airport" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="arrival_airport">Arrival Airport</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:45: Error: "select_date" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="select_date">Select Date</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:48: Error: "flight_item_description" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="flight_item_description">Flight %s from %s to %s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:49: Error: "search_button_description" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="search_button_description">Search for flights</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:50: Error: "refresh_button_description" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="refresh_button_description">Refresh flight data</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:53: Error: "passenger_name" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="passenger_name">Passenger Name</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:54: Error: "passenger_email" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="passenger_email">Passenger Email</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:55: Error: "passenger_phone" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="passenger_phone">Passenger Phone</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:56: Error: "passenger_id" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="passenger_id">Passenger ID</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:57: Error: "seat" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="seat">Seat</string>
+            ~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:58: Error: "select_seat" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="select_seat">Select Seat</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:59: Error: "baggage_info" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="baggage_info">Baggage Information</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:60: Error: "checked_baggage" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="checked_baggage">Checked Baggage</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:61: Error: "cabin_baggage" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="cabin_baggage">Cabin Baggage</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:62: Error: "special_baggage" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="special_baggage">Special Baggage</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:63: Error: "meal_preference" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="meal_preference">Meal Preference</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:64: Error: "insurance_option" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="insurance_option">Insurance Option</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:65: Error: "special_requests" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="special_requests">Special Requests</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:66: Error: "book_now" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="book_now">Book Now</string>
+            ~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:80: Error: "no_insurance" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="no_insurance">No Insurance</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:81: Error: "basic_insurance" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="basic_insurance">Basic Insurance</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:82: Error: "comprehensive_insurance" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="comprehensive_insurance">Comprehensive Insurance</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:83: Error: "premium_insurance" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="premium_insurance">Premium Insurance</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:86: Error: "track_flight" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="track_flight">Track Flight</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:87: Error: "untrack_flight" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="untrack_flight">Untrack Flight</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:88: Error: "flight_tracking_enabled" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="flight_tracking_enabled">Flight tracking enabled</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:89: Error: "flight_tracking_disabled" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="flight_tracking_disabled">Flight tracking disabled</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:90: Error: "notification_channel_name" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="notification_channel_name">Flight Status Updates</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:91: Error: "notification_channel_description" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="notification_channel_description">Notifications for flight status changes</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:92: Error: "flight_status_update" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="flight_status_update">Flight Status Update</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:93: Error: "flight_status_changed" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="flight_status_changed">Your flight status has changed to %s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:96: Error: "notification_types" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="notification_types">Notification Types</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:97: Error: "delay_notifications" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="delay_notifications">Delay Notifications</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:98: Error: "cancellation_notifications" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="cancellation_notifications">Cancellation Notifications</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:99: Error: "gate_change_notifications" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="gate_change_notifications">Gate Change Notifications</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:100: Error: "do_not_disturb" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="do_not_disturb">Do Not Disturb</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:101: Error: "enable_do_not_disturb" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="enable_do_not_disturb">Enable Do Not Disturb</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:102: Error: "start_time" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="start_time">Start Time</string>
+            ~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:103: Error: "end_time" is not translated in "zh" (Chinese) [MissingTranslation]
+    <string name="end_time">End Time</string>
+            ~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "MissingTranslation":
+   If an application has more than one locale, then all the strings declared
+   in one language should also be translated in all other languages.
+
+   If the string should not be translated, you can add the attribute
+   translatable="false" on the <string> element, or you can define all your
+   non-translatable strings in a resource file called donottranslate.xml. Or,
+   you can ignore the issue with a tools:ignore="MissingTranslation"
+   attribute.
+
+   You can tell lint (and other tools) which language is the default language
+   in your res/values/ folder by specifying tools:locale="languageCode" for
+   the root <resources> element in your resource file. (The tools prefix
+   refers to the namespace declaration http://schemas.android.com/tools.)
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/adapter/ForecastAdapter.kt:16: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+        notifyDataSetChanged()
+        ~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NotifyDataSetChanged":
+   The RecyclerView adapter's onNotifyDataSetChanged method does not specify
+   what about the data set has changed, forcing any observers to assume that
+   all existing items and structure may no longer be valid. `LayoutManager`s
+   will be forced to fully rebind and relayout all visible views.
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/themes.xml:13: Warning: Unnecessary; SDK_INT is always >= 21 [ObsoleteSdkInt]
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+                                            ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ObsoleteSdkInt":
+   This check flags version checks that are not necessary, because the
+   minSdkVersion (or surrounding known API level) is already at least as high
+   as the version checked for.
+
+   Similarly, it also looks for resources in -vNN folders, such as values-v14
+   where the version qualifier is less than or equal to the minSdkVersion,
+   where the contents should be merged into the best folder.
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/build.gradle:77: Warning: This library supports using KSP instead of kapt, which greatly improves performance. Learn more: https://developer.android.com/studio/build/migrate-to-ksp [KaptUsageInsteadOfKsp]
+    kapt 'androidx.room:room-compiler:2.6.1'
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "KaptUsageInsteadOfKsp":
+   KSP is a more efficient replacement for kapt. For libraries that support
+   both, KSP should be used to improve build times.
+
+   https://developer.android.com/studio/build/migrate-to-ksp
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/activity_weather.xml:2: Warning: This <FrameLayout> can be replaced with a <merge> tag [MergeRootFrame]
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+^
+
+   Explanation for issues of type "MergeRootFrame":
+   If a <FrameLayout> is the root of a layout and does not provide background
+   or padding etc, it can often be replaced with a <merge> tag which is
+   slightly more efficient. Note that this depends on context, so make sure
+   you understand how the <merge> tag works before proceeding.
+
+   https://android-developers.googleblog.com/2009/03/android-layout-tricks-3-optimize-by.html
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/item_flight.xml:62: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+        <LinearLayout
+         ~~~~~~~~~~~~
+
+   Explanation for issues of type "DisableBaselineAlignment":
+   When a LinearLayout is used to distribute the space proportionally between
+   nested layouts, the baseline alignment property should be turned off to
+   make the layout computation faster.
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:180: Warning: Use a layout_width of 0dp instead of wrap_content for better performance [InefficientWeight]
+                android:layout_width="wrap_content"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:198: Warning: Use a layout_width of 0dp instead of wrap_content for better performance [InefficientWeight]
+                android:layout_width="wrap_content"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "InefficientWeight":
+   When only a single widget in a LinearLayout defines a weight, it is more
+   efficient to assign a width/height of 0dp to it since it will absorb all
+   the remaining space anyway. With a declared width/height of 0dp it does not
+   have to measure its own size first.
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_list.xml:8: Warning: Possible overdraw: Root element paints background @color/background_color with a theme that also paints a background (inferred theme is @style/Theme.FlightInfoApp) [Overdraw]
+    android:background="@color/background_color">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/drawable/ic_search.xml:1: Warning: The resource R.drawable.ic_search appears to be unused [UnusedResources]
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/drawable/rounded_background.xml:2: Warning: The resource R.drawable.rounded_background appears to be unused [UnusedResources]
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:5: Warning: The resource R.string.search_hint appears to be unused [UnusedResources]
+    <string name="search_hint">Enter flight number (e.g., CA1234)</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:6: Warning: The resource R.string.search_flights appears to be unused [UnusedResources]
+    <string name="search_flights">Search Flights</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:7: Warning: The resource R.string.tab_search_results appears to be unused [UnusedResources]
+    <string name="tab_search_results">Search Results</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:8: Warning: The resource R.string.tab_realtime appears to be unused [UnusedResources]
+    <string name="tab_realtime">Real-time</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:11: Warning: The resource R.string.status_on_time appears to be unused [UnusedResources]
+    <string name="status_on_time">ON TIME</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:12: Warning: The resource R.string.status_delayed appears to be unused [UnusedResources]
+    <string name="status_delayed">DELAYED</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:13: Warning: The resource R.string.status_cancelled appears to be unused [UnusedResources]
+    <string name="status_cancelled">CANCELLED</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:14: Warning: The resource R.string.status_boarding appears to be unused [UnusedResources]
+    <string name="status_boarding">BOARDING</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:15: Warning: The resource R.string.status_departed appears to be unused [UnusedResources]
+    <string name="status_departed">DEPARTED</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:16: Warning: The resource R.string.status_arrived appears to be unused [UnusedResources]
+    <string name="status_arrived">ARRIVED</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:17: Warning: The resource R.string.status_in_flight appears to be unused [UnusedResources]
+    <string name="status_in_flight">IN FLIGHT</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:20: Warning: The resource R.string.gate_format appears to be unused [UnusedResources]
+    <string name="gate_format">Gate %s</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:21: Warning: The resource R.string.terminal_format appears to be unused [UnusedResources]
+    <string name="terminal_format">Terminal %s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:22: Warning: The resource R.string.delay_format appears to be unused [UnusedResources]
+    <string name="delay_format">Delayed %d min</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:23: Warning: The resource R.string.duration_format appears to be unused [UnusedResources]
+    <string name="duration_format">%dh %dm</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:26: Warning: The resource R.string.loading appears to be unused [UnusedResources]
+    <string name="loading">Loading…</string>
+            ~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:27: Warning: The resource R.string.no_flights_found appears to be unused [UnusedResources]
+    <string name="no_flights_found">No flights found</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:28: Warning: The resource R.string.try_different_search appears to be unused [UnusedResources]
+    <string name="try_different_search">Try searching for a different flight</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:29: Warning: The resource R.string.error_occurred appears to be unused [UnusedResources]
+    <string name="error_occurred">Something went wrong</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:30: Warning: The resource R.string.check_connection_retry appears to be unused [UnusedResources]
+    <string name="check_connection_retry">Please check your connection and try again</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:31: Warning: The resource R.string.retry appears to be unused [UnusedResources]
+    <string name="retry">Retry</string>
+            ~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:32: Warning: The resource R.string.refresh appears to be unused [UnusedResources]
+    <string name="refresh">Refresh</string>
+            ~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:35: Warning: The resource R.string.network_error appears to be unused [UnusedResources]
+    <string name="network_error">Network error</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:36: Warning: The resource R.string.server_error appears to be unused [UnusedResources]
+    <string name="server_error">Server error</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:37: Warning: The resource R.string.timeout_error appears to be unused [UnusedResources]
+    <string name="timeout_error">Request timeout</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:38: Warning: The resource R.string.no_internet appears to be unused [UnusedResources]
+    <string name="no_internet">No internet connection</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:41: Warning: The resource R.string.search_by_flight_number appears to be unused [UnusedResources]
+    <string name="search_by_flight_number">Search by flight number</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:42: Warning: The resource R.string.search_by_route appears to be unused [UnusedResources]
+    <string name="search_by_route">Search by route</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:43: Warning: The resource R.string.departure_airport appears to be unused [UnusedResources]
+    <string name="departure_airport">Departure Airport</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:44: Warning: The resource R.string.arrival_airport appears to be unused [UnusedResources]
+    <string name="arrival_airport">Arrival Airport</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:45: Warning: The resource R.string.select_date appears to be unused [UnusedResources]
+    <string name="select_date">Select Date</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:48: Warning: The resource R.string.flight_item_description appears to be unused [UnusedResources]
+    <string name="flight_item_description">Flight %s from %s to %s</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:49: Warning: The resource R.string.search_button_description appears to be unused [UnusedResources]
+    <string name="search_button_description">Search for flights</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:50: Warning: The resource R.string.refresh_button_description appears to be unused [UnusedResources]
+    <string name="refresh_button_description">Refresh flight data</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:53: Warning: The resource R.string.passenger_name appears to be unused [UnusedResources]
+    <string name="passenger_name">Passenger Name</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:54: Warning: The resource R.string.passenger_email appears to be unused [UnusedResources]
+    <string name="passenger_email">Passenger Email</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:55: Warning: The resource R.string.passenger_phone appears to be unused [UnusedResources]
+    <string name="passenger_phone">Passenger Phone</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:56: Warning: The resource R.string.passenger_id appears to be unused [UnusedResources]
+    <string name="passenger_id">Passenger ID</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:57: Warning: The resource R.string.seat appears to be unused [UnusedResources]
+    <string name="seat">Seat</string>
+            ~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:58: Warning: The resource R.string.select_seat appears to be unused [UnusedResources]
+    <string name="select_seat">Select Seat</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:59: Warning: The resource R.string.baggage_info appears to be unused [UnusedResources]
+    <string name="baggage_info">Baggage Information</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:60: Warning: The resource R.string.checked_baggage appears to be unused [UnusedResources]
+    <string name="checked_baggage">Checked Baggage</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:61: Warning: The resource R.string.cabin_baggage appears to be unused [UnusedResources]
+    <string name="cabin_baggage">Cabin Baggage</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:62: Warning: The resource R.string.special_baggage appears to be unused [UnusedResources]
+    <string name="special_baggage">Special Baggage</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:63: Warning: The resource R.string.meal_preference appears to be unused [UnusedResources]
+    <string name="meal_preference">Meal Preference</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:64: Warning: The resource R.string.insurance_option appears to be unused [UnusedResources]
+    <string name="insurance_option">Insurance Option</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:65: Warning: The resource R.string.special_requests appears to be unused [UnusedResources]
+    <string name="special_requests">Special Requests</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:66: Warning: The resource R.string.book_now appears to be unused [UnusedResources]
+    <string name="book_now">Book Now</string>
+            ~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:80: Warning: The resource R.string.no_insurance appears to be unused [UnusedResources]
+    <string name="no_insurance">No Insurance</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:81: Warning: The resource R.string.basic_insurance appears to be unused [UnusedResources]
+    <string name="basic_insurance">Basic Insurance</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:82: Warning: The resource R.string.comprehensive_insurance appears to be unused [UnusedResources]
+    <string name="comprehensive_insurance">Comprehensive Insurance</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:83: Warning: The resource R.string.premium_insurance appears to be unused [UnusedResources]
+    <string name="premium_insurance">Premium Insurance</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:87: Warning: The resource R.string.untrack_flight appears to be unused [UnusedResources]
+    <string name="untrack_flight">Untrack Flight</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:88: Warning: The resource R.string.flight_tracking_enabled appears to be unused [UnusedResources]
+    <string name="flight_tracking_enabled">Flight tracking enabled</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/values/strings.xml:89: Warning: The resource R.string.flight_tracking_disabled appears to be unused [UnusedResources]
+    <string name="flight_tracking_disabled">Flight tracking disabled</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml:2: Warning: The application adaptive icon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml:2: Warning: The application adaptive roundIcon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+
+   Explanation for issues of type "MonochromeLauncherIcon":
+   If android:roundIcon and android:icon are both in your manifest, you must
+   either remove the reference to android:roundIcon if it is not needed; or,
+   supply the monochrome icon in the drawable defined by the android:roundIcon
+   and android:icon attribute.
+
+   For example, if android:roundIcon and android:icon are both in the
+   manifest, a launcher might choose to use android:roundIcon over
+   android:icon to display the adaptive app icon. Therefore, your themed
+   application iconwill not show if your monochrome attribute is not also
+   specified in android:roundIcon.
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/dialog_seat_selection.xml:78: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/dialog_seat_selection.xml:86: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/item_flight.xml:198: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+             <Button
+              ~~~~~~
+
+   Explanation for issues of type "ButtonStyle":
+   Button bars typically use a borderless style for the buttons. Set the
+   style="?android:attr/buttonBarButtonStyle" attribute on each of the
+   buttons, and set style="?android:attr/buttonBarStyle" on the parent layout
+
+   https://material.io/components/dialogs/
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:22: Warning: This text field does not specify an inputType [TextFields]
+        <EditText
+         ~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:144: Warning: This text field does not specify an inputType [TextFields]
+        <EditText
+         ~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:203: Warning: This text field does not specify an inputType [TextFields]
+        <EditText
+         ~~~~~~~~
+
+   Explanation for issues of type "TextFields":
+   Providing an inputType attribute on a text field improves usability because
+   depending on the data to be input, optimized keyboards can be shown to the
+   user (such as just digits and parentheses for a phone number). 
+
+   The lint detector also looks at the id of the view, and if the id offers a
+   hint of the purpose of the field (for example, the id contains the phrase
+   phone or email), then lint will also ensure that the inputType contains the
+   corresponding type attributes.
+
+   If you really want to keep the text field generic, you can suppress this
+   warning by setting inputType="text".
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:22: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:28: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:35: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:42: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:144: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:203: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:277: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_weather.xml:29: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+
+   Explanation for issues of type "Autofill":
+   Specify an autofillHints attribute when targeting SDK version 26 or higher
+   or explicitly specify that the view is not important for autofill. Your app
+   can help an autofill service classify the data correctly by providing the
+   meaning of each view that could be autofillable, such as views representing
+   usernames, passwords, credit card fields, email addresses, etc.
+
+   The hints can have any value, but it is recommended to use predefined
+   values like 'username' for a username or 'creditCardNumber' for a credit
+   card number. For a list of all predefined autofill hint constants, see the
+   AUTOFILL_HINT_ constants in the View reference at
+   https://developer.android.com/reference/android/view/View.html.
+
+   You can mark a view unimportant for autofill by specifying an
+   importantForAutofill attribute on that view or a parent view. See
+   https://developer.android.com/reference/android/view/View.html#setImportant
+   ForAutofill(int).
+
+   https://developer.android.com/guide/topics/text/autofill.html
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/item_flight.xml:103: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView
+                 ~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/adapter/FlightAdapter.kt:81: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                binding.gateText.text = "Gate $gate"
+                                        ~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/adapter/FlightAdapter.kt:81: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                binding.gateText.text = "Gate $gate"
+                                         ~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/adapter/FlightAdapter.kt:85: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                binding.terminalText.text = "Terminal $terminal"
+                                            ~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/adapter/FlightAdapter.kt:85: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                binding.terminalText.text = "Terminal $terminal"
+                                             ~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:212: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "${flightWeather.departureWeather.location}: " +
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:212: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "${flightWeather.departureWeather.location}: " +
+                                    ^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:212: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "${flightWeather.departureWeather.location}: " +
+                                    ^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:213: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "${flightWeather.departureWeather.temperature}°C, " +
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:218: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "${flightWeather.arrivalWeather.location}: " +
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:218: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "${flightWeather.arrivalWeather.location}: " +
+                                    ^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:218: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "${flightWeather.arrivalWeather.location}: " +
+                                    ^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:219: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "${flightWeather.arrivalWeather.temperature}°C, " +
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:225: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "延误概率: $delayProbability%, " +
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:225: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "延误概率: $delayProbability%, " +
+                                    ^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:225: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "延误概率: $delayProbability%, " +
+                                    ^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:226: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "预计延误: ${flightWeather.weatherImpact.delayMinutes}分钟\n" +
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt:227: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                    "建议: ${flightWeather.weatherImpact.recommendation}"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightListFragment.kt:173: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            binding.emptyStateText.text = "No real-time flights available"
+                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/FlightListFragment.kt:174: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            binding.emptyStateSubtext.text = "Pull to refresh for latest data"
+                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/adapter/ForecastAdapter.kt:36: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            binding.maxTempTextView.text = "${forecast.maxTemp}°C"
+                                           ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/adapter/ForecastAdapter.kt:37: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            binding.minTempTextView.text = "${forecast.minTemp}°C"
+                                           ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/adapter/ForecastAdapter.kt:38: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            binding.precipitationTextView.text = "降水: ${forecast.precipitation}%"
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/adapter/ForecastAdapter.kt:39: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            binding.windTextView.text = "风速: ${forecast.windSpeed}km/h"
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/adapter/ForecastAdapter.kt:39: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            binding.windTextView.text = "风速: ${forecast.windSpeed}km/h"
+                                                                  ~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/dialog/SeatSelectionDialog.kt:104: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        selectedSeatTextView.text = "已选座位: ${seat.seatNumber} (${getSeatClassName(seat.seatClass)})"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:137: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        binding.temperatureTextView.text = "${weather.temperature}°C"
+                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:139: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        binding.humidityTextView.text = "湿度: ${weather.humidity}%"
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:140: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        binding.windTextView.text = "风速: ${weather.windSpeed}km/h, ${weather.windDirection}"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:140: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        binding.windTextView.text = "风速: ${weather.windSpeed}km/h, ${weather.windDirection}"
+                                                             ~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:144: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        binding.flightNumberTextView.text = "航班号: ${flightWeather.flightNumber}"
+                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:147: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            "出发地天气: ${flightWeather.departureWeather.location}, " +
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:147: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            "出发地天气: ${flightWeather.departureWeather.location}, " +
+            ^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:147: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            "出发地天气: ${flightWeather.departureWeather.location}, " +
+            ^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:148: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            "${flightWeather.departureWeather.temperature}°C, " +
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:152: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            "目的地天气: ${flightWeather.arrivalWeather.location}, " +
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:152: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            "目的地天气: ${flightWeather.arrivalWeather.location}, " +
+            ^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:152: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            "目的地天气: ${flightWeather.arrivalWeather.location}, " +
+            ^
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:153: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            "${flightWeather.arrivalWeather.temperature}°C, " +
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:157: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            "延误概率: ${(flightWeather.weatherImpact.delayProbability * 100).toInt()}%"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/java/com/flightinfo/app/ui/fragment/WeatherFragment.kt:160: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            "建议: ${flightWeather.weatherImpact.recommendation}"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/dialog_seat_selection.xml:12: Warning: Hardcoded string "选择座位", should use @string resource [HardcodedText]
+        android:text="选择座位"
+        ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/dialog_seat_selection.xml:29: Warning: Hardcoded string "可选", should use @string resource [HardcodedText]
+            android:text="可选"
+            ~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/dialog_seat_selection.xml:37: Warning: Hardcoded string "已选", should use @string resource [HardcodedText]
+            android:text="已选"
+            ~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/dialog_seat_selection.xml:45: Warning: Hardcoded string "已占", should use @string resource [HardcodedText]
+            android:text="已占"
+            ~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/dialog_seat_selection.xml:67: Warning: Hardcoded string "已选座位: 无", should use @string resource [HardcodedText]
+        android:text="已选座位: 无"
+        ~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/dialog_seat_selection.xml:83: Warning: Hardcoded string "取消", should use @string resource [HardcodedText]
+            android:text="取消"
+            ~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/dialog_seat_selection.xml:91: Warning: Hardcoded string "确认", should use @string resource [HardcodedText]
+            android:text="确认"
+            ~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:17: Warning: Hardcoded string "乘客信息", should use @string resource [HardcodedText]
+            android:text="乘客信息"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:26: Warning: Hardcoded string "乘客姓名", should use @string resource [HardcodedText]
+            android:hint="乘客姓名" />
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:32: Warning: Hardcoded string "乘客邮箱", should use @string resource [HardcodedText]
+            android:hint="乘客邮箱"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:39: Warning: Hardcoded string "乘客电话", should use @string resource [HardcodedText]
+            android:hint="乘客电话"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:46: Warning: Hardcoded string "身份证号", should use @string resource [HardcodedText]
+            android:hint="身份证号"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:53: Warning: Hardcoded string "天气信息", should use @string resource [HardcodedText]
+            android:text="天气信息"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:76: Warning: Hardcoded string "出发地天气", should use @string resource [HardcodedText]
+                    android:text="出发地天气"
+                    ~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:85: Warning: Hardcoded string "正在加载天气信息...", should use @string resource [HardcodedText]
+                    android:text="正在加载天气信息..."
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:93: Warning: Hardcoded string "目的地天气", should use @string resource [HardcodedText]
+                    android:text="目的地天气"
+                    ~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:102: Warning: Hardcoded string "正在加载天气信息...", should use @string resource [HardcodedText]
+                    android:text="正在加载天气信息..."
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:110: Warning: Hardcoded string "天气影响", should use @string resource [HardcodedText]
+                    android:text="天气影响"
+                    ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:119: Warning: Hardcoded string "正在加载天气影响信息...", should use @string resource [HardcodedText]
+                    android:text="正在加载天气影响信息..."
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:128: Warning: Hardcoded string "查看天气详情", should use @string resource [HardcodedText]
+                    android:text="查看天气详情" />
+                    ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:138: Warning: Hardcoded string "座位选择", should use @string resource [HardcodedText]
+            android:text="座位选择"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:148: Warning: Hardcoded string "座位号", should use @string resource [HardcodedText]
+            android:hint="座位号" />
+            ~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:154: Warning: Hardcoded string "选择座位", should use @string resource [HardcodedText]
+            android:text="选择座位"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:161: Warning: Hardcoded string "行李信息", should use @string resource [HardcodedText]
+            android:text="行李信息"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:175: Warning: Hardcoded string "托运行李数量: ", should use @string resource [HardcodedText]
+                android:text="托运行李数量: "
+                ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:193: Warning: Hardcoded string "随身行李数量: ", should use @string resource [HardcodedText]
+                android:text="随身行李数量: "
+                ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:207: Warning: Hardcoded string "特殊行李描述", should use @string resource [HardcodedText]
+            android:hint="特殊行李描述" />
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:213: Warning: Hardcoded string "餐食选择", should use @string resource [HardcodedText]
+            android:text="餐食选择"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:229: Warning: Hardcoded string "保险选项", should use @string resource [HardcodedText]
+            android:text="保险选项"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:245: Warning: Hardcoded string "无保险", should use @string resource [HardcodedText]
+                android:text="无保险"
+                ~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:252: Warning: Hardcoded string "基础保险", should use @string resource [HardcodedText]
+                android:text="基础保险" />
+                ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:258: Warning: Hardcoded string "综合保险", should use @string resource [HardcodedText]
+                android:text="综合保险" />
+                ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:264: Warning: Hardcoded string "高级保险", should use @string resource [HardcodedText]
+                android:text="高级保险" />
+                ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:271: Warning: Hardcoded string "特殊需求", should use @string resource [HardcodedText]
+            android:text="特殊需求"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:281: Warning: Hardcoded string "请输入特殊需求（可选）", should use @string resource [HardcodedText]
+            android:hint="请输入特殊需求（可选）"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_booking.xml:298: Warning: Hardcoded string "立即预订", should use @string resource [HardcodedText]
+            android:text="立即预订"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_list.xml:49: Warning: Hardcoded string "No flights found", should use @string resource [HardcodedText]
+            android:text="No flights found"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_list.xml:58: Warning: Hardcoded string "Try searching for a different flight", should use @string resource [HardcodedText]
+            android:text="Try searching for a different flight"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_list.xml:82: Warning: Hardcoded string "Something went wrong", should use @string resource [HardcodedText]
+            android:text="Something went wrong"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_list.xml:93: Warning: Hardcoded string "Please check your connection and try again", should use @string resource [HardcodedText]
+            android:text="Please check your connection and try again"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_flight_list.xml:103: Warning: Hardcoded string "Retry", should use @string resource [HardcodedText]
+            android:text="Retry" />
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_travel_suggestion.xml:26: Warning: Hardcoded string "Tips:", should use @string resource [HardcodedText]
+        android:text="Tips:"
+        ~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_weather.xml:22: Warning: Hardcoded string "天气信息", should use @string resource [HardcodedText]
+            android:text="天气信息"
+            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_weather.xml:34: Warning: Hardcoded string "输入城市名称", should use @string resource [HardcodedText]
+            android:hint="输入城市名称"
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_weather.xml:44: Warning: Hardcoded string "搜索", should use @string resource [HardcodedText]
+            android:text="搜索"
+            ~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_weather.xml:91: Warning: Hardcoded string "当前天气", should use @string resource [HardcodedText]
+                            android:text="当前天气"
+                            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_weather.xml:160: Warning: Hardcoded string "天气预报", should use @string resource [HardcodedText]
+                            android:text="天气预报"
+                            ~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/fragment_weather.xml:191: Warning: Hardcoded string "航班天气影响", should use @string resource [HardcodedText]
+                            android:text="航班天气影响"
+                            ~~~~~~~~~~~~~~~~~~~~~
+/Users/wurongquan/sensetimeproject/new2/FlightInfoApp/app/src/main/res/layout/item_flight.xml:204: Warning: Hardcoded string "Book Now", should use @string resource [HardcodedText]
+                 android:text="Book Now" />
+                 ~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+68 errors, 197 warnings

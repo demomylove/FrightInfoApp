@@ -92,7 +92,7 @@ class FlightSearchViewModel @Inject constructor(
                 flightNumber = flightNumber,
                 lastStatus = currentStatus,
                 lastUpdated = System.currentTimeMillis(),
-                notificationEnabled = true
+                notificationEnabled = true,
             )
             trackedFlightRepository.insertTrackedFlight(trackedFlight)
         }

@@ -1,0 +1,3553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.1.2" type="incidents">
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;选择座位&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+            line="12"
+            column="9"
+            startOffset="408"
+            endLine="12"
+            endColumn="28"
+            endOffset="427"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;可选&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+            line="29"
+            column="13"
+            startOffset="940"
+            endLine="29"
+            endColumn="30"
+            endOffset="957"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;已选&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+            line="37"
+            column="13"
+            startOffset="1210"
+            endLine="37"
+            endColumn="30"
+            endOffset="1227"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;已占&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+            line="45"
+            column="13"
+            startOffset="1479"
+            endLine="45"
+            endColumn="30"
+            endOffset="1496"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;已选座位: 无&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+            line="67"
+            column="9"
+            startOffset="2163"
+            endLine="67"
+            endColumn="31"
+            endOffset="2185"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+                    startOffset="2325"
+                    endOffset="3016"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+                    startOffset="2479"
+                    endOffset="2731"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+                    startOffset="2741"
+                    endOffset="2996"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+            line="78"
+            column="10"
+            startOffset="2480"
+            endLine="78"
+            endColumn="16"
+            endOffset="2486"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;取消&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+            line="83"
+            column="13"
+            startOffset="2668"
+            endLine="83"
+            endColumn="30"
+            endOffset="2685"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+                    startOffset="2325"
+                    endOffset="3016"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+                    startOffset="2479"
+                    endOffset="2731"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+                    startOffset="2741"
+                    endOffset="2996"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+            line="86"
+            column="10"
+            startOffset="2742"
+            endLine="86"
+            endColumn="16"
+            endOffset="2748"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;确认&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/dialog_seat_selection.xml"
+            line="91"
+            column="13"
+            startOffset="2931"
+            endLine="91"
+            endColumn="30"
+            endOffset="2948"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;乘客信息&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="17"
+            column="13"
+            startOffset="579"
+            endLine="17"
+            endColumn="32"
+            endOffset="598"/>
+    </incident>
+
+    <incident
+        id="TextFields"
+        severity="warning"
+        message="This text field does not specify an `inputType`">
+        <fix-attribute
+            description="Set inputType"
+            namespace="http://schemas.android.com/apk/res/android"
+            attribute="inputType"
+            value="TODO"
+            dot="4"
+            mark="0"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="22"
+            column="10"
+            startOffset="731"
+            endLine="22"
+            endColumn="18"
+            endOffset="739"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="22"
+            column="10"
+            startOffset="731"
+            endLine="22"
+            endColumn="18"
+            endOffset="739"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;乘客姓名&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="26"
+            column="13"
+            startOffset="892"
+            endLine="26"
+            endColumn="32"
+            endOffset="911"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="28"
+            column="10"
+            startOffset="925"
+            endLine="28"
+            endColumn="18"
+            endOffset="933"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;乘客邮箱&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="32"
+            column="13"
+            startOffset="1087"
+            endLine="32"
+            endColumn="32"
+            endOffset="1106"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="35"
+            column="10"
+            startOffset="1169"
+            endLine="35"
+            endColumn="18"
+            endOffset="1177"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;乘客电话&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="39"
+            column="13"
+            startOffset="1331"
+            endLine="39"
+            endColumn="32"
+            endOffset="1350"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="42"
+            column="10"
+            startOffset="1402"
+            endLine="42"
+            endColumn="18"
+            endOffset="1410"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;身份证号&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="46"
+            column="13"
+            startOffset="1570"
+            endLine="46"
+            endColumn="32"
+            endOffset="1589"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;天气信息&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="53"
+            column="13"
+            startOffset="1784"
+            endLine="53"
+            endColumn="32"
+            endOffset="1803"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;出发地天气&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="76"
+            column="21"
+            startOffset="2673"
+            endLine="76"
+            endColumn="41"
+            endOffset="2693"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;正在加载天气信息...&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="85"
+            column="21"
+            startOffset="3056"
+            endLine="85"
+            endColumn="47"
+            endOffset="3082"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;目的地天气&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="93"
+            column="21"
+            startOffset="3400"
+            endLine="93"
+            endColumn="41"
+            endOffset="3420"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;正在加载天气信息...&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="102"
+            column="21"
+            startOffset="3781"
+            endLine="102"
+            endColumn="47"
+            endOffset="3807"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;天气影响&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="110"
+            column="21"
+            startOffset="4124"
+            endLine="110"
+            endColumn="40"
+            endOffset="4143"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;正在加载天气影响信息...&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="119"
+            column="21"
+            startOffset="4503"
+            endLine="119"
+            endColumn="49"
+            endOffset="4531"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;查看天气详情&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="128"
+            column="21"
+            startOffset="4900"
+            endLine="128"
+            endColumn="42"
+            endOffset="4921"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;座位选择&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="138"
+            column="13"
+            startOffset="5152"
+            endLine="138"
+            endColumn="32"
+            endOffset="5171"/>
+    </incident>
+
+    <incident
+        id="TextFields"
+        severity="warning"
+        message="This text field does not specify an `inputType`">
+        <fix-attribute
+            description="Set inputType"
+            namespace="http://schemas.android.com/apk/res/android"
+            attribute="inputType"
+            value="TODO"
+            dot="4"
+            mark="0"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="144"
+            column="10"
+            startOffset="5348"
+            endLine="144"
+            endColumn="18"
+            endOffset="5356"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="144"
+            column="10"
+            startOffset="5348"
+            endLine="144"
+            endColumn="18"
+            endOffset="5356"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;座位号&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="148"
+            column="13"
+            startOffset="5509"
+            endLine="148"
+            endColumn="31"
+            endOffset="5527"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;选择座位&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="154"
+            column="13"
+            startOffset="5704"
+            endLine="154"
+            endColumn="32"
+            endOffset="5723"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;行李信息&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="161"
+            column="13"
+            startOffset="5922"
+            endLine="161"
+            endColumn="32"
+            endOffset="5941"/>
+    </incident>
+
+    <incident
+        id="InefficientWeight"
+        severity="warning"
+        message="Use a `layout_width` of `0dp` instead of `wrap_content` for better performance">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="180"
+            column="17"
+            startOffset="6600"
+            endLine="180"
+            endColumn="52"
+            endOffset="6635"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;托运行李数量: &quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="175"
+            column="17"
+            startOffset="6418"
+            endLine="175"
+            endColumn="40"
+            endOffset="6441"/>
+    </incident>
+
+    <incident
+        id="InefficientWeight"
+        severity="warning"
+        message="Use a `layout_width` of `0dp` instead of `wrap_content` for better performance">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="198"
+            column="17"
+            startOffset="7248"
+            endLine="198"
+            endColumn="52"
+            endOffset="7283"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;随身行李数量: &quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="193"
+            column="17"
+            startOffset="7068"
+            endLine="193"
+            endColumn="40"
+            endOffset="7091"/>
+    </incident>
+
+    <incident
+        id="TextFields"
+        severity="warning"
+        message="This text field does not specify an `inputType`">
+        <fix-attribute
+            description="Set inputType"
+            namespace="http://schemas.android.com/apk/res/android"
+            attribute="inputType"
+            value="TODO"
+            dot="4"
+            mark="0"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="203"
+            column="10"
+            startOffset="7416"
+            endLine="203"
+            endColumn="18"
+            endOffset="7424"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="203"
+            column="10"
+            startOffset="7416"
+            endLine="203"
+            endColumn="18"
+            endOffset="7424"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;特殊行李描述&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="207"
+            column="13"
+            startOffset="7587"
+            endLine="207"
+            endColumn="34"
+            endOffset="7608"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;餐食选择&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="213"
+            column="13"
+            startOffset="7764"
+            endLine="213"
+            endColumn="32"
+            endOffset="7783"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;保险选项&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="229"
+            column="13"
+            startOffset="8322"
+            endLine="229"
+            endColumn="32"
+            endOffset="8341"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;无保险&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="245"
+            column="17"
+            startOffset="8924"
+            endLine="245"
+            endColumn="35"
+            endOffset="8942"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;基础保险&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="252"
+            column="17"
+            startOffset="9192"
+            endLine="252"
+            endColumn="36"
+            endOffset="9211"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;综合保险&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="258"
+            column="17"
+            startOffset="9430"
+            endLine="258"
+            endColumn="36"
+            endOffset="9449"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;高级保险&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="264"
+            column="17"
+            startOffset="9662"
+            endLine="264"
+            endColumn="36"
+            endOffset="9681"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;特殊需求&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="271"
+            column="13"
+            startOffset="9859"
+            endLine="271"
+            endColumn="32"
+            endOffset="9878"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="277"
+            column="10"
+            startOffset="10055"
+            endLine="277"
+            endColumn="18"
+            endOffset="10063"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;请输入特殊需求（可选）&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="281"
+            column="13"
+            startOffset="10227"
+            endLine="281"
+            endColumn="39"
+            endOffset="10253"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;立即预订&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_booking.xml"
+            line="298"
+            column="13"
+            startOffset="10827"
+            endLine="298"
+            endColumn="32"
+            endOffset="10846"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;No flights found&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_list.xml"
+            line="49"
+            column="13"
+            startOffset="1948"
+            endLine="49"
+            endColumn="44"
+            endOffset="1979"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Try searching for a different flight&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_list.xml"
+            line="58"
+            column="13"
+            startOffset="2292"
+            endLine="58"
+            endColumn="64"
+            endOffset="2343"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Something went wrong&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_list.xml"
+            line="82"
+            column="13"
+            startOffset="3163"
+            endLine="82"
+            endColumn="48"
+            endOffset="3198"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Please check your connection and try again&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_list.xml"
+            line="93"
+            column="13"
+            startOffset="3577"
+            endLine="93"
+            endColumn="70"
+            endOffset="3634"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Retry&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_list.xml"
+            line="103"
+            column="13"
+            startOffset="4058"
+            endLine="103"
+            endColumn="33"
+            endOffset="4078"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Tips:&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_travel_suggestion.xml"
+            line="26"
+            column="9"
+            startOffset="850"
+            endLine="26"
+            endColumn="29"
+            endOffset="870"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;天气信息&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_weather.xml"
+            line="22"
+            column="13"
+            startOffset="758"
+            endLine="22"
+            endColumn="32"
+            endOffset="777"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_weather.xml"
+            line="29"
+            column="10"
+            startOffset="1030"
+            endLine="29"
+            endColumn="18"
+            endOffset="1038"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;输入城市名称&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_weather.xml"
+            line="34"
+            column="13"
+            startOffset="1230"
+            endLine="34"
+            endColumn="34"
+            endOffset="1251"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;搜索&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_weather.xml"
+            line="44"
+            column="13"
+            startOffset="1655"
+            endLine="44"
+            endColumn="30"
+            endOffset="1672"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;当前天气&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_weather.xml"
+            line="91"
+            column="29"
+            startOffset="3689"
+            endLine="91"
+            endColumn="48"
+            endOffset="3708"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;天气预报&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_weather.xml"
+            line="160"
+            column="29"
+            startOffset="6813"
+            endLine="160"
+            endColumn="48"
+            endOffset="6832"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;航班天气影响&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_weather.xml"
+            line="191"
+            column="29"
+            startOffset="8165"
+            endLine="191"
+            endColumn="50"
+            endOffset="8186"/>
+    </incident>
+
+    <incident
+        id="DisableBaselineAlignment"
+        severity="warning"
+        message="Set `android:baselineAligned=&quot;false&quot;` on this element for better performance">
+        <fix-attribute
+            description="Set baselineAligned=&quot;false&quot;"
+            robot="true"
+            independent="true"
+            namespace="http://schemas.android.com/apk/res/android"
+            attribute="baselineAligned"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/item_flight.xml"
+            line="62"
+            column="10"
+            startOffset="2270"
+            endLine="62"
+            endColumn="22"
+            endOffset="2282"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                dot="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/item_flight.xml"
+            line="103"
+            column="18"
+            startOffset="3848"
+            endLine="103"
+            endColumn="27"
+            endOffset="3857"/>
+    </incident>
+
+    <incident
+        id="UseCompatTextViewDrawableXml"
+        severity="warning"
+        message="Use `app:drawableStartCompat` instead of `android:drawableStart`">
+        <fix-composite>
+            <fix-attribute
+                description="Set drawableStartCompat=&quot;@drawable/ic_gate&quot;"
+                namespace="http://schemas.android.com/apk/res-auto"
+                attribute="drawableStartCompat"
+                value="@drawable/ic_gate"/>
+            <fix-attribute
+                description="Delete drawableStart"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="drawableStart"/>
+        </fix-composite>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/item_flight.xml"
+            line="152"
+            column="17"
+            startOffset="5623"
+            endLine="152"
+            endColumn="58"
+            endOffset="5664"/>
+    </incident>
+
+    <incident
+        id="UseCompatTextViewDrawableXml"
+        severity="warning"
+        message="Use `app:drawableStartCompat` instead of `android:drawableStart`">
+        <fix-composite>
+            <fix-attribute
+                description="Set drawableStartCompat=&quot;@drawable/ic_terminal&quot;"
+                namespace="http://schemas.android.com/apk/res-auto"
+                attribute="drawableStartCompat"
+                value="@drawable/ic_terminal"/>
+            <fix-attribute
+                description="Delete drawableStart"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="drawableStart"/>
+        </fix-composite>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/item_flight.xml"
+            line="164"
+            column="17"
+            startOffset="6124"
+            endLine="164"
+            endColumn="62"
+            endOffset="6169"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*sourceProvider*0*resDir*0}/layout/item_flight.xml"
+                    startOffset="6833"
+                    endOffset="7763"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*sourceProvider*0*resDir*0}/layout/item_flight.xml"
+                    startOffset="7448"
+                    endOffset="7736"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/item_flight.xml"
+            line="198"
+            column="15"
+            startOffset="7449"
+            endLine="198"
+            endColumn="21"
+            endOffset="7455"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Book Now&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/item_flight.xml"
+            line="204"
+            column="18"
+            startOffset="7710"
+            endLine="204"
+            endColumn="41"
+            endOffset="7733"/>
+    </incident>
+
+    <incident
+        id="MonochromeLauncherIcon"
+        severity="warning"
+        message="The application adaptive icon is missing a monochrome tag">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/mipmap-anydpi-v26/ic_launcher.xml"
+            line="2"
+            column="1"
+            startOffset="39"
+            endLine="5"
+            endColumn="17"
+            endOffset="272"/>
+    </incident>
+
+    <incident
+        id="MonochromeLauncherIcon"
+        severity="warning"
+        message="The application adaptive roundIcon is missing a monochrome tag">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/mipmap-anydpi-v26/ic_launcher_round.xml"
+            line="2"
+            column="1"
+            startOffset="39"
+            endLine="5"
+            endColumn="17"
+            endOffset="272"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/adapter/FlightAdapter.kt"
+            line="81"
+            column="41"
+            startOffset="3068"
+            endLine="81"
+            endColumn="53"
+            endOffset="3080"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/adapter/FlightAdapter.kt"
+            line="81"
+            column="42"
+            startOffset="3069"
+            endLine="81"
+            endColumn="47"
+            endOffset="3074"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/adapter/FlightAdapter.kt"
+            line="85"
+            column="45"
+            startOffset="3187"
+            endLine="85"
+            endColumn="65"
+            endOffset="3207"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/adapter/FlightAdapter.kt"
+            line="85"
+            column="46"
+            startOffset="3188"
+            endLine="85"
+            endColumn="55"
+            endOffset="3197"/>
+    </incident>
+
+    <incident
+        id="NotifyDataSetChanged"
+        severity="warning"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/adapter/ForecastAdapter.kt"
+            line="16"
+            column="9"
+            startOffset="545"
+            endLine="16"
+            endColumn="31"
+            endOffset="567"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/adapter/ForecastAdapter.kt"
+            line="36"
+            column="44"
+            startOffset="1340"
+            endLine="36"
+            endColumn="67"
+            endOffset="1363"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/adapter/ForecastAdapter.kt"
+            line="37"
+            column="44"
+            startOffset="1407"
+            endLine="37"
+            endColumn="67"
+            endOffset="1430"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/adapter/ForecastAdapter.kt"
+            line="38"
+            column="50"
+            startOffset="1480"
+            endLine="38"
+            endColumn="82"
+            endOffset="1512"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/adapter/ForecastAdapter.kt"
+            line="39"
+            column="41"
+            startOffset="1553"
+            endLine="39"
+            endColumn="72"
+            endOffset="1584"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/adapter/ForecastAdapter.kt"
+            line="39"
+            column="67"
+            startOffset="1579"
+            endLine="39"
+            endColumn="71"
+            endOffset="1583"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/dialog/SeatSelectionDialog.kt"
+            line="104"
+            column="37"
+            startOffset="3337"
+            endLine="104"
+            endColumn="101"
+            endOffset="3401"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="212"
+            column="37"
+            startOffset="8968"
+            endLine="214"
+            endColumn="77"
+            endOffset="9183"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="212"
+            column="37"
+            startOffset="8968"
+            endLine="213"
+            endColumn="88"
+            endOffset="9104"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="212"
+            column="37"
+            startOffset="8968"
+            endLine="212"
+            endColumn="83"
+            endOffset="9014"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="213"
+            column="37"
+            startOffset="9053"
+            endLine="213"
+            endColumn="88"
+            endOffset="9104"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="218"
+            column="37"
+            startOffset="9332"
+            endLine="220"
+            endColumn="75"
+            endOffset="9541"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="218"
+            column="37"
+            startOffset="9332"
+            endLine="219"
+            endColumn="86"
+            endOffset="9464"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="218"
+            column="37"
+            startOffset="9332"
+            endLine="218"
+            endColumn="81"
+            endOffset="9376"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="219"
+            column="37"
+            startOffset="9415"
+            endLine="219"
+            endColumn="86"
+            endOffset="9464"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="225"
+            column="37"
+            startOffset="9804"
+            endLine="227"
+            endColumn="88"
+            endOffset="10016"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="225"
+            column="37"
+            startOffset="9804"
+            endLine="226"
+            endColumn="92"
+            endOffset="9926"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="225"
+            column="37"
+            startOffset="9804"
+            endLine="225"
+            endColumn="65"
+            endOffset="9832"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="226"
+            column="37"
+            startOffset="9871"
+            endLine="226"
+            endColumn="92"
+            endOffset="9926"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightBookingFragment.kt"
+            line="227"
+            column="37"
+            startOffset="9965"
+            endLine="227"
+            endColumn="88"
+            endOffset="10016"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightListFragment.kt"
+            line="173"
+            column="44"
+            startOffset="5888"
+            endLine="173"
+            endColumn="74"
+            endOffset="5918"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/FlightListFragment.kt"
+            line="174"
+            column="47"
+            startOffset="5966"
+            endLine="174"
+            endColumn="78"
+            endOffset="5997"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="137"
+            column="44"
+            startOffset="5309"
+            endLine="137"
+            endColumn="70"
+            endOffset="5335"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="139"
+            column="41"
+            startOffset="5435"
+            endLine="139"
+            endColumn="67"
+            endOffset="5461"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="140"
+            column="37"
+            startOffset="5498"
+            endLine="140"
+            endColumn="93"
+            endOffset="5554"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="140"
+            column="62"
+            startOffset="5523"
+            endLine="140"
+            endColumn="68"
+            endOffset="5529"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="144"
+            column="45"
+            startOffset="5709"
+            endLine="144"
+            endColumn="81"
+            endOffset="5745"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="147"
+            column="13"
+            startOffset="5807"
+            endLine="149"
+            endColumn="53"
+            endOffset="5981"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="147"
+            column="13"
+            startOffset="5807"
+            endLine="148"
+            endColumn="64"
+            endOffset="5926"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="147"
+            column="13"
+            startOffset="5807"
+            endLine="147"
+            endColumn="66"
+            endOffset="5860"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="148"
+            column="13"
+            startOffset="5875"
+            endLine="148"
+            endColumn="64"
+            endOffset="5926"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="152"
+            column="13"
+            startOffset="6041"
+            endLine="154"
+            endColumn="51"
+            endOffset="6209"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="152"
+            column="13"
+            startOffset="6041"
+            endLine="153"
+            endColumn="62"
+            endOffset="6156"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="152"
+            column="13"
+            startOffset="6041"
+            endLine="152"
+            endColumn="64"
+            endOffset="6092"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="153"
+            column="13"
+            startOffset="6107"
+            endLine="153"
+            endColumn="62"
+            endOffset="6156"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="157"
+            column="13"
+            startOffset="6271"
+            endLine="157"
+            endColumn="85"
+            endOffset="6343"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/flightinfo/app/ui/fragment/WeatherFragment.kt"
+            line="160"
+            column="13"
+            startOffset="6403"
+            endLine="160"
+            endColumn="64"
+            endOffset="6454"/>
+    </incident>
+
+    <incident
+        id="OldTargetApi"
+        severity="warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details.">
+        <fix-replace
+            description="Update targetSdkVersion to 35"
+            oldString="34"
+            replacement="35"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="16"
+            column="9"
+            startOffset="311"
+            endLine="16"
+            endColumn="21"
+            endOffset="323"/>
+    </incident>
+
+    <incident
+        id="KaptUsageInsteadOfKsp"
+        severity="warning"
+        message="This library supports using KSP instead of kapt, which greatly improves performance. Learn more: https://developer.android.com/studio/build/migrate-to-ksp">
+        <show-url
+            description="Learn about how to enable KSP and use the KSP processor for this dependency instead"
+            url="https://developer.android.com/studio/build/migrate-to-ksp"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="77"
+            column="5"
+            startOffset="2170"
+            endLine="77"
+            endColumn="45"
+            endOffset="2210"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.17.0">
+        <fix-replace
+            description="Change to 1.17.0"
+            family="Update versions"
+            oldString="1.12.0"
+            replacement="1.17.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="51"
+            column="20"
+            startOffset="1032"
+            endLine="51"
+            endColumn="51"
+            endOffset="1063"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1">
+        <fix-replace
+            description="Change to 1.7.1"
+            family="Update versions"
+            oldString="1.6.1"
+            replacement="1.7.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="52"
+            column="20"
+            startOffset="1083"
+            endLine="52"
+            endColumn="56"
+            endOffset="1119"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.material:material than 1.10.0 is available: 1.12.0">
+        <fix-replace
+            description="Change to 1.12.0"
+            family="Update versions"
+            oldString="1.10.0"
+            replacement="1.12.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="53"
+            column="20"
+            startOffset="1139"
+            endLine="53"
+            endColumn="65"
+            endOffset="1184"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1">
+        <fix-replace
+            description="Change to 2.2.1"
+            family="Update versions"
+            oldString="2.1.4"
+            replacement="2.2.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="54"
+            column="20"
+            startOffset="1204"
+            endLine="54"
+            endColumn="70"
+            endOffset="1254"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.9.2">
+        <fix-replace
+            description="Change to 2.9.2"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.2"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="57"
+            column="20"
+            startOffset="1309"
+            endLine="57"
+            endColumn="70"
+            endOffset="1359"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.7.0 is available: 2.9.2">
+        <fix-replace
+            description="Change to 2.9.2"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.2"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="58"
+            column="20"
+            startOffset="1379"
+            endLine="58"
+            endColumn="69"
+            endOffset="1428"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.9.2">
+        <fix-replace
+            description="Change to 2.9.2"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.2"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="59"
+            column="20"
+            startOffset="1448"
+            endLine="59"
+            endColumn="68"
+            endOffset="1496"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.activity:activity-ktx than 1.8.1 is available: 1.10.1">
+        <fix-replace
+            description="Change to 1.10.1"
+            family="Update versions"
+            oldString="1.8.1"
+            replacement="1.10.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="62"
+            column="20"
+            startOffset="1558"
+            endLine="62"
+            endColumn="58"
+            endOffset="1596"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.fragment:fragment-ktx than 1.6.2 is available: 1.8.9">
+        <fix-replace
+            description="Change to 1.8.9"
+            family="Update versions"
+            oldString="1.6.2"
+            replacement="1.8.9"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="63"
+            column="20"
+            startOffset="1616"
+            endLine="63"
+            endColumn="58"
+            endOffset="1654"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-fragment-ktx than 2.7.0 is available: 2.9.3">
+        <fix-replace
+            description="Change to 2.9.3"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.3"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="66"
+            column="20"
+            startOffset="1703"
+            endLine="66"
+            endColumn="71"
+            endOffset="1754"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-ui-ktx than 2.7.0 is available: 2.9.3">
+        <fix-replace
+            description="Change to 2.9.3"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.3"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="67"
+            column="20"
+            startOffset="1774"
+            endLine="67"
+            endColumn="65"
+            endOffset="1819"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.squareup.retrofit2:retrofit than 2.9.0 is available: 2.11.0">
+        <fix-replace
+            description="Change to 2.11.0"
+            family="Update versions"
+            oldString="2.9.0"
+            replacement="2.11.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="70"
+            column="20"
+            startOffset="1862"
+            endLine="70"
+            endColumn="59"
+            endOffset="1901"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.squareup.okhttp3:logging-interceptor than 4.11.0 is available: 4.12.0">
+        <fix-replace
+            description="Change to 4.12.0"
+            family="Update versions"
+            oldString="4.11.0"
+            replacement="4.12.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="72"
+            column="20"
+            startOffset="1986"
+            endLine="72"
+            endColumn="69"
+            endOffset="2035"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.room:room-runtime than 2.6.1 is available: 2.7.2">
+        <fix-replace
+            description="Change to 2.7.2"
+            family="Update versions"
+            oldString="2.6.1"
+            replacement="2.7.2"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="75"
+            column="20"
+            startOffset="2081"
+            endLine="75"
+            endColumn="54"
+            endOffset="2115"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.room:room-ktx than 2.6.1 is available: 2.7.2">
+        <fix-replace
+            description="Change to 2.7.2"
+            family="Update versions"
+            oldString="2.6.1"
+            replacement="2.7.2"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="76"
+            column="20"
+            startOffset="2135"
+            endLine="76"
+            endColumn="50"
+            endOffset="2165"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.room:room-compiler than 2.6.1 is available: 2.7.2">
+        <fix-replace
+            description="Change to 2.7.2"
+            family="Update versions"
+            oldString="2.6.1"
+            replacement="2.7.2"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="77"
+            column="10"
+            startOffset="2175"
+            endLine="77"
+            endColumn="45"
+            endOffset="2210"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.firebase:firebase-messaging than 23.1.2 is available: 25.0.0">
+        <fix-replace
+            description="Change to 25.0.0"
+            family="Update versions"
+            oldString="23.1.2"
+            replacement="25.0.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="80"
+            column="20"
+            startOffset="2251"
+            endLine="80"
+            endColumn="67"
+            endOffset="2298"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.dagger:hilt-android than 2.48 is available: 2.51.1">
+        <fix-replace
+            description="Change to 2.51.1"
+            family="Update versions"
+            oldString="2.48"
+            replacement="2.51.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="83"
+            column="20"
+            startOffset="2351"
+            endLine="83"
+            endColumn="57"
+            endOffset="2388"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.dagger:hilt-compiler than 2.48 is available: 2.51.1">
+        <fix-replace
+            description="Change to 2.51.1"
+            family="Update versions"
+            oldString="2.48"
+            replacement="2.51.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="84"
+            column="10"
+            startOffset="2398"
+            endLine="84"
+            endColumn="48"
+            endOffset="2436"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.recyclerview:recyclerview than 1.3.2 is available: 1.4.0">
+        <fix-replace
+            description="Change to 1.4.0"
+            family="Update versions"
+            oldString="1.3.2"
+            replacement="1.4.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="88"
+            column="20"
+            startOffset="2530"
+            endLine="88"
+            endColumn="62"
+            endOffset="2572"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.7.3 is available: 1.10.1">
+        <fix-replace
+            description="Change to 1.10.1"
+            family="Update versions"
+            oldString="1.7.3"
+            replacement="1.10.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="94"
+            column="20"
+            startOffset="2720"
+            endLine="94"
+            endColumn="76"
+            endOffset="2776"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.3.0">
+        <fix-replace
+            description="Change to 1.3.0"
+            family="Update versions"
+            oldString="1.1.5"
+            replacement="1.3.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="98"
+            column="31"
+            startOffset="2871"
+            endLine="98"
+            endColumn="62"
+            endOffset="2902"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.7.0">
+        <fix-replace
+            description="Change to 3.7.0"
+            family="Update versions"
+            oldString="3.5.1"
+            replacement="3.7.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="99"
+            column="31"
+            startOffset="2933"
+            endLine="99"
+            endColumn="75"
+            endOffset="2977"/>
+    </incident>
+
+    <incident
+        id="MergeRootFrame"
+        severity="warning"
+        message="This `&lt;FrameLayout>` can be replaced with a `&lt;merge>` tag">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_weather.xml"
+            line="2"
+            column="1"
+            startOffset="39"
+            endLine="7"
+            endColumn="43"
+            endOffset="332"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/background_color` with a theme that also paints a background (inferred theme is `@style/Theme.FlightInfoApp`)">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/fragment_flight_list.xml"
+            line="8"
+            column="5"
+            startOffset="346"
+            endLine="8"
+            endColumn="49"
+            endOffset="390"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;search_hint&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="5"
+            column="13"
+            startOffset="105"
+            endLine="5"
+            endColumn="31"
+            endOffset="123"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;search_flights&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="6"
+            column="13"
+            startOffset="180"
+            endLine="6"
+            endColumn="34"
+            endOffset="201"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;tab_search_results&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="7"
+            column="13"
+            startOffset="238"
+            endLine="7"
+            endColumn="38"
+            endOffset="263"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;tab_realtime&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="8"
+            column="13"
+            startOffset="300"
+            endLine="8"
+            endColumn="32"
+            endOffset="319"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;status_on_time&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="11"
+            column="13"
+            startOffset="383"
+            endLine="11"
+            endColumn="34"
+            endOffset="404"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;status_delayed&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="12"
+            column="13"
+            startOffset="434"
+            endLine="12"
+            endColumn="34"
+            endOffset="455"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;status_cancelled&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="13"
+            column="13"
+            startOffset="485"
+            endLine="13"
+            endColumn="36"
+            endOffset="508"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;status_boarding&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="14"
+            column="13"
+            startOffset="540"
+            endLine="14"
+            endColumn="35"
+            endOffset="562"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;status_departed&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="15"
+            column="13"
+            startOffset="593"
+            endLine="15"
+            endColumn="35"
+            endOffset="615"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;status_arrived&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="16"
+            column="13"
+            startOffset="646"
+            endLine="16"
+            endColumn="34"
+            endOffset="667"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;status_in_flight&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="17"
+            column="13"
+            startOffset="697"
+            endLine="17"
+            endColumn="36"
+            endOffset="720"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;gate_format&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="20"
+            column="13"
+            startOffset="785"
+            endLine="20"
+            endColumn="31"
+            endOffset="803"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;terminal_format&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="21"
+            column="13"
+            startOffset="833"
+            endLine="21"
+            endColumn="35"
+            endOffset="855"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;delay_format&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="22"
+            column="13"
+            startOffset="889"
+            endLine="22"
+            endColumn="32"
+            endOffset="908"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;duration_format&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="23"
+            column="13"
+            startOffset="945"
+            endLine="23"
+            endColumn="35"
+            endOffset="967"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;loading&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="26"
+            column="13"
+            startOffset="1024"
+            endLine="26"
+            endColumn="27"
+            endOffset="1038"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;no_flights_found&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="27"
+            column="13"
+            startOffset="1069"
+            endLine="27"
+            endColumn="36"
+            endOffset="1092"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;try_different_search&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="28"
+            column="13"
+            startOffset="1131"
+            endLine="28"
+            endColumn="40"
+            endOffset="1158"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;error_occurred&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="29"
+            column="13"
+            startOffset="1217"
+            endLine="29"
+            endColumn="34"
+            endOffset="1238"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;check_connection_retry&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="30"
+            column="13"
+            startOffset="1281"
+            endLine="30"
+            endColumn="42"
+            endOffset="1310"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;retry&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="31"
+            column="13"
+            startOffset="1375"
+            endLine="31"
+            endColumn="25"
+            endOffset="1387"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;refresh&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="32"
+            column="13"
+            startOffset="1415"
+            endLine="32"
+            endColumn="27"
+            endOffset="1429"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;network_error&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="35"
+            column="13"
+            startOffset="1494"
+            endLine="35"
+            endColumn="33"
+            endOffset="1514"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;server_error&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="36"
+            column="13"
+            startOffset="1550"
+            endLine="36"
+            endColumn="32"
+            endOffset="1569"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;timeout_error&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="37"
+            column="13"
+            startOffset="1604"
+            endLine="37"
+            endColumn="33"
+            endOffset="1624"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;no_internet&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="38"
+            column="13"
+            startOffset="1662"
+            endLine="38"
+            endColumn="31"
+            endOffset="1680"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;search_by_flight_number&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="41"
+            column="13"
+            startOffset="1757"
+            endLine="41"
+            endColumn="43"
+            endOffset="1787"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;search_by_route&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="42"
+            column="13"
+            startOffset="1833"
+            endLine="42"
+            endColumn="35"
+            endOffset="1855"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;departure_airport&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="43"
+            column="13"
+            startOffset="1893"
+            endLine="43"
+            endColumn="37"
+            endOffset="1917"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;arrival_airport&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="44"
+            column="13"
+            startOffset="1957"
+            endLine="44"
+            endColumn="35"
+            endOffset="1979"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;select_date&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="45"
+            column="13"
+            startOffset="2017"
+            endLine="45"
+            endColumn="31"
+            endOffset="2035"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;flight_item_description&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="48"
+            column="13"
+            startOffset="2101"
+            endLine="48"
+            endColumn="43"
+            endOffset="2131"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;search_button_description&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="49"
+            column="13"
+            startOffset="2177"
+            endLine="49"
+            endColumn="45"
+            endOffset="2209"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;refresh_button_description&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="50"
+            column="13"
+            startOffset="2250"
+            endLine="50"
+            endColumn="46"
+            endOffset="2283"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;passenger_name&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="53"
+            column="13"
+            startOffset="2358"
+            endLine="53"
+            endColumn="34"
+            endOffset="2379"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;passenger_email&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="54"
+            column="13"
+            startOffset="2416"
+            endLine="54"
+            endColumn="35"
+            endOffset="2438"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;passenger_phone&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="55"
+            column="13"
+            startOffset="2476"
+            endLine="55"
+            endColumn="35"
+            endOffset="2498"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;passenger_id&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="56"
+            column="13"
+            startOffset="2536"
+            endLine="56"
+            endColumn="32"
+            endOffset="2555"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;seat&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="57"
+            column="13"
+            startOffset="2590"
+            endLine="57"
+            endColumn="24"
+            endOffset="2601"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;select_seat&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="58"
+            column="13"
+            startOffset="2628"
+            endLine="58"
+            endColumn="31"
+            endOffset="2646"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;baggage_info&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="59"
+            column="13"
+            startOffset="2680"
+            endLine="59"
+            endColumn="32"
+            endOffset="2699"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;checked_baggage&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="60"
+            column="13"
+            startOffset="2741"
+            endLine="60"
+            endColumn="35"
+            endOffset="2763"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;cabin_baggage&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="61"
+            column="13"
+            startOffset="2801"
+            endLine="61"
+            endColumn="33"
+            endOffset="2821"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;special_baggage&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="62"
+            column="13"
+            startOffset="2857"
+            endLine="62"
+            endColumn="35"
+            endOffset="2879"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;meal_preference&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="63"
+            column="13"
+            startOffset="2917"
+            endLine="63"
+            endColumn="35"
+            endOffset="2939"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;insurance_option&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="64"
+            column="13"
+            startOffset="2977"
+            endLine="64"
+            endColumn="36"
+            endOffset="3000"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;special_requests&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="65"
+            column="13"
+            startOffset="3039"
+            endLine="65"
+            endColumn="36"
+            endOffset="3062"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;book_now&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="66"
+            column="13"
+            startOffset="3101"
+            endLine="66"
+            endColumn="28"
+            endOffset="3116"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;no_insurance&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="80"
+            column="13"
+            startOffset="3454"
+            endLine="80"
+            endColumn="32"
+            endOffset="3473"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;basic_insurance&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="81"
+            column="13"
+            startOffset="3508"
+            endLine="81"
+            endColumn="35"
+            endOffset="3530"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;comprehensive_insurance&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="82"
+            column="13"
+            startOffset="3568"
+            endLine="82"
+            endColumn="43"
+            endOffset="3598"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;premium_insurance&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="83"
+            column="13"
+            startOffset="3644"
+            endLine="83"
+            endColumn="37"
+            endOffset="3668"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;track_flight&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="86"
+            column="13"
+            startOffset="3742"
+            endLine="86"
+            endColumn="32"
+            endOffset="3761"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;untrack_flight&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="87"
+            column="13"
+            startOffset="3796"
+            endLine="87"
+            endColumn="34"
+            endOffset="3817"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;flight_tracking_enabled&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="88"
+            column="13"
+            startOffset="3854"
+            endLine="88"
+            endColumn="43"
+            endOffset="3884"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;flight_tracking_disabled&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="89"
+            column="13"
+            startOffset="3930"
+            endLine="89"
+            endColumn="44"
+            endOffset="3961"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;notification_channel_name&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="90"
+            column="13"
+            startOffset="4008"
+            endLine="90"
+            endColumn="45"
+            endOffset="4040"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;notification_channel_description&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="91"
+            column="13"
+            startOffset="4084"
+            endLine="91"
+            endColumn="52"
+            endOffset="4123"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;flight_status_update&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="92"
+            column="13"
+            startOffset="4185"
+            endLine="92"
+            endColumn="40"
+            endOffset="4212"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;flight_status_changed&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="93"
+            column="13"
+            startOffset="4255"
+            endLine="93"
+            endColumn="41"
+            endOffset="4283"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;notification_types&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="96"
+            column="13"
+            startOffset="4382"
+            endLine="96"
+            endColumn="38"
+            endOffset="4407"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;delay_notifications&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="97"
+            column="13"
+            startOffset="4448"
+            endLine="97"
+            endColumn="39"
+            endOffset="4474"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;cancellation_notifications&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="98"
+            column="13"
+            startOffset="4516"
+            endLine="98"
+            endColumn="46"
+            endOffset="4549"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;gate_change_notifications&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="99"
+            column="13"
+            startOffset="4598"
+            endLine="99"
+            endColumn="45"
+            endOffset="4630"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;do_not_disturb&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="100"
+            column="13"
+            startOffset="4678"
+            endLine="100"
+            endColumn="34"
+            endOffset="4699"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;enable_do_not_disturb&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="101"
+            column="13"
+            startOffset="4736"
+            endLine="101"
+            endColumn="41"
+            endOffset="4764"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;start_time&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="102"
+            column="13"
+            startOffset="4808"
+            endLine="102"
+            endColumn="30"
+            endOffset="4825"/>
+    </incident>
+
+    <incident
+        id="MissingTranslation"
+        severity="error"
+        message="&quot;end_time&quot; is not translated in &quot;zh&quot; (Chinese)">
+        <fix-attribute
+            description="Mark non-translatable"
+            attribute="translatable"
+            value="false"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="103"
+            column="13"
+            startOffset="4858"
+            endLine="103"
+            endColumn="28"
+            endOffset="4873"/>
+    </incident>
+
+</incidents>

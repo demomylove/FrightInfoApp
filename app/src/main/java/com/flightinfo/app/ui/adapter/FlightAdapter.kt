@@ -49,7 +49,7 @@ class FlightAdapter(
                     onBookClick(getItem(position))
                 }
             }
- 
+
             binding.trackButton.setOnClickListener {
                 val position = bindingAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {

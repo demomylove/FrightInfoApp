@@ -8,7 +8,7 @@ import javax.inject.Singleton
 
 @Singleton
 class TrackedFlightRepository @Inject constructor(
-    private val trackedFlightDao: TrackedFlightDao
+    private val trackedFlightDao: TrackedFlightDao,
 ) {
     fun getAllTrackedFlights(): Flow<List<TrackedFlight>> {
         return trackedFlightDao.getAllTrackedFlights()
@@ -39,7 +39,7 @@ class TrackedFlightRepository @Inject constructor(
         trackedFlight?.let {
             val updatedFlight = it.copy(
                 lastStatus = newStatus,
-                lastUpdated = System.currentTimeMillis()
+                lastUpdated = System.currentTimeMillis(),
             )
             trackedFlightDao.updateTrackedFlight(updatedFlight)
         }

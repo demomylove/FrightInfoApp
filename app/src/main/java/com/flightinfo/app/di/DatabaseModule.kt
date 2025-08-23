@@ -20,7 +20,7 @@ object DatabaseModule {
         return Room.databaseBuilder(
             context,
             FlightInfoDatabase::class.java,
-            "flight_info_database"
+            "flight_info_database",
         ).build()
     }
 

@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "com.flightinfo.app-mergeReleaseResources-60:/layout/activity_weather.xml",
+        "source": "com.flightinfo.app-main-62:/layout/activity_weather.xml"
+    },
+    {
+        "merged": "com.flightinfo.app-mergeReleaseResources-60:/layout/fragment_flight_list.xml",
+        "source": "com.flightinfo.app-main-62:/layout/fragment_flight_list.xml"
+    },
+    {
+        "merged": "com.flightinfo.app-mergeReleaseResources-60:/layout/item_forecast.xml",
+        "source": "com.flightinfo.app-main-62:/layout/item_forecast.xml"
+    },
+    {
+        "merged": "com.flightinfo.app-mergeReleaseResources-60:/layout/item_flight.xml",
+        "source": "com.flightinfo.app-main-62:/layout/item_flight.xml"
+    },
+    {
+        "merged": "com.flightinfo.app-mergeReleaseResources-60:/layout/fragment_notification_settings.xml",
+        "source": "com.flightinfo.app-main-62:/layout/fragment_notification_settings.xml"
+    },
+    {
+        "merged": "com.flightinfo.app-mergeReleaseResources-60:/layout/item_seat.xml",
+        "source": "com.flightinfo.app-main-62:/layout/item_seat.xml"
+    },
+    {
+        "merged": "com.flightinfo.app-mergeReleaseResources-60:/layout/fragment_weather.xml",
+        "source": "com.flightinfo.app-main-62:/layout/fragment_weather.xml"
+    },
+    {
+        "merged": "com.flightinfo.app-mergeReleaseResources-60:/layout/fragment_travel_suggestion.xml",
+        "source": "com.flightinfo.app-main-62:/layout/fragment_travel_suggestion.xml"
+    },
+    {
+        "merged": "com.flightinfo.app-mergeReleaseResources-60:/layout/dialog_seat_selection.xml",
+        "source": "com.flightinfo.app-main-62:/layout/dialog_seat_selection.xml"
+    },
+    {
+        "merged": "com.flightinfo.app-mergeReleaseResources-60:/layout/fragment_flight_booking.xml",
+        "source": "com.flightinfo.app-main-62:/layout/fragment_flight_booking.xml"
+    },
+    {
+        "merged": "com.flightinfo.app-mergeReleaseResources-60:/layout/activity_main.xml",
+        "source": "com.flightinfo.app-main-62:/layout/activity_main.xml"
+    }
+]
