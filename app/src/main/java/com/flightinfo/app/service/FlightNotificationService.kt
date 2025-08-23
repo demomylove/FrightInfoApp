@@ -36,7 +36,7 @@ class FlightNotificationService : FirebaseMessagingService() {
     private fun handleDataMessage(data: Map<String, String>) {
         val flightNumber = data["flightNumber"]
         val status = data["status"]
-        val message = data["message"]
+        data["message"]
 
         if (flightNumber != null && status != null) {
             notificationHelper.showFlightStatusNotification(flightNumber, status)

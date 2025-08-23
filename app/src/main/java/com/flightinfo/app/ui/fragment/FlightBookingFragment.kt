@@ -96,7 +96,7 @@ class FlightBookingFragment : Fragment() {
         setupBaggagePickers()
 
         // 设置保险选项单选按钮组
-        binding.insuranceRadioGroup.setOnCheckedChangeListener { _, checkedId ->
+        binding.insuranceRadioGroup.setOnCheckedChangeListener { _, _ ->
             // 处理保险选项选择
         }
 

@@ -27,7 +27,7 @@ class SeatAdapter(
             seatButton.isEnabled = it.status != SeatStatus.OCCUPIED
 
             seatButton.setOnClickListener {
-                onSeatClickListener(seat ?: return@setOnClickListener)
+                onSeatClickListener(seat)
             }
         }
 

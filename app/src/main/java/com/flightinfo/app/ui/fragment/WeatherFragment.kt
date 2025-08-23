@@ -15,7 +15,8 @@ import com.flightinfo.app.ui.adapter.ForecastAdapter
 import com.flightinfo.app.ui.viewmodel.WeatherViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class WeatherFragment : Fragment() {
@@ -64,72 +65,70 @@ class WeatherFragment : Fragment() {
     }
 
     private fun observeWeatherData() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.isLoading.collect { isLoading ->
-                binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-                binding.weatherScrollView.visibility = if (isLoading) View.GONE else View.VISIBLE
-            }
+        viewModel.isLoading.onEach { isLoading ->
+            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+            binding.weatherScrollView.visibility = if (isLoading) View.GONE else View.VISIBLE
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-            viewModel.currentWeather.collect { resource ->
-                when (resource) {
-                    is com.flightinfo.app.utils.Resource.Loading -> {
-                        // Loading state handled by isLoading
-                    }
-                    is com.flightinfo.app.utils.Resource.Success -> {
-                        resource.data?.let { weatherResponse ->
-                            displayCurrentWeather(weatherResponse.current)
-                        }
-                    }
-                    is com.flightinfo.app.utils.Resource.Error -> {
-                        Snackbar.make(
-                            binding.root,
-                            "获取天气信息失败: ${resource.message}",
-                            Snackbar.LENGTH_LONG,
-                        ).show()
+        viewModel.currentWeather.onEach { resource ->
+            when (resource) {
+                is com.flightinfo.app.utils.Resource.Loading -> {
+                    // Loading state handled by isLoading
+                }
+                is com.flightinfo.app.utils.Resource.Success -> {
+                    resource.data?.let { weatherResponse ->
+                        displayCurrentWeather(weatherResponse.current)
                     }
                 }
-            }
-
-            viewModel.weatherForecast.collect { resource ->
-                when (resource) {
-                    is com.flightinfo.app.utils.Resource.Loading -> {
-                        // Loading state handled by isLoading
-                    }
-                    is com.flightinfo.app.utils.Resource.Success -> {
-                        resource.data?.let { weatherResponse ->
-                            forecastAdapter.updateForecastList(weatherResponse.current.forecast)
-                        }
-                    }
-                    is com.flightinfo.app.utils.Resource.Error -> {
-                        Snackbar.make(
-                            binding.root,
-                            "获取天气预报失败: ${resource.message}",
-                            Snackbar.LENGTH_LONG,
-                        ).show()
-                    }
+                is com.flightinfo.app.utils.Resource.Error -> {
+                    Snackbar.make(
+                        binding.root,
+                        "获取天气信息失败: ${resource.message}",
+                        Snackbar.LENGTH_LONG,
+                    ).show()
                 }
             }
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-            viewModel.flightWeather.collect { resource ->
-                when (resource) {
-                    is com.flightinfo.app.utils.Resource.Loading -> {
-                        // Loading state handled by isLoading
-                    }
-                    is com.flightinfo.app.utils.Resource.Success -> {
-                        resource.data?.let { flightWeather ->
-                            displayFlightWeather(flightWeather)
-                        }
-                    }
-                    is com.flightinfo.app.utils.Resource.Error -> {
-                        Snackbar.make(
-                            binding.root,
-                            "获取航班天气信息失败: ${resource.message}",
-                            Snackbar.LENGTH_LONG,
-                        ).show()
+        viewModel.weatherForecast.onEach { resource ->
+            when (resource) {
+                is com.flightinfo.app.utils.Resource.Loading -> {
+                    // Loading state handled by isLoading
+                }
+                is com.flightinfo.app.utils.Resource.Success -> {
+                    resource.data?.let { weatherResponse ->
+                        forecastAdapter.updateForecastList(weatherResponse.current.forecast)
                     }
                 }
+                is com.flightinfo.app.utils.Resource.Error -> {
+                    Snackbar.make(
+                        binding.root,
+                        "获取天气预报失败: ${resource.message}",
+                        Snackbar.LENGTH_LONG,
+                    ).show()
+                }
             }
-        }
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
+
+        viewModel.flightWeather.onEach { resource ->
+            when (resource) {
+                is com.flightinfo.app.utils.Resource.Loading -> {
+                    // Loading state handled by isLoading
+                }
+                is com.flightinfo.app.utils.Resource.Success -> {
+                    resource.data?.let { flightWeather ->
+                        displayFlightWeather(flightWeather)
+                    }
+                }
+                is com.flightinfo.app.utils.Resource.Error -> {
+                    Snackbar.make(
+                        binding.root,
+                        "获取航班天气信息失败: ${resource.message}",
+                        Snackbar.LENGTH_LONG,
+                    ).show()
+                }
+            }
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
     private fun displayCurrentWeather(weather: WeatherInfo) {

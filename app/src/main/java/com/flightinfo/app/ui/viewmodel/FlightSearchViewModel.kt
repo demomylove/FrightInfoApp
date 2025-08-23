@@ -104,7 +104,7 @@ class FlightSearchViewModel @Inject constructor(
         }
     }
 
-    fun isFlightTracked(flightId: String): Boolean {
+    fun isFlightTracked(_flightId: String): Boolean {
         // This would typically be implemented with a flow to observe tracked flights
         // For simplicity, we'll just return false here
         return false

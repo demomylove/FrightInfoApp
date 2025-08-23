@@ -50,10 +50,6 @@ class FlightBookingViewModel @Inject constructor(
                         is Resource.Loading<*> -> {
                             // Loading state is already set at the beginning of the function
                         }
-                        else -> {
-                            // Should not be reached, but satisfies the compiler
-                            _bookingUiState.value = BookingUiState.Error("An unexpected error occurred.")
-                        }
                     }
                 }
         }

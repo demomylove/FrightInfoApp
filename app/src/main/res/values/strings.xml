@@ -20,7 +20,7 @@
     <string name="gate_format">Gate %s</string>
     <string name="terminal_format">Terminal %s</string>
     <string name="delay_format">Delayed %d min</string>
-    <string name="duration_format">%dh %dm</string>
+    <string name="duration_format" formatted="false">%dh %dm</string>
     
     <!-- Messages -->
     <string name="loading">Loading…</string>
@@ -45,7 +45,7 @@
     <string name="select_date">Select Date</string>
     
     <!-- Accessibility -->
-    <string name="flight_item_description">Flight %s from %s to %s</string>
+    <string name="flight_item_description" formatted="false">Flight %s from %s to %s</string>
     <string name="search_button_description">Search for flights</string>
     <string name="refresh_button_description">Refresh flight data</string>
     
@@ -90,7 +90,7 @@
     <string name="notification_channel_name">Flight Status Updates</string>
     <string name="notification_channel_description">Notifications for flight status changes</string>
     <string name="flight_status_update">Flight Status Update</string>
-    <string name="flight_status_changed">Your flight status has changed to %s</string>
+    <string name="flight_status_changed" formatted="false">Your flight status has changed to %s</string>
     
     <!-- Notification Settings -->
     <string name="notification_types">Notification Types</string>

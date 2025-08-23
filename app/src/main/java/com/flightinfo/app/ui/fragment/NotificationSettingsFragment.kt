@@ -66,7 +66,7 @@ class NotificationSettingsFragment : Fragment() {
         }
     }
 
-    private fun savePreference(key: String, value: Boolean) {
+    private fun savePreference(_key: String, _value: Boolean) {
         // In a real implementation, you would save to SharedPreferences or a database
         // For now, we'll just log the change
         // Log.d("NotificationSettings", "Saving preference: $key = $value")
