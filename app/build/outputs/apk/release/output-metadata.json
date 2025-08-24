@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.example.flighttracker",
+  "applicationId": "com.flightinfo.app",
   "variantName": "release",
   "elements": [
     {

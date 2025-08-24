@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.flighttracker.app-mergeDebugResources-51:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "outputFile": "com.flightinfo.app-mergeDebugResources-59:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
-                    "source": "/Users/wurongquan/.gradle/caches/8.11.1/transforms/a34b0fd94b467b53ca9d742e62de2d36/transformed/material-1.10.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+                    "source": "/Users/wurongquan/.gradle/caches/transforms-3/ad673c475d58fb1b2a0f20a8cb54c4b9/transformed/material-1.10.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
