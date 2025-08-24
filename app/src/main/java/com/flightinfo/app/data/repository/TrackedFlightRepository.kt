@@ -1,0 +1,60 @@
+package com.flightinfo.app.data.repository
+
+import com.flightinfo.app.data.dao.TrackedFlightDao
+import com.flightinfo.app.data.model.PriceUpdate
+import com.flightinfo.app.data.model.TrackedFlight
+import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class TrackedFlightRepository @Inject constructor(
+    private val trackedFlightDao: TrackedFlightDao,
+) {
+    fun getAllTrackedFlights(): Flow<List<TrackedFlight>> {
+        return trackedFlightDao.getAllTrackedFlights()
+    }
+
+    suspend fun getTrackedFlightById(flightId: String): TrackedFlight? {
+        return trackedFlightDao.getTrackedFlightById(flightId)
+    }
+
+    suspend fun insertTrackedFlight(trackedFlight: TrackedFlight) {
+        trackedFlightDao.insertTrackedFlight(trackedFlight)
+    }
+
+    suspend fun updateTrackedFlight(trackedFlight: TrackedFlight) {
+        trackedFlightDao.updateTrackedFlight(trackedFlight)
+    }
+
+    suspend fun deleteTrackedFlight(trackedFlight: TrackedFlight) {
+        trackedFlightDao.deleteTrackedFlight(trackedFlight)
+    }
+
+    suspend fun deleteTrackedFlightById(flightId: String) {
+        trackedFlightDao.deleteTrackedFlightById(flightId)
+    }
+
+    suspend fun updateTrackedFlightStatus(flightId: String, newStatus: String) {
+        val trackedFlight = trackedFlightDao.getTrackedFlightById(flightId)
+        trackedFlight?.let {
+            val updatedFlight = it.copy(
+                lastStatus = newStatus,
+                lastUpdated = System.currentTimeMillis(),
+            )
+            trackedFlightDao.updateTrackedFlight(updatedFlight)
+        }
+    }
+
+    suspend fun updateTrackedFlightPrice(flightId: String, newPrice: Double) {
+        val trackedFlight = trackedFlightDao.getTrackedFlightById(flightId)
+        trackedFlight?.let {
+            val updatedFlight = it.copy(
+                lastPrice = newPrice,
+                priceHistory = it.priceHistory + PriceUpdate(System.currentTimeMillis(), newPrice),
+                lastUpdated = System.currentTimeMillis(),
+            )
+            trackedFlightDao.updateTrackedFlight(updatedFlight)
+        }
+    }
+}
