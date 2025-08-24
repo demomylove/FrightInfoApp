@@ -48,6 +48,26 @@ FlightInfoApp 通过提供一个现代化、响应式的移动应用解决方案
 - **错误处理**：优雅处理网络连接问题
 - **用户反馈**：清晰的加载状态和错误提示
 
+### 🌍 多语言支持（新功能）
+- **中英文切换**：支持中文和英文界面语言切换
+- **动态语言切换**：应用运行时实时切换语言
+- **持久化设置**：语言选择自动保存，下次启动时恢复
+- **完整国际化**：所有界面文本均支持多语言显示（153个字符串资源）
+- **系统适配**：自动适配系统语言设置
+
+### ✈️ 机场查询功能（新功能）
+- **全球机场**：支持搜索全球主要机场信息
+- **智能搜索**：支持按机场名称、城市、IATA代码搜索
+- **详细信息**：显示机场完整信息（名称、代码、位置、坐标）
+- **选择使用**：查询结果可直接用于航班搜索
+- **响应式界面**：优化的搜索体验和结果显示
+
+### 💰 价格跟踪功能（新功能）
+- **价格监控**：实时监控航班价格变化
+- **历史数据**：查看价格历史趋势
+- **提醒设置**：价格变动通知功能
+- **数据可视化**：图表展示价格变化趋势
+
 ## 技术架构
 
 ### 整体架构设计
@@ -71,7 +91,9 @@ FlightInfoApp 采用 **MVVM (Model-View-ViewModel)** 架构模式，确保代码
 - **网络通信**：Retrofit + OkHttp + Gson - 高效的网络请求处理
 - **异步处理**：Kotlin Coroutines + Flow - 响应式编程
 - **依赖注入**：Hilt (Dagger) - 自动化依赖管理
-- **导航组件**：ViewPager2 + TabLayout - 流畅的页面切换
+- **导航组件**：Navigation Component - 现代化应用导航
+- **国际化支持**：Android Resource System + LocaleManager - 多语言切换
+- **数据持久化**：SharedPreferences + Room Database - 设置和数据存储
 
 #### 版本要求
 - **Android Studio**：Hedgehog (2023.1.1) 或更高版本
@@ -88,24 +110,41 @@ FlightInfoApp 采用 **MVVM (Model-View-ViewModel)** 架构模式，确保代码
 - **`FlightInfo.kt`**：航班数据模型，定义航班信息的数据结构
 - **`FlightApiService.kt`**：Retrofit API 接口，定义网络请求方法
 - **`FlightRepository.kt`**：数据仓库，统一数据访问入口，实现数据源抽象
+- **`AirportRepository.kt`**：机场数据仓库，处理机场信息查询
+- **`TrackedFlightDao.kt`**：数据库访问对象，管理价格跟踪数据
+- **`FlightInfoDatabase.kt`**：Room 数据库配置，提供数据持久化
 
 #### 2. 表现层 (Presentation Layer)
 负责用户界面和用户交互：
 
+- **`MainActivity.kt`**：主界面容器，管理整体应用布局和语言切换
 - **`FlightSearchViewModel.kt`**：业务逻辑处理和 UI 状态管理
-- **`MainActivity.kt`**：主界面容器，管理整体应用布局
+- **`AirportViewModel.kt`**：机场查询业务逻辑处理
 - **`FlightListFragment.kt`**：航班列表显示，处理列表相关交互
+- **`AirportLookupFragment.kt`**：机场查询界面，处理机场搜索和选择
+- **`PriceTrackingFragment.kt`**：价格跟踪界面，显示价格趋势和设置提醒
 - **`FlightAdapter.kt`**：RecyclerView 适配器，处理列表项显示
+- **`AirportAdapter.kt`**：机场列表适配器，处理机场搜索结果显示
 
-#### 3. 依赖注入模块 (DI Module)
+#### 3. 服务层 (Service Layer)
+负责后台服务和数据处理：
+
+- **`FlightStatusCheckService.kt`**：航班状态检查服务
+- **`FlightNotificationService.kt`**：航班通知服务
+- **`NotificationHelper.kt`**：通知管理助手类
+
+#### 4. 依赖注入模块 (DI Module)
 负责依赖关系配置：
 
 - **`NetworkModule.kt`**：Hilt 依赖注入配置，管理网络相关依赖
+- **`DatabaseModule.kt`**：数据库依赖注入配置
 
-#### 4. 工具类 (Utils)
+#### 5. 工具类 (Utils)
 提供通用功能：
 
 - **`Resource.kt`**：数据状态包装器，统一处理成功、错误、加载状态
+- **`LocaleManager.kt`**：语言管理器，处理多语言切换和持久化
+- **`FlightTrackingManager.kt`**：航班跟踪管理器，管理后台跟踪服务
 
 ## 项目结构
 

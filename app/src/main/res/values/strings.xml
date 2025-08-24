@@ -150,4 +150,33 @@
     <string name="current_weather">Current Weather</string>
     <string name="weather_forecast">Weather Forecast</string>
     <string name="flight_weather_impact">Flight Weather Impact</string>
+    
+    <!-- Carbon Footprint -->
+    <string name="carbon_footprint">Carbon Footprint</string>
+    <string name="carbon_footprint_stats">Carbon Footprint Statistics</string>
+    <string name="total_emissions">Total Emissions</string>
+    <string name="total_flights">Total Flights</string>
+    <string name="average_emission">Average Emission</string>
+    <string name="total_distance">Total Distance</string>
+    <string name="impact_level">Impact Level</string>
+    <string name="equivalent_impact">Equivalent Impact</string>
+    <string name="car_travel">Car Travel</string>
+    <string name="trees_to_plant">Trees to Plant</string>
+    <string name="monthly_trend">Monthly Trend</string>
+    <string name="airline_breakdown">Airline Breakdown</string>
+    <string name="low_impact">Low</string>
+    <string name="medium_impact">Medium</string>
+    <string name="high_impact">High</string>
+    <string name="co2_emission_format" formatted="false">%.1f kg CO2</string>
+    <string name="emission_per_flight_format" formatted="false">%.1f kg/flight</string>
+    <string name="distance_format" formatted="false">%.0f km</string>
+    <string name="car_equivalent_format" formatted="false">%.0f km</string>
+    <string name="trees_format" formatted="false">%d trees</string>
+    <string name="low_impact_description">Low impact - Environmentally friendly</string>
+    <string name="medium_impact_description">Medium impact - Consider carbon offset</string>
+    <string name="high_impact_description">High impact - Consider alternative transport</string>
+    <string name="carbon_offset_suggestions">Carbon Offset Suggestions</string>
+    <string name="tree_planting">Tree Planting</string>
+    <string name="renewable_energy">Renewable Energy</string>
+    <string name="carbon_credits">Carbon Credits</string>
 </resources>

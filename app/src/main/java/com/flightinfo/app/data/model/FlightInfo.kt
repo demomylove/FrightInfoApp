@@ -35,6 +35,9 @@ data class FlightInfo(
 
     @SerializedName("aircraft_type")
     val aircraftType: String?,
+
+    @SerializedName("carbon_footprint")
+    val carbonFootprint: CarbonFootprint?,
 )
 
 data class FlightSearchResponse(

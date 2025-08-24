@@ -21,4 +21,13 @@
     <color name="seat_available">#E0E0E0</color>
     <color name="seat_selected">#4CAF50</color>
     <color name="seat_occupied">#F44336</color>
+    
+    <!-- Carbon Footprint Colors -->
+    <color name="carbon_background">#E8F5E9</color>
+    <color name="carbon_text">#2E7D32</color>
+    <color name="carbon_value">#1B5E20</color>
+    <color name="carbon_impact">#388E3C</color>
+    <color name="carbon_low">#4CAF50</color>
+    <color name="carbon_medium">#FFC107</color>
+    <color name="carbon_high">#F44336</color>
 </resources>

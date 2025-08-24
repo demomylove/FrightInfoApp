@@ -1,12 +1,14 @@
 package com.flightinfo.app.ui.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.flightinfo.app.R
+import com.flightinfo.app.data.model.EnvironmentalImpact
 import com.flightinfo.app.data.model.FlightInfo
 import com.flightinfo.app.databinding.ItemFlightBinding
 import java.text.SimpleDateFormat
@@ -89,6 +91,15 @@ class FlightAdapter(
             flight.aircraftType?.let { aircraft ->
                 binding.aircraftText.text = aircraft
             }
+
+            // Carbon footprint
+            flight.carbonFootprint?.let { carbon ->
+                binding.carbonFootprintLayout.visibility = View.VISIBLE
+                binding.carbonValueText.text = String.format("%.1f kg CO2", carbon.co2EmissionKg)
+                binding.carbonImpactText.text = getCarbonImpactText(carbon.getEnvironmentalImpact())
+            } ?: run {
+                binding.carbonFootprintLayout.visibility = View.GONE
+            }
         }
 
         private fun formatTime(timeString: String): String {
@@ -110,6 +121,14 @@ class FlightAdapter(
                 "boarding" -> ContextCompat.getColor(binding.root.context, R.color.status_boarding)
                 "departed", "in flight" -> ContextCompat.getColor(binding.root.context, R.color.status_departed)
                 else -> ContextCompat.getColor(binding.root.context, R.color.primary_color)
+            }
+        }
+
+        private fun getCarbonImpactText(impact: EnvironmentalImpact): String {
+            return when (impact) {
+                EnvironmentalImpact.LOW -> "Low impact - Environmentally friendly"
+                EnvironmentalImpact.MEDIUM -> "Medium impact - Consider carbon offset"
+                EnvironmentalImpact.HIGH -> "High impact - Consider alternative transport"
             }
         }
     }

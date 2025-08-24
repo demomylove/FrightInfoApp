@@ -179,6 +179,49 @@
                 tools:text="Boeing 737" />
  
          </LinearLayout>
+
+        <!-- Carbon Footprint Info -->
+        <LinearLayout
+            android:id="@+id/carbonFootprintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/carbon_background"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/carbonTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_leaf"
+                android:drawablePadding="4dp"
+                android:text="Carbon Footprint"
+                android:textColor="@color/carbon_text"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/carbonValueText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/carbon_value"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="156.2 kg CO2" />
+
+            <TextView
+                android:id="@+id/carbonImpactText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/carbon_impact"
+                android:textSize="11sp"
+                tools:text="Medium impact" />
+
+        </LinearLayout>
  
          <LinearLayout
              android:layout_width="match_parent"
