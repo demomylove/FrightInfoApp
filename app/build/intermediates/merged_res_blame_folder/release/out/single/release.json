@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.example.flighttracker.app-merged_res-53:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.flighttracker.app-main-54:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.flighttracker.app-merged_res-53:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.flighttracker.app-main-54:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    }
+]
