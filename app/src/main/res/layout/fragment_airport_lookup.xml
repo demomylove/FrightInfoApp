@@ -11,7 +11,7 @@
         android:id="@+id/textViewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="机场查找"
+        android:text="@string/airport_lookup"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -33,7 +33,7 @@
             android:id="@+id/editTextSearchAirport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="输入机场代码、名称或城市"
+            android:hint="@string/search_airport_hint"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:maxLines="1" />
@@ -43,7 +43,7 @@
         android:id="@+id/buttonSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="搜索"
+        android:text="@string/search_airport"
         android:layout_marginBottom="16dp"
         app:layout_constraintTop_toBottomOf="@id/textInputLayoutSearch"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="选中的机场"
+                android:text="@string/selected_airport"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="8dp" />
@@ -119,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
-                    android:text="使用此机场" />
+                    android:text="@string/use_airport" />
 
                 <Button
                     android:id="@+id/buttonClearSelection"
@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
-                    android:text="清除选择"
+                    android:text="@string/clear_selection"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
             </LinearLayout>
         </LinearLayout>
@@ -137,7 +137,7 @@
         android:id="@+id/textViewEmptyState"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="没有找到匹配的机场"
+        android:text="@string/no_airports_found"
         android:textSize="16sp"
         android:gravity="center"
         android:visibility="gone"

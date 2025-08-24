@@ -67,13 +67,13 @@
     
     <!-- Meal Options Array -->
     <string-array name="meal_options">
-        <item>无餐食</item>
-        <item>标准餐</item>
-        <item>素食</item>
-        <item>纯素食</item>
-        <item>无麸质</item>
-        <item>儿童餐</item>
-        <item>糖尿病餐</item>
+        <item>No Meal</item>
+        <item>Standard Meal</item>
+        <item>Vegetarian</item>
+        <item>Vegan</item>
+        <item>Gluten-Free</item>
+        <item>Child Meal</item>
+        <item>Diabetic Meal</item>
     </string-array>
     
     <!-- Insurance Options -->
@@ -101,4 +101,53 @@
     <string name="enable_do_not_disturb">Enable Do Not Disturb</string>
     <string name="start_time">Start Time</string>
     <string name="end_time">End Time</string>
+    
+    <!-- Language Settings -->
+    <string name="language_settings">Language Settings</string>
+    <string name="select_language">Select Language</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_english">English</string>
+    <string name="language_switch">Language Switch</string>
+    <string name="language_changed">Language Changed</string>
+    <string name="restart_app">Restart app to take effect</string>
+    
+    <!-- Airport Lookup -->
+    <string name="airport_lookup">Airport Lookup</string>
+    <string name="search_airport_hint">Search airport (code, name, city or country)</string>
+    <string name="search_airport">Search Airport</string>
+    <string name="no_airports_found">No airports found</string>
+    <string name="try_different_airport_search">Try a different search term</string>
+    <string name="selected_airport">Selected Airport</string>
+    <string name="use_airport">Use This Airport</string>
+    <string name="clear_selection">Clear Selection</string>
+    <string name="airport_code">Airport Code</string>
+    <string name="airport_name">Airport Name</string>
+    <string name="airport_location">Airport Location</string>
+    <string name="airport_country">Country</string>
+    <string name="airport_city">City</string>
+    <string name="price_tracking">Price Tracking</string>
+    
+    <!-- Additional Flight Booking -->
+    <string name="passenger_info">Passenger Information</string>
+    <string name="weather_info">Weather Information</string>
+    <string name="departure_weather">Departure Weather</string>
+    <string name="arrival_weather">Arrival Weather</string>
+    <string name="weather_impact">Weather Impact</string>
+    <string name="view_weather_details">View Weather Details</string>
+    <string name="seat_selection">Seat Selection</string>
+    <string name="meal_selection">Meal Selection</string>
+    <string name="insurance_options">Insurance Options</string>
+    <string name="special_requirements">Special Requirements</string>
+    
+    <!-- Seat Selection -->
+    <string name="available">Available</string>
+    <string name="selected">Selected</string>
+    <string name="occupied">Occupied</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    
+    <!-- Weather -->
+    <string name="current_weather">Current Weather</string>
+    <string name="weather_forecast">Weather Forecast</string>
+    <string name="flight_weather_impact">Flight Weather Impact</string>
 </resources>

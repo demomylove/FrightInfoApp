@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">航班信息</string>
+    
+    <!-- Main Activity -->
+    <string name="search_hint">输入航班号（例如：CA1234）</string>
+    <string name="search_flights">搜索航班</string>
+    <string name="tab_search_results">搜索结果</string>
+    <string name="tab_realtime">实时跟踪</string>
+    
+    <!-- Flight Status -->
+    <string name="status_on_time">准点</string>
+    <string name="status_delayed">延误</string>
+    <string name="status_cancelled">取消</string>
+    <string name="status_boarding">登机中</string>
+    <string name="status_departed">已起飞</string>
+    <string name="status_arrived">已到达</string>
+    <string name="status_in_flight">飞行中</string>
+    
+    <!-- Flight Details -->
+    <string name="gate_format">登机口 %s</string>
+    <string name="terminal_format">航站楼 %s</string>
+    <string name="delay_format">延误 %d 分钟</string>
+    <string name="duration_format" formatted="false">%d小时%d分钟</string>
+    
+    <!-- Messages -->
+    <string name="loading">加载中…</string>
+    <string name="no_flights_found">未找到航班</string>
+    <string name="try_different_search">请尝试搜索其他航班</string>
+    <string name="error_occurred">出错了</string>
+    <string name="check_connection_retry">请检查网络连接并重试</string>
+    <string name="retry">重试</string>
+    <string name="refresh">刷新</string>
+    
+    <!-- Network Messages -->
+    <string name="network_error">网络错误</string>
+    <string name="server_error">服务器错误</string>
+    <string name="timeout_error">请求超时</string>
+    <string name="no_internet">无网络连接</string>
+    
+    <!-- Flight Search -->
+    <string name="search_by_flight_number">按航班号搜索</string>
+    <string name="search_by_route">按路线搜索</string>
+    <string name="departure_airport">出发机场</string>
+    <string name="arrival_airport">到达机场</string>
+    <string name="select_date">选择日期</string>
+    
+    <!-- Accessibility -->
+    <string name="flight_item_description" formatted="false">航班 %s 从 %s 到 %s</string>
+    <string name="search_button_description">搜索航班</string>
+    <string name="refresh_button_description">刷新航班数据</string>
+    
+    <!-- Flight Booking -->
+    <string name="passenger_name">乘客姓名</string>
+    <string name="passenger_email">乘客邮箱</string>
+    <string name="passenger_phone">乘客电话</string>
+    <string name="passenger_id">乘客证件号</string>
+    <string name="seat">座位</string>
+    <string name="select_seat">选择座位</string>
+    <string name="baggage_info">行李信息</string>
+    <string name="checked_baggage">托运行李</string>
+    <string name="cabin_baggage">随身行李</string>
+    <string name="special_baggage">特殊行李</string>
+    <string name="meal_preference">餐食偏好</string>
+    <string name="insurance_option">保险选项</string>
+    <string name="special_requests">特殊要求</string>
+    <string name="book_now">立即预订</string>
+    
+    <!-- Meal Options Array -->
+    <string-array name="meal_options">
+        <item>无餐食</item>
+        <item>标准餐</item>
+        <item>素食</item>
+        <item>纯素食</item>
+        <item>无麸质</item>
+        <item>儿童餐</item>
+        <item>糖尿病餐</item>
+    </string-array>
+    
+    <!-- Insurance Options -->
+    <string name="no_insurance">无保险</string>
+    <string name="basic_insurance">基础保险</string>
+    <string name="comprehensive_insurance">综合保险</string>
+    <string name="premium_insurance">高级保险</string>
+    
+    <!-- Flight Tracking -->
+    <string name="track_flight">跟踪航班</string>
+    <string name="untrack_flight">取消跟踪</string>
+    <string name="flight_tracking_enabled">航班跟踪已启用</string>
+    <string name="flight_tracking_disabled">航班跟踪已禁用</string>
+    <string name="notification_channel_name">航班状态更新</string>
+    <string name="notification_channel_description">航班状态变化通知</string>
+    <string name="flight_status_update">航班状态更新</string>
+    <string name="flight_status_changed" formatted="false">您的航班状态已变更为 %s</string>
+    
+    <!-- Notification Settings -->
+    <string name="notification_types">通知类型</string>
+    <string name="delay_notifications">延误通知</string>
+    <string name="cancellation_notifications">取消通知</string>
+    <string name="gate_change_notifications">登机口变更通知</string>
+    <string name="do_not_disturb">请勿打扰</string>
+    <string name="enable_do_not_disturb">启用请勿打扰</string>
+    <string name="start_time">开始时间</string>
+    <string name="end_time">结束时间</string>
+    
+    <!-- Language Settings -->
+    <string name="language_settings">语言设置</string>
+    <string name="select_language">选择语言</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_english">English</string>
+    <string name="language_switch">语言切换</string>
+    <string name="language_changed">语言已更改</string>
+    <string name="restart_app">重启应用以生效</string>
+    
+    <!-- Airport Lookup -->
+    <string name="airport_lookup">机场查找</string>
+    <string name="search_airport_hint">搜索机场（代码、名称、城市或国家）</string>
+    <string name="search_airport">搜索机场</string>
+    <string name="no_airports_found">未找到机场</string>
+    <string name="try_different_airport_search">请尝试其他搜索词</string>
+    <string name="selected_airport">已选择机场</string>
+    <string name="use_airport">使用该机场</string>
+    <string name="clear_selection">清除选择</string>
+    <string name="airport_code">机场代码</string>
+    <string name="airport_name">机场名称</string>
+    <string name="airport_location">机场位置</string>
+    <string name="airport_country">国家</string>
+    <string name="airport_city">城市</string>
+    <string name="price_tracking">价格跟踪</string>
+    
+    <!-- Additional Flight Booking -->
+    <string name="passenger_info">乘客信息</string>
+    <string name="weather_info">天气信息</string>
+    <string name="departure_weather">出发地天气</string>
+    <string name="arrival_weather">目的地天气</string>
+    <string name="weather_impact">天气影响</string>
+    <string name="view_weather_details">查看天气详情</string>
+    <string name="seat_selection">座位选择</string>
+    <string name="meal_selection">餐食选择</string>
+    <string name="insurance_options">保险选项</string>
+    <string name="special_requirements">特殊需求</string>
+    
+    <!-- Seat Selection -->
+    <string name="available">可选</string>
+    <string name="selected">已选</string>
+    <string name="occupied">已占</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确认</string>
+    
+    <!-- Weather -->
+    <string name="current_weather">当前天气</string>
+    <string name="weather_forecast">天气预报</string>
+    <string name="flight_weather_impact">航班天气影响</string>
+</resources>
