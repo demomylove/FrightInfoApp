@@ -1,5 +1,6 @@
 package com.flightinfo.app.service
 
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -19,12 +20,16 @@ import com.flightinfo.app.data.repository.FlightRepository
 import com.flightinfo.app.data.repository.TrackedFlightRepository
 import com.flightinfo.app.ui.MainActivity
 import com.flightinfo.app.utils.NotificationHelper
+import com.flightinfo.app.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -35,6 +40,9 @@ class FlightStatusCheckService : Service() {
         private const val CHANNEL_DESCRIPTION = "Background flight status checking"
         private const val NOTIFICATION_ID = 1001
         private const val CHECK_INTERVAL: Long = 60000 // 1 minute
+        private const val FOREGROUND_SERVICE_TYPE_DATA_SYNC = 0x00000001
+        private const val PENDING_INTENT_FLAGS = PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        private const val ACTIVITY_FLAGS = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
     }
 
     @Inject
@@ -47,45 +55,58 @@ class FlightStatusCheckService : Service() {
     private lateinit var handlerThread: HandlerThread
     private lateinit var serviceHandler: ServiceHandler
     private lateinit var notificationHelper: NotificationHelper
+    private var isServiceRunning = false
 
     // Handler that receives messages from the thread
     private inner class ServiceHandler(looper: Looper) : Handler(looper) {
         override fun handleMessage(msg: Message) {
-            // Check flight statuses periodically
-            checkFlightStatuses()
-
-            // Schedule next check
-            serviceHandler.sendEmptyMessageDelayed(0, CHECK_INTERVAL)
+            if (isServiceRunning) {
+                checkFlightStatuses()
+                // Schedule next check
+                serviceHandler.sendEmptyMessageDelayed(0, CHECK_INTERVAL)
+            }
         }
     }
 
     override fun onCreate() {
         super.onCreate()
+        try {
+            initializeService()
+            startForegroundService()
+            isServiceRunning = true
+        } catch (e: Exception) {
+            Timber.e(e, "Error creating FlightStatusCheckService")
+            stopSelf()
+        }
+    }
 
-        // Initialize notification helper
+    private fun initializeService() {
         notificationHelper = NotificationHelper(this)
 
-        // Create a background thread for handling flight status checks
-        handlerThread = HandlerThread("FlightStatusCheckService", Process.THREAD_PRIORITY_BACKGROUND)
-        handlerThread.start()
+        handlerThread = HandlerThread(
+            "FlightStatusCheckService",
+            Process.THREAD_PRIORITY_BACKGROUND,
+        ).apply {
+            start()
+        }
 
-        // Get the HandlerThread's Looper and use it for our Handler
-        val looper = handlerThread.looper
-        serviceHandler = ServiceHandler(looper)
-
+        serviceHandler = ServiceHandler(handlerThread.looper)
         createNotificationChannel()
+    }
+
+    private fun startForegroundService() {
+        val notification = createNotification()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(NOTIFICATION_ID, createNotification(), 0x00000001) // FOREGROUND_SERVICE_TYPE_DATA_SYNC
+            startForeground(NOTIFICATION_ID, notification, FOREGROUND_SERVICE_TYPE_DATA_SYNC)
         } else {
-            startForeground(NOTIFICATION_ID, createNotification())
+            startForeground(NOTIFICATION_ID, notification)
         }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        // Start the periodic flight status check
-        serviceHandler.sendEmptyMessage(0)
-
-        // If we get killed, after returning from here, restart
+        if (isServiceRunning) {
+            serviceHandler.sendEmptyMessage(0)
+        }
         return START_STICKY
     }
 
@@ -96,59 +117,94 @@ class FlightStatusCheckService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+        cleanupResources()
+    }
+
+    private fun cleanupResources() {
+        isServiceRunning = false
         serviceScope.cancel()
-        handlerThread.quitSafely()
+        try {
+            handlerThread.quitSafely()
+        } catch (e: Exception) {
+            Timber.e(e, "Error quitting handler thread")
+        }
     }
 
     private fun checkFlightStatuses() {
-        // In a real implementation, you would:
-        // 1. Get list of tracked flights from database
-        // 2. Check each flight's current status
-        // 3. Compare with previous status
-        // 4. If status changed, send notification
-
-        // For demonstration, we'll just log that we're checking
-        // In a real app, you would implement the actual checking logic here
         serviceScope.launch {
-            // This is where you would check actual flight statuses and prices
-            serviceScope.launch {
+            try {
                 trackedFlightRepository.getAllTrackedFlights().collect { trackedFlights ->
-                    for (flight in trackedFlights) {
-                        // Check for status updates
-                        flightRepository.getFlightDetails(flight.flightNumber).collect { result ->
-                            if (result is com.flightinfo.app.utils.Resource.Success) {
-                                result.data?.let {
-                                    if (it.status != flight.lastStatus) {
-                                        sendFlightStatusNotification(flight.flightNumber, it.status)
-                                        trackedFlightRepository.updateTrackedFlightStatus(flight.flightId, it.status)
-                                    }
-                                }
-                            }
-                        }
-
-                        // Check for price updates
-                        flightRepository.getFlightPrice(flight.flightId).collect { result ->
-                            if (result is com.flightinfo.app.utils.Resource.Success) {
-                                result.data?.let { priceInfo ->
-                                    if (priceInfo.price != flight.lastPrice) {
-                                        sendFlightPriceNotification(flight.flightNumber, priceInfo.price)
-                                        trackedFlightRepository.updateTrackedFlightPrice(flight.flightId, priceInfo.price)
-                                    }
-                                }
-                            }
-                        }
+                    if (trackedFlights.isNotEmpty()) {
+                        processTrackedFlights(trackedFlights)
                     }
                 }
+            } catch (e: Exception) {
+                Timber.e(e, "Error checking flight statuses")
             }
         }
     }
 
+    private suspend fun processTrackedFlights(trackedFlights: List<com.flightinfo.app.data.model.TrackedFlight>) {
+        trackedFlights.forEach { flight ->
+            serviceScope.launch {
+                checkFlightStatusUpdates(flight)
+                checkFlightPriceUpdates(flight)
+            }
+        }
+    }
+
+    private suspend fun checkFlightStatusUpdates(flight: com.flightinfo.app.data.model.TrackedFlight) {
+        try {
+            flightRepository.getFlightDetails(flight.flightNumber).collect { result ->
+                if (result is Resource.Success) {
+                    result.data?.let { flightDetails ->
+                        if (flightDetails.status != flight.lastStatus) {
+                            withContext(Dispatchers.Main) {
+                                sendFlightStatusNotification(flight.flightNumber, flightDetails.status)
+                            }
+                            trackedFlightRepository.updateTrackedFlightStatus(flight.flightId, flightDetails.status)
+                        }
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            Timber.e(e, "Error checking status for flight ${flight.flightNumber}")
+        }
+    }
+
+    private suspend fun checkFlightPriceUpdates(flight: com.flightinfo.app.data.model.TrackedFlight) {
+        try {
+            flightRepository.getFlightPrice(flight.flightId).collect { result ->
+                if (result is Resource.Success) {
+                    result.data?.let { priceInfo ->
+                        if (priceInfo.price != flight.lastPrice) {
+                            withContext(Dispatchers.Main) {
+                                sendFlightPriceNotification(flight.flightNumber, priceInfo.price)
+                            }
+                            trackedFlightRepository.updateTrackedFlightPrice(flight.flightId, priceInfo.price)
+                        }
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            Timber.e(e, "Error checking price for flight ${flight.flightNumber}")
+        }
+    }
+
     private fun sendFlightPriceNotification(flightNumber: String, newPrice: Double) {
-        notificationHelper.showFlightPriceNotification(flightNumber, newPrice)
+        try {
+            notificationHelper.showFlightPriceNotification(flightNumber, newPrice)
+        } catch (e: Exception) {
+            Timber.e(e, "Error sending price notification for flight $flightNumber")
+        }
     }
 
     private fun sendFlightStatusNotification(flightNumber: String, newStatus: String) {
-        notificationHelper.showFlightStatusNotification(flightNumber, newStatus)
+        try {
+            notificationHelper.showFlightStatusNotification(flightNumber, newStatus)
+        } catch (e: Exception) {
+            Timber.e(e, "Error sending status notification for flight $flightNumber")
+        }
     }
 
     private fun createNotificationChannel() {
@@ -170,25 +226,34 @@ class FlightStatusCheckService : Service() {
         }
     }
 
-    private fun createNotification(): android.app.Notification {
-        // Create an intent that will be fired when the user taps the notification
-        val intent = Intent(this, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+    private fun createNotification(): Notification {
+        return try {
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags = ACTIVITY_FLAGS
+            }
+
+            val pendingIntent = PendingIntent.getActivity(
+                this,
+                0,
+                intent,
+                PENDING_INTENT_FLAGS,
+            )
+
+            NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_flight)
+                .setContentTitle("Checking Flight Statuses")
+                .setContentText("Monitoring your tracked flights")
+                .setPriority(NotificationCompat.PRIORITY_LOW)
+                .setContentIntent(pendingIntent)
+                .build()
+        } catch (e: Exception) {
+            Timber.e(e, "Error creating notification")
+            // Return a basic notification as fallback
+            NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_flight)
+                .setContentTitle("Flight Status Monitor")
+                .setContentText("Service running")
+                .build()
         }
-
-        val pendingIntent = PendingIntent.getActivity(
-            this,
-            0,
-            intent,
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
-        )
-
-        return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_flight)
-            .setContentTitle("Checking Flight Statuses")
-            .setContentText("Monitoring your tracked flights")
-            .setPriority(NotificationCompat.PRIORITY_LOW)
-            .setContentIntent(pendingIntent)
-            .build()
     }
 }

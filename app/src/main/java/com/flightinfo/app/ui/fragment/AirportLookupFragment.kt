@@ -12,17 +12,23 @@ import com.flightinfo.app.databinding.FragmentAirportLookupBinding
 import com.flightinfo.app.model.Airport
 import com.flightinfo.app.ui.adapter.AirportAdapter
 import com.flightinfo.app.ui.viewmodel.AirportViewModel
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class AirportLookupFragment : Fragment() {
+class AirportLookupFragment : Fragment(), OnMapReadyCallback {
 
     private var _binding: FragmentAirportLookupBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: AirportViewModel by viewModels()
     private lateinit var airportAdapter: AirportAdapter
+    private var googleMap: GoogleMap? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,6 +45,9 @@ class AirportLookupFragment : Fragment() {
         setupRecyclerView()
         setupSearchInput()
         observeViewModel()
+
+        binding.mapView.onCreate(savedInstanceState)
+        binding.mapView.getMapAsync(this)
     }
 
     private fun setupRecyclerView() {
@@ -73,21 +82,22 @@ class AirportLookupFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.searchResults.collect { airports ->
                 airportAdapter.submitList(airports)
-                updateEmptyState(airports.isEmpty())
+                updateEmptyState(airports.isEmpty() && viewModel.searchQuery.value.isNotEmpty())
             }
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.isLoading.collect { isLoading ->
                 binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-                binding.recyclerViewAirports.visibility = if (isLoading) View.GONE else View.VISIBLE
             }
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.selectedAirport.collect { airport ->
-                airport?.let {
-                    showSelectedAirport(it)
+                if (airport != null) {
+                    showSelectedAirport(airport)
+                } else {
+                    hideSelectedAirport()
                 }
             }
         }
@@ -105,17 +115,72 @@ class AirportLookupFragment : Fragment() {
         binding.textViewSelectedAirportLocation.text = "${airport.city}, ${airport.country}"
 
         binding.buttonUseAirport.setOnClickListener {
-            // TODO: Handle airport selection (e.g., return to previous screen)
+            // TODO: Handle airport selection
         }
 
         binding.buttonClearSelection.setOnClickListener {
             viewModel.clearSelection()
-            binding.cardSelectedAirport.visibility = View.GONE
         }
+
+        updateMap(airport)
+    }
+
+    private fun hideSelectedAirport() {
+        binding.cardSelectedAirport.visibility = View.GONE
+    }
+
+    private fun updateMap(airport: Airport) {
+        googleMap?.let { map ->
+            val location = LatLng(airport.latitude, airport.longitude)
+            map.clear()
+            map.addMarker(MarkerOptions().position(location).title(airport.name))
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 12f))
+            binding.mapView.visibility = View.VISIBLE
+        }
+    }
+
+    override fun onMapReady(map: GoogleMap) {
+        googleMap = map
+        googleMap?.uiSettings?.isZoomControlsEnabled = true
+        // If an airport is already selected when the map is ready, show it
+        viewModel.selectedAirport.value?.let {
+            updateMap(it)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.mapView.onResume()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        binding.mapView.onStart()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        binding.mapView.onStop()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.mapView.onPause()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.mapView.onDestroy()
         _binding = null
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        binding.mapView.onLowMemory()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        binding.mapView.onSaveInstanceState(outState)
     }
 }

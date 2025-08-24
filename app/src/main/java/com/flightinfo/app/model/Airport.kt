@@ -5,4 +5,6 @@ data class Airport(
     val name: String,
     val city: String,
     val country: String,
+    val latitude: Double,
+    val longitude: Double,
 )
