@@ -7,6 +7,7 @@ import android.widget.RadioGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.flightinfo.app.R
 import com.flightinfo.app.utils.FlightTrackingManager
@@ -31,14 +32,17 @@ class MainActivity : AppCompatActivity() {
         // Start the flight tracking service
         FlightTrackingManager.getInstance().startTrackingService(this)
 
-        setupActionBarWithNavController(findNavController(R.id.nav_host_fragment))
+        // Setup NavController after view is created
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        setupActionBarWithNavController(navController)
 
         findViewById<Button>(R.id.airport_lookup_button).setOnClickListener {
-            findNavController(R.id.nav_host_fragment).navigate(R.id.airportLookupFragment)
+            navController.navigate(R.id.airportLookupFragment)
         }
 
         findViewById<Button>(R.id.price_tracking_button).setOnClickListener {
-            findNavController(R.id.nav_host_fragment).navigate(R.id.priceTrackingFragment)
+            navController.navigate(R.id.priceTrackingFragment)
         }
 
         findViewById<Button>(R.id.language_switch_button).setOnClickListener {
@@ -47,7 +51,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
