@@ -1,0 +1,51 @@
+# Gradle
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+
+# Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+.claude/
+local.properties
+*.hprof
+
+# Log Files
+*.log
+
+# Android
+*.apk
+*.ap_
+*.aab
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+.externalNativeBuild/
+
+# Local configuration file
+local.properties
+
+# macOS
+.DS_Store
+
+# Memory dump files
+*.hprof
+
+# Gradle wrapper
+gradle-wrapper.jar
+gradle-wrapper.properties
+
+# Build cache
+/.gradle/buildOutputCleanup/
+
+# Temporary files
+*.tmp
+*.temp
