@@ -3,6 +3,7 @@ package com.flightinfo.app.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.flightinfo.app.data.model.FlightSearchResponse
+import com.flightinfo.app.data.model.PriceRangeFilter
 import com.flightinfo.app.data.model.TrackedFlight
 import com.flightinfo.app.data.model.TravelSuggestionResponse
 import com.flightinfo.app.data.repository.FlightRepository
@@ -12,6 +13,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -35,6 +37,22 @@ class FlightSearchViewModel @Inject constructor(
 
     private val _searchQuery = MutableStateFlow("")
     val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
+
+    private val _priceRangeFilter = MutableStateFlow<PriceRangeFilter?>(null)
+    val priceRangeFilter: StateFlow<PriceRangeFilter?> = _priceRangeFilter.asStateFlow()
+
+    // Filtered search results that apply price range filtering
+    val filteredSearchResults = _searchResults.combine(_priceRangeFilter) { results, filter ->
+        when (results) {
+            is Resource.Success -> {
+                val filteredFlights = results.data?.flights?.filter { flight ->
+                    filter?.isPriceInRange(flight.price ?: 0.0) ?: true
+                }
+                Resource.Success(results.data?.copy(flights = filteredFlights ?: emptyList()))
+            }
+            else -> results
+        }
+    }
 
     init {
         loadRealtimeFlights()
@@ -114,5 +132,17 @@ class FlightSearchViewModel @Inject constructor(
         viewModelScope.launch {
             trackedFlightRepository.updateTrackedFlightStatus(flightId, newStatus)
         }
+    }
+
+    fun setPriceRangeFilter(minPrice: Float, maxPrice: Float) {
+        _priceRangeFilter.value = PriceRangeFilter(minPrice, maxPrice)
+    }
+
+    fun clearPriceRangeFilter() {
+        _priceRangeFilter.value = null
+    }
+
+    fun isPriceFilterActive(): Boolean {
+        return _priceRangeFilter.value != null
     }
 }

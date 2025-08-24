@@ -74,6 +74,22 @@ class FlightAdapter(
             binding.departureAirportText.text = flight.departureAirport
             binding.arrivalAirportText.text = flight.arrivalAirport
 
+            // Price display
+            flight.price?.let { price ->
+                val currency = flight.currency ?: "USD"
+                val formattedPrice = when (currency) {
+                    "USD" -> String.format("$%.2f", price)
+                    "EUR" -> String.format("€%.2f", price)
+                    "GBP" -> String.format("£%.2f", price)
+                    "CNY" -> String.format("¥%.2f", price)
+                    else -> String.format("%.2f %s", price, currency)
+                }
+                binding.priceText.text = formattedPrice
+                binding.priceText.visibility = View.VISIBLE
+            } ?: run {
+                binding.priceText.visibility = View.GONE
+            }
+
             // Status with color
             binding.statusText.text = flight.status.uppercase()
             binding.statusText.setBackgroundColor(getStatusColor(flight.status))

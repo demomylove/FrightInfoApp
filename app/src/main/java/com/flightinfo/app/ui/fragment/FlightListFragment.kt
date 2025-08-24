@@ -2,6 +2,9 @@ package com.flightinfo.app.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -15,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.flightinfo.app.R
 import com.flightinfo.app.databinding.FragmentFlightListBinding
 import com.flightinfo.app.ui.adapter.FlightAdapter
+import com.flightinfo.app.ui.dialog.PriceRangeFilterDialog
 import com.flightinfo.app.ui.viewmodel.FlightSearchViewModel
 import com.flightinfo.app.utils.Resource
 import kotlinx.coroutines.launch
@@ -44,6 +48,7 @@ class FlightListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         isRealtime = arguments?.getBoolean(ARG_IS_REALTIME) ?: false
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -110,7 +115,7 @@ class FlightListFragment : Fragment() {
                 val flow = if (isRealtime) {
                     viewModel.realtimeFlights
                 } else {
-                    viewModel.searchResults
+                    viewModel.filteredSearchResults
                 }
 
                 flow.collect { resource ->
@@ -146,6 +151,30 @@ class FlightListFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_flight_list, menu)
+
+        // Show filter icon only for search results (not realtime flights)
+        val filterItem = menu.findItem(R.id.action_filter)
+        filterItem?.isVisible = !isRealtime
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_filter -> {
+                showPriceRangeFilter()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun showPriceRangeFilter() {
+        val dialog = PriceRangeFilterDialog()
+        dialog.show(parentFragmentManager, "PriceRangeFilterDialog")
     }
 
     private fun showLoading(show: Boolean) {

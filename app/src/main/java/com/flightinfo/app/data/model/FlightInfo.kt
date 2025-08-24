@@ -38,6 +38,12 @@ data class FlightInfo(
 
     @SerializedName("carbon_footprint")
     val carbonFootprint: CarbonFootprint?,
+
+    @SerializedName("price")
+    val price: Double?,
+
+    @SerializedName("currency")
+    val currency: String? = "USD",
 )
 
 data class FlightSearchResponse(
