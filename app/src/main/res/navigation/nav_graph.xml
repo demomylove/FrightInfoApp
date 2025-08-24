@@ -41,4 +41,10 @@
         android:name="com.flightinfo.app.ui.fragment.PriceTrackingFragment"
         android:label="Price Tracking"
         tools:layout="@layout/fragment_price_tracking" />
+    
+    <fragment
+        android:id="@+id/airportLookupFragment"
+        android:name="com.flightinfo.app.ui.fragment.AirportLookupFragment"
+        android:label="Airport Lookup"
+        tools:layout="@layout/fragment_airport_lookup" />
 </navigation>

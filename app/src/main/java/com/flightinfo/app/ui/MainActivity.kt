@@ -20,6 +20,10 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(findNavController(R.id.nav_host_fragment))
 
+        findViewById<Button>(R.id.airport_lookup_button).setOnClickListener {
+            findNavController(R.id.nav_host_fragment).navigate(R.id.airportLookupFragment)
+        }
+
         findViewById<Button>(R.id.price_tracking_button).setOnClickListener {
             findNavController(R.id.nav_host_fragment).navigate(R.id.priceTrackingFragment)
         }

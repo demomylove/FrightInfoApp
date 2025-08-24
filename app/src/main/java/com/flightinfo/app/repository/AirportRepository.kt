@@ -1,16 +1,13 @@
-package com.example.flighttracker
+package com.flightinfo.app.repository
 
+import com.flightinfo.app.model.Airport
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-data class Airport(
-    val code: String,
-    val name: String,
-    val city: String,
-    val country: String,
-)
-
-class AirportRepositoryImpl {
+@Singleton
+class AirportRepository @Inject constructor() {
 
     private val airports = listOf(
         Airport("JFK", "John F. Kennedy International Airport", "New York", "United States"),

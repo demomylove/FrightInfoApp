@@ -1,13 +1,19 @@
-package com.example.flighttracker
+package com.flightinfo.app.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.flightinfo.app.model.Airport
+import com.flightinfo.app.repository.AirportRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class AirportViewModel : ViewModel() {
-    private val repository = AirportRepositoryImpl()
+@HiltViewModel
+class AirportViewModel @Inject constructor(
+    private val repository: AirportRepository,
+) : ViewModel() {
 
     private val _searchQuery = MutableStateFlow("")
     val searchQuery = _searchQuery.asStateFlow()
