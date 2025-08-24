@@ -3,6 +3,7 @@ package com.flightinfo.app.data.repository
 import com.flightinfo.app.data.api.FlightApiService
 import com.flightinfo.app.data.model.FlightBooking
 import com.flightinfo.app.data.model.FlightInfo
+import com.flightinfo.app.data.model.FlightPriceInfo
 import com.flightinfo.app.data.model.FlightSearchResponse
 import com.flightinfo.app.data.model.TravelSuggestionResponse
 import com.flightinfo.app.utils.Resource
@@ -119,6 +120,27 @@ class FlightRepository @Inject constructor(
             val response = apiService.bookFlight(flightId, bookingInfo)
             if (response.isSuccessful) {
                 emit(Resource.Success(Unit))
+            } else {
+                emit(Resource.Error("Error: ${response.code()}"))
+            }
+        } catch (e: Exception) {
+            emit(Resource.Error("Network error: ${e.message}"))
+        }
+    }
+
+    /**
+     * 获取航班价格信息。
+     * @param flightId 航班ID
+     * @return 返回一个包含航班价格信息的 Flow。
+     */
+    fun getFlightPrice(flightId: String): Flow<Resource<FlightPriceInfo>> = flow {
+        try {
+            emit(Resource.Loading())
+            val response = apiService.getFlightPrice(flightId)
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    emit(Resource.Success(it))
+                } ?: emit(Resource.Error("Empty response"))
             } else {
                 emit(Resource.Error("Error: ${response.code()}"))
             }

@@ -11,6 +11,13 @@ data class TrackedFlight(
     val lastStatus: String,
     val lastUpdated: Long,
     val notificationEnabled: Boolean,
+    val lastPrice: Double? = null,
+    val priceHistory: List<PriceUpdate> = emptyList(),
+)
+
+data class PriceUpdate(
+    val timestamp: Long,
+    val price: Double,
 )
 
 data class NotificationSettings(

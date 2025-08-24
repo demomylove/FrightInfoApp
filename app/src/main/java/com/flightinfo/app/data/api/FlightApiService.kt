@@ -2,6 +2,7 @@ package com.flightinfo.app.data.api
 
 import com.flightinfo.app.data.model.FlightBooking
 import com.flightinfo.app.data.model.FlightInfo
+import com.flightinfo.app.data.model.FlightPriceInfo
 import com.flightinfo.app.data.model.FlightSearchResponse
 import com.flightinfo.app.data.model.FlightWeatherInfo
 import com.flightinfo.app.data.model.MealPreference
@@ -139,6 +140,16 @@ interface FlightApiService {
         @Query("arrival_airport") arrivalAirport: String,
         @Query("date") date: String,
     ): Response<FlightWeatherInfo>
+
+    /**
+     * 获取航班价格信息。
+     * @param flightId 航班ID
+     * @return 航班价格信息
+     */
+    @GET("flights/{flightId}/price")
+    suspend fun getFlightPrice(
+        @Path("flightId") flightId: String,
+    ): Response<FlightPriceInfo>
 
     companion object {
         const val BASE_URL = "https://api.aviationstack.com/v1/"

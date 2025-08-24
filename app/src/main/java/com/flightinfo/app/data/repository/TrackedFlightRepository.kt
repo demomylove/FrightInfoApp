@@ -1,6 +1,7 @@
 package com.flightinfo.app.data.repository
 
 import com.flightinfo.app.data.dao.TrackedFlightDao
+import com.flightinfo.app.data.model.PriceUpdate
 import com.flightinfo.app.data.model.TrackedFlight
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -39,6 +40,18 @@ class TrackedFlightRepository @Inject constructor(
         trackedFlight?.let {
             val updatedFlight = it.copy(
                 lastStatus = newStatus,
+                lastUpdated = System.currentTimeMillis(),
+            )
+            trackedFlightDao.updateTrackedFlight(updatedFlight)
+        }
+    }
+
+    suspend fun updateTrackedFlightPrice(flightId: String, newPrice: Double) {
+        val trackedFlight = trackedFlightDao.getTrackedFlightById(flightId)
+        trackedFlight?.let {
+            val updatedFlight = it.copy(
+                lastPrice = newPrice,
+                priceHistory = it.priceHistory + PriceUpdate(System.currentTimeMillis(), newPrice),
                 lastUpdated = System.currentTimeMillis(),
             )
             trackedFlightDao.updateTrackedFlight(updatedFlight)

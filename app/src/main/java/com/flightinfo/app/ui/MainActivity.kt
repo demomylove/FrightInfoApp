@@ -1,6 +1,7 @@
 package com.flightinfo.app.ui
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -18,6 +19,10 @@ class MainActivity : AppCompatActivity() {
         FlightTrackingManager.getInstance().startTrackingService(this)
 
         setupActionBarWithNavController(findNavController(R.id.nav_host_fragment))
+
+        findViewById<Button>(R.id.price_tracking_button).setOnClickListener {
+            findNavController(R.id.nav_host_fragment).navigate(R.id.priceTrackingFragment)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

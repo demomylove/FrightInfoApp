@@ -16,6 +16,7 @@ import android.os.Process
 import androidx.core.app.NotificationCompat
 import com.flightinfo.app.R
 import com.flightinfo.app.data.repository.FlightRepository
+import com.flightinfo.app.data.repository.TrackedFlightRepository
 import com.flightinfo.app.ui.MainActivity
 import com.flightinfo.app.utils.NotificationHelper
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,6 +39,9 @@ class FlightStatusCheckService : Service() {
 
     @Inject
     lateinit var flightRepository: FlightRepository
+
+    @Inject
+    lateinit var trackedFlightRepository: TrackedFlightRepository
 
     private val serviceScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
     private lateinit var handlerThread: HandlerThread
@@ -102,21 +106,41 @@ class FlightStatusCheckService : Service() {
         // For demonstration, we'll just log that we're checking
         // In a real app, you would implement the actual checking logic here
         serviceScope.launch {
-            // This is where you would check actual flight statuses
-            // For example:
-            // val trackedFlights = trackedFlightRepository.getAllTrackedFlights()
-            // for (flight in trackedFlights) {
-            //     val currentStatus = flightRepository.getFlightDetails(flight.flightNumber)
-            //     if (currentStatus.isSuccessful && currentStatus.body() != null) {
-            //         val newStatus = currentStatus.body()!!.status
-            //         if (newStatus != flight.lastStatus) {
-            //             sendFlightStatusNotification(flight.flightNumber, newStatus)
-            //             // Update the tracked flight status in database
-            //             flightRepository.updateTrackedFlightStatus(flight.flightId, newStatus)
-            //         }
-            //     }
-            // }
+            // This is where you would check actual flight statuses and prices
+            serviceScope.launch {
+                trackedFlightRepository.getAllTrackedFlights().collect { trackedFlights ->
+                    for (flight in trackedFlights) {
+                        // Check for status updates
+                        flightRepository.getFlightDetails(flight.flightNumber).collect { result ->
+                            if (result is com.flightinfo.app.utils.Resource.Success) {
+                                result.data?.let {
+                                    if (it.status != flight.lastStatus) {
+                                        sendFlightStatusNotification(flight.flightNumber, it.status)
+                                        trackedFlightRepository.updateTrackedFlightStatus(flight.flightId, it.status)
+                                    }
+                                }
+                            }
+                        }
+
+                        // Check for price updates
+                        flightRepository.getFlightPrice(flight.flightId).collect { result ->
+                            if (result is com.flightinfo.app.utils.Resource.Success) {
+                                result.data?.let { priceInfo ->
+                                    if (priceInfo.price != flight.lastPrice) {
+                                        sendFlightPriceNotification(flight.flightNumber, priceInfo.price)
+                                        trackedFlightRepository.updateTrackedFlightPrice(flight.flightId, priceInfo.price)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
+    }
+
+    private fun sendFlightPriceNotification(flightNumber: String, newPrice: Double) {
+        notificationHelper.showFlightPriceNotification(flightNumber, newPrice)
     }
 
     private fun sendFlightStatusNotification(flightNumber: String, newStatus: String) {

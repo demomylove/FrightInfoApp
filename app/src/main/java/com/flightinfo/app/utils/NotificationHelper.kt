@@ -68,4 +68,33 @@ class NotificationHelper(private val context: Context) {
             notify(flightNumber.hashCode() + NOTIFICATION_ID_BASE, notificationBuilder.build())
         }
     }
+
+    fun showFlightPriceNotification(flightNumber: String, newPrice: Double) {
+        val title = "Price Alert for flight $flightNumber"
+        val message = "The price has changed to $newPrice"
+
+        // Create an intent that will be fired when the user taps the notification
+        val intent = Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+
+        val pendingIntent = PendingIntent.getActivity(
+            context,
+            0,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
+        )
+
+        val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_flight)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
+
+        with(NotificationManagerCompat.from(context)) {
+            notify(flightNumber.hashCode() + NOTIFICATION_ID_BASE + 1, notificationBuilder.build())
+        }
+    }
 }
