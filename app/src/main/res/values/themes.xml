@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme -->
     <style name="Theme.FlightInfoApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary_color</item>
@@ -16,5 +16,26 @@
         <item name="colorSurface">@color/surface_color</item>
         <item name="colorOnSurface">@color/text_primary</item>
         <item name="colorError">@color/error_color</item>
+    </style>
+    
+    <!-- Dark theme -->
+    <style name="Theme.FlightInfoApp.Dark" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_color_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/accent_color</item>
+        <item name="colorSecondaryVariant">@color/accent_color_light</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/background_color_dark</item>
+        <item name="colorSurface">@color/surface_color_dark</item>
+        <item name="colorOnSurface">@color/text_primary_dark</item>
+        <item name="colorError">@color/error_color</item>
+        <item name="android:divider">@color/divider_color_dark</item>
+        <item name="dividerColor">@color/divider_color_dark</item>
     </style>
 </resources>

@@ -226,21 +226,232 @@ FlightInfoApp/
 - 了解不同航空公司的航班信息
 - 学习航空业相关知识
 
-## 开发和部署
+## 快速开始
+
+### 前置要求
+
+#### 系统要求
+- **操作系统**: Windows 10+, macOS 10.15+, 或 Linux (Ubuntu 18.04+)
+- **内存**: 最低 8GB RAM，推荐 16GB+
+- **存储**: 至少 5GB 可用空间
+
+#### 开发环境
+- **Android Studio**: Hedgehog (2023.1.1) 或更高版本
+- **Android SDK**: API 21 (Android 5.0) - API 34 (Android 14)
+- **Kotlin**: 1.9.0+
+- **Java**: JDK 8 或更高版本
+- **Git**: 版本控制
 
 ### 环境搭建
-1. **安装 Android Studio**：下载并安装最新版本的 Android Studio
-2. **配置 SDK**：确保安装 Android SDK API 21 及以上版本
-3. **导入项目**：使用 Android Studio 打开项目文件夹
+
+#### 1. 安装 Android Studio
+```bash
+# 下载 Android Studio
+# 访问: https://developer.android.com/studio
+# 按照安装向导完成安装
+```
+
+#### 2. 配置 Android SDK
+```bash
+# 在 Android Studio 中打开 SDK Manager
+# 安装以下组件:
+# - Android SDK Platform-Tools
+# - Android SDK Build-Tools
+# - Android 14.0 (API 34)
+# - Android 13.0 (API 33)
+# - Android 12.0 (API 31)
+# - Android 11.0 (API 30)
+# - Intel x86 Emulator Accelerator (HAXM installer)
+```
+
+#### 3. 克隆项目
+```bash
+# 克隆项目到本地
+git clone <repository-url>
+cd FlightInfoApp
+```
+
+#### 4. 配置项目
+```bash
+# 在项目根目录执行
+./gradlew clean
+./gradlew build
+```
 
 ### 构建和运行
+
+#### 开发构建
 ```bash
 # 构建项目
 ./gradlew build
 
-# 安装调试版本
+# 运行单元测试
+./gradlew test
+
+# 运行插装测试
+./gradlew connectedAndroidTest
+
+# 安装调试版本到设备
 ./gradlew installDebug
 ```
+
+#### 生产构建
+```bash
+# 构建发布版本
+./gradlew assembleRelease
+
+# 构建并签名发布版本
+./gradlew bundleRelease
+```
+
+### 项目依赖
+
+#### 核心库依赖
+```kotlin
+// Android Core
+implementation 'androidx.core:core-ktx:1.12.0'
+implementation 'androidx.appcompat:appcompat:1.6.1'
+implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+implementation 'com.google.android.material:material:1.11.0'
+
+// Architecture Components
+implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
+implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0'
+implementation 'androidx.navigation:navigation-fragment-ktx:2.7.6'
+implementation 'androidx.navigation:navigation-ui-ktx:2.7.6'
+
+// Network
+implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
+
+// Dependency Injection
+implementation 'com.google.dagger:hilt-android:2.48'
+kapt 'com.google.dagger:hilt-compiler:2.48'
+
+// Database
+implementation 'androidx.room:room-runtime:2.6.1'
+implementation 'androidx.room:room-ktx:2.6.1'
+kapt 'androidx.room:room-compiler:2.6.1'
+
+// Coroutines
+implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
+implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+
+// Testing
+testImplementation 'junit:junit:4.13.2'
+testImplementation 'org.mockito:mockito-core:4.11.0'
+testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3'
+androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+```
+
+#### 开发工具依赖
+```kotlin
+// Build Tools
+buildToolsVersion '34.0.0'
+compileSdk 34
+
+// Kotlin
+kotlinVersion '1.9.0'
+
+// Gradle Plugins
+id 'com.android.application'
+id 'org.jetbrains.kotlin.android'
+id 'kotlin-kapt'
+id 'dagger.hilt.android.plugin'
+id 'androidx.navigation.safeargs.kotlin'
+```
+
+## 常见问题
+
+### 构建问题
+
+#### 1. Gradle 构建失败
+**问题**: `./gradlew build` 失败，提示依赖解析错误
+
+**解决方案**:
+```bash
+# 清理项目
+./gradlew clean
+
+# 清理 Gradle 缓存
+./gradlew --refresh-dependencies
+
+# 重新构建
+./gradlew build
+```
+
+#### 2. Hilt 注入失败
+**问题**: 运行时出现 `Hilt` 相关错误
+
+**解决方案**:
+1. 检查 `@HiltAndroidApp` 注解是否在 Application 类中
+2. 确认所有依赖模块正确配置
+3. 清理并重新构建项目
+
+#### 3. 数据库迁移问题
+**问题**: Room 数据库版本升级失败
+
+**解决方案**:
+```kotlin
+// 在数据库类中添加迁移逻辑
+val MIGRATION_1_2 = object : Migration(1, 2) {
+    override fun migrate(database: SupportSQLiteDatabase) {
+        // 迁移逻辑
+    }
+}
+```
+
+### 运行时问题
+
+#### 1. 网络请求失败
+**问题**: API 调用返回错误或超时
+
+**解决方案**:
+1. 检查网络连接
+2. 确认 API 端点配置正确
+3. 查看日志中的详细错误信息
+
+#### 2. 内存泄漏
+**问题**: 应用运行一段时间后崩溃
+
+**解决方案**:
+1. 使用 Android Profiler 检查内存使用
+2. 确保 `ViewModel` 正确清理
+3. 检查协程是否正确取消
+
+#### 3. 界面渲染问题
+**问题**: RecyclerView 卡顿或显示异常
+
+**解决方案**:
+1. 优化 `ViewHolder` 实现
+2. 使用 `DiffUtil` 减少不必要的刷新
+3. 检查布局层级是否过深
+
+### 开发环境问题
+
+#### 1. Android Studio 同步失败
+**问题**: Gradle 同步失败
+
+**解决方案**:
+```bash
+# 删除 .gradle 和 .idea 目录
+rm -rf .gradle
+rm -rf .idea
+
+# 重新同步项目
+./gradlew clean build
+```
+
+#### 2. 模拟器启动失败
+**问题**: Android 模拟器无法启动
+
+**解决方案**:
+1. 检查 HAXM 是否安装
+2. 确认 AVD 配置正确
+3. 尝试使用不同的系统镜像
 
 ### 测试数据
 应用目前使用模拟航班数据进行演示，包括：
@@ -298,3 +509,161 @@ FlightInfoApp/
 FlightInfoApp 是一个功能完整、架构清晰的现代化 Android 应用程序。它不仅解决了用户在航班信息查询方面的实际需求，更展现了当前 Android 开发的最佳实践。通过采用 MVVM 架构、Kotlin 协程、Hilt 依赖注入等现代技术，该项目为进一步的功能扩展和技术优化奠定了坚实的基础。
 
 该应用具有良好的可扩展性和可维护性，能够适应不断变化的业务需求和技术发展趋势，是一个值得参考和学习的优秀 Android 项目案例。
+
+## 贡献指南
+
+### 如何贡献
+
+我们欢迎所有形式的贡献！请遵循以下步骤：
+
+#### 1. 报告问题
+- 使用 GitHub Issues 报告 bug 或提出功能建议
+- 提供详细的复现步骤和期望行为
+- 包含相关的日志信息、截图或视频
+
+#### 2. 提交代码
+1. **Fork 项目**
+   ```bash
+   # Fork 项目到你的 GitHub 账户
+   ```
+
+2. **克隆本地仓库**
+   ```bash
+   git clone https://github.com/your-username/FlightInfoApp.git
+   cd FlightInfoApp
+   ```
+
+3. **创建功能分支**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+4. **开发并测试**
+   ```bash
+   # 运行测试
+   ./gradlew test
+   
+   # 构建项目
+   ./gradlew build
+   ```
+
+5. **提交更改**
+   ```bash
+   git add .
+   git commit -m "feat: add your feature description"
+   ```
+
+6. **推送分支**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+7. **创建 Pull Request**
+   - 在 GitHub 上创建 PR
+   - 详细描述你的更改
+   - 关联相关的 Issue
+
+### 代码规范
+
+#### Kotlin 代码风格
+- 使用 Kotlin 官方编码规范
+- 函数和变量使用驼峰命名法
+- 常量使用大写字母和下划线
+- 类名使用帕斯卡命名法
+
+#### Git 提交规范
+使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范：
+
+```bash
+# 功能
+feat: add new flight search feature
+
+# 修复
+fix: resolve flight status display issue
+
+# 文档
+docs: update API documentation
+
+# 样式
+style: format code according to style guide
+
+# 重构
+refactor: improve repository pattern implementation
+
+# 测试
+test: add unit tests for flight search
+
+# 构建
+build: update gradle dependencies
+
+# 性能
+perf: optimize flight list loading speed
+```
+
+#### 代码审查标准
+- 所有代码变更必须经过审查
+- 确保测试覆盖率不低于 80%
+- 代码必须通过所有静态分析工具
+- 更新相关文档
+
+### 开发指南
+
+#### 添加新功能
+1. 在 `feature/` 分支上开发
+2. 编写单元测试和集成测试
+3. 更新相关文档
+4. 提交 PR 进行审查
+
+#### 修复 Bug
+1. 创建 `bugfix/` 分支
+2. 编写复现测试
+3. 修复问题并验证
+4. 提交 PR 进行审查
+
+#### 架构原则
+- 遵循 MVVM 架构模式
+- 使用依赖注入 (Hilt)
+- 实现 Repository 模式
+- 遵循单一职责原则
+
+## 许可证
+
+本项目采用 **MIT 许可证** - 详见 [LICENSE](LICENSE) 文件。
+
+### 许可证摘要
+- ✅ 商业使用
+- ✅ 修改
+- ✅ 分发
+- ✅ 私人使用
+- ❗ 责任免除
+- ❗ 需要包含许可证和版权声明
+
+### 第三方许可证
+本项目使用以下第三方库，请遵守其各自的许可证：
+
+- [Android Jetpack](https://developer.android.com/jetpack) - Apache 2.0
+- [Retrofit](https://square.github.io/retrofit/) - Apache 2.0
+- [Hilt](https://dagger.dev/hilt/) - Apache 2.0
+- [Room](https://developer.android.com/jetpack/androidx/releases/room) - Apache 2.0
+- [Material Components](https://material.io/develop/android/docs/getting-started) - Apache 2.0
+
+## 联系我们
+
+### 项目维护者
+- **维护者**: 开发团队
+- **邮箱**: dev@flightinfo.com
+- **GitHub**: [@flightinfo-team](https://github.com/flightinfo-team)
+
+### 技术支持
+- **问题反馈**: [GitHub Issues](https://github.com/flightinfo/FlightInfoApp/issues)
+- **功能请求**: [GitHub Discussions](https://github.com/flightinfo/FlightInfoApp/discussions)
+- **邮件支持**: support@flightinfo.com
+
+### 社区
+- **技术博客**: [https://blog.flightinfo.com](https://blog.flightinfo.com)
+- **开发者社区**: [https://community.flightinfo.com](https://community.flightinfo.com)
+- **Twitter**: [@flightinfo_dev](https://twitter.com/flightinfo_dev)
+
+---
+
+**最后更新**: 2024年8月24日

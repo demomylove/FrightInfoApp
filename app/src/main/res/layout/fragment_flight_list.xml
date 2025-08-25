@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color">
+    android:background="@color/background_color"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <!-- SwipeRefreshLayout -->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -47,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="No flights found"
-            android:textColor="@color/text_secondary"
+            android:textColor="?attr/colorOnSecondary"
             android:textSize="18sp" />
 
         <TextView
@@ -56,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Try searching for a different flight"
-            android:textColor="@color/text_secondary"
+            android:textColor="?attr/colorOnSecondary"
             android:textSize="14sp" />
 
     </LinearLayout>
@@ -80,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Something went wrong"
-            android:textColor="@color/error_color"
+            android:textColor="?attr/colorError"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -91,7 +92,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Please check your connection and try again"
-            android:textColor="@color/text_secondary"
+            android:textColor="?attr/colorOnSecondary"
             android:textSize="14sp" />
 
         <com.google.android.material.button.MaterialButton
@@ -109,7 +110,7 @@
         android:id="@+id/loadingOverlay"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#80FFFFFF"
+        android:background="#80000000"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

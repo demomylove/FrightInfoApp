@@ -12,7 +12,7 @@ import com.flightinfo.app.data.model.EnvironmentalImpact
 import com.flightinfo.app.data.model.FlightInfo
 import com.flightinfo.app.databinding.ItemFlightBinding
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
 
 class FlightAdapter(
     private val onFlightClick: (FlightInfo) -> Unit = {},

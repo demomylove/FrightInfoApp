@@ -111,6 +111,14 @@
     <string name="language_changed">Language Changed</string>
     <string name="restart_app">Restart app to take effect</string>
     
+    <!-- Theme Settings -->
+    <string name="theme_settings">Theme Settings</string>
+    <string name="theme_light">Light Mode</string>
+    <string name="theme_dark">Dark Mode</string>
+    <string name="theme_changed">Theme Changed</string>
+    <string name="restart_for_theme">Restart app to apply new theme</string>
+    <string name="switch_theme">Switch Theme</string>
+    
     <!-- Airport Lookup -->
     <string name="airport_lookup">Airport Lookup</string>
     <string name="search_airport_hint">Search airport (code, name, city or country)</string>
@@ -179,4 +187,30 @@
     <string name="tree_planting">Tree Planting</string>
     <string name="renewable_energy">Renewable Energy</string>
     <string name="carbon_credits">Carbon Credits</string>
+    
+    <!-- Offline Schedule -->
+    <string name="offline_schedule">Offline Schedule</string>
+    <string name="download_schedules">Download Schedules</string>
+    <string name="refresh_data">Refresh Data</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="auto_refresh">Auto Refresh</string>
+    <string name="last_update">Last Update</string>
+    <string name="schedule_count">Schedule Count</string>
+    <string name="no_offline_data">No offline flight data</string>
+    <string name="download_schedules_hint">Click "Download Schedules" to get the latest flight information</string>
+    <string name="loading_failed">Loading Failed</string>
+    <string name="downloading_schedules">Downloading flight schedules...</string>
+    <string name="search_flights_hint">Search flight number, airline or airport</string>
+    <string name="departure_airport_hint">Departure Airport</string>
+    <string name="arrival_airport_hint">Arrival Airport</string>
+    <string name="airline_hint">Airline</string>
+    <string name="weekdays">Weekdays</string>
+    <string name="clear_filters">Clear Filters</string>
+    <string name="domestic_flight">Domestic Flight</string>
+    <string name="international_flight">International Flight</string>
+    <string name="not_departed">Not Departed</string>
+    <string name="arrived">Arrived</string>
+    <string name="in_flight">In Flight</string>
+    <string name="unknown_aircraft">Unknown Aircraft</string>
+    <string name="no_data">No Data</string>
 </resources>

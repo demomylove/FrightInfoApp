@@ -47,4 +47,10 @@
         android:name="com.flightinfo.app.ui.fragment.AirportLookupFragment"
         android:label="Airport Lookup"
         tools:layout="@layout/fragment_airport_lookup" />
+    
+    <fragment
+        android:id="@+id/offlineScheduleFragment"
+        android:name="com.flightinfo.app.ui.fragment.OfflineScheduleFragment"
+        android:label="Offline Schedule"
+        tools:layout="@layout/fragment_offline_schedule" />
 </navigation>

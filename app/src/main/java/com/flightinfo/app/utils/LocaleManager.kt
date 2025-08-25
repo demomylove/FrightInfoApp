@@ -2,7 +2,7 @@ package com.flightinfo.app.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import java.util.*
+import java.util.Locale
 
 class LocaleManager(context: Context) {
 

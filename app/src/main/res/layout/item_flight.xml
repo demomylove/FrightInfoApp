@@ -29,7 +29,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/primary_color"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 tools:text="CA1234" />
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:textColor="@color/primary_color"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="$299" />
@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textColor="@color/text_secondary"
+            android:textColor="?attr/colorOnSecondary"
             android:textSize="14sp"
             tools:text="Air China" />
 
@@ -87,7 +87,7 @@
                     android:id="@+id/departureTimeText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_primary"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     tools:text="08:00" />
@@ -96,7 +96,7 @@
                     android:id="@+id/departureAirportText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_secondary"
+                    android:textColor="?attr/colorOnSecondary"
                     android:textSize="14sp"
                     tools:text="PEK" />
 
@@ -114,7 +114,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_flight_path"
-                    app:tint="@color/primary_color" />
+                    app:tint="?attr/colorPrimary" />
 
             </LinearLayout>
 
@@ -130,7 +130,7 @@
                     android:id="@+id/arrivalTimeText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_primary"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     tools:text="10:30" />
@@ -139,7 +139,7 @@
                     android:id="@+id/arrivalAirportText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_secondary"
+                    android:textColor="?attr/colorOnSecondary"
                     android:textSize="14sp"
                     tools:text="SHA" />
 
@@ -162,7 +162,7 @@
                 android:drawableStart="@drawable/ic_gate"
                 android:drawablePadding="4dp"
                 android:gravity="center_vertical"
-                android:textColor="@color/text_secondary"
+                android:textColor="?attr/colorOnSecondary"
                 android:textSize="12sp"
                 tools:text="Gate A12" />
 
@@ -174,7 +174,7 @@
                 android:drawableStart="@drawable/ic_terminal"
                 android:drawablePadding="4dp"
                 android:gravity="center_vertical"
-                android:textColor="@color/text_secondary"
+                android:textColor="?attr/colorOnSecondary"
                 android:textSize="12sp"
                 tools:text="Terminal T3" />
 
@@ -184,7 +184,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:textColor="@color/text_secondary"
+                android:textColor="?attr/colorOnSecondary"
                 android:textSize="12sp"
                 tools:text="Boeing 737" />
  
@@ -196,7 +196,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/carbon_background"
+            android:background="?attr/colorSurface"
             android:orientation="vertical"
             android:padding="12dp"
             android:visibility="gone">
@@ -208,7 +208,7 @@
                 android:drawableStart="@drawable/ic_leaf"
                 android:drawablePadding="4dp"
                 android:text="Carbon Footprint"
-                android:textColor="@color/carbon_text"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -217,7 +217,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textColor="@color/carbon_value"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 tools:text="156.2 kg CO2" />
@@ -227,7 +227,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:textColor="@color/carbon_impact"
+                android:textColor="?attr/colorOnSecondary"
                 android:textSize="11sp"
                 tools:text="Medium impact" />
 

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Flight Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/textFlightNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="CA1234"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="CA1234" />
+
+            <TextView
+                android:id="@+id/textFlightType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/status_background"
+                tools:text="国内航班" />
+
+        </LinearLayout>
+
+        <!-- Airline and Route -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/textAirline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="中国国际航空"
+                android:textSize="14sp"
+                android:textColor="@android:color/darker_gray"
+                tools:text="中国国际航空" />
+
+            <TextView
+                android:id="@+id/textRoute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PEK → SHA"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="PEK → SHA" />
+
+        </LinearLayout>
+
+        <!-- Airport Names -->
+        <TextView
+            android:id="@+id/textAirports"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="北京首都国际机场 - 上海虹桥国际机场"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginBottom="8dp"
+            tools:text="北京首都国际机场 - 上海虹桥国际机场" />
+
+        <!-- Time and Duration -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/textTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="08:30 - 10:45"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="08:30 - 10:45" />
+
+            <TextView
+                android:id="@+id/textDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="135分钟"
+                android:textSize="14sp"
+                android:textColor="@android:color/darker_gray"
+                tools:text="135分钟" />
+
+        </LinearLayout>
+
+        <!-- Status and Aircraft -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/textStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="未起飞"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="未起飞" />
+
+            <TextView
+                android:id="@+id/textAircraft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Boeing 737-800"
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                tools:text="Boeing 737-800" />
+
+        </LinearLayout>
+
+        <!-- Days of Week -->
+        <TextView
+            android:id="@+id/textDaysOfWeek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="周一, 周二, 周三, 周四, 周五, 周六, 周日"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            tools:text="周一, 周二, 周三, 周四, 周五, 周六, 周日" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -2,6 +2,9 @@ package com.flightinfo.app.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 @Entity(tableName = "tracked_flights")
 data class TrackedFlight(
@@ -27,3 +30,16 @@ data class NotificationSettings(
     val doNotDisturbStart: String = "22:00",
     val doNotDisturbEnd: String = "07:00",
 )
+
+class TrackedFlightConverters {
+    @TypeConverter
+    fun fromPriceUpdateList(priceUpdates: List<PriceUpdate>): String {
+        return Gson().toJson(priceUpdates)
+    }
+
+    @TypeConverter
+    fun toPriceUpdateList(priceUpdatesString: String): List<PriceUpdate> {
+        val listType = object : TypeToken<List<PriceUpdate>>() {}.type
+        return Gson().fromJson(priceUpdatesString, listType)
+    }
+}
