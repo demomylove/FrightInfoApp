@@ -44,6 +44,15 @@
                 android:textStyle="bold"
                 tools:text="$299" />
 
+            <ImageView
+                android:id="@+id/bookmarkIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_bookmark_border"
+                android:contentDescription="@string/bookmark_flight"
+                app:tint="?attr/colorPrimary" />
+
             <TextView
                 android:id="@+id/statusText"
                 android:layout_width="wrap_content"

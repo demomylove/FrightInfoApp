@@ -213,4 +213,5 @@
     <string name="in_flight">In Flight</string>
     <string name="unknown_aircraft">Unknown Aircraft</string>
     <string name="no_data">No Data</string>
+    <string name="bookmark_flight">Bookmark flight</string>
 </resources>

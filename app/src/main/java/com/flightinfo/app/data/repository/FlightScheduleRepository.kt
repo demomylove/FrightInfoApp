@@ -1,10 +1,8 @@
 package com.flightinfo.app.data.repository
 
-import com.flightinfo.app.data.dao.AirlineInfoDao
 import com.flightinfo.app.data.dao.DownloadedSchedulePackageDao
 import com.flightinfo.app.data.dao.FlightScheduleDao
 import com.flightinfo.app.data.dao.OfflineAirportInfoDao
-import com.flightinfo.app.data.model.AirlineInfo
 import com.flightinfo.app.data.model.DownloadedSchedulePackage
 import com.flightinfo.app.data.model.FlightSchedule
 import com.flightinfo.app.data.model.OfflineAirportInfo
@@ -21,7 +19,6 @@ import javax.inject.Singleton
 @Singleton
 class FlightScheduleRepository @Inject constructor(
     private val flightScheduleDao: FlightScheduleDao,
-    private val airlineInfoDao: AirlineInfoDao,
     private val offlineAirportInfoDao: OfflineAirportInfoDao,
     private val downloadedSchedulePackageDao: DownloadedSchedulePackageDao,
 ) {
@@ -52,19 +49,6 @@ class FlightScheduleRepository @Inject constructor(
     }
 
     fun getScheduleCount(): Flow<Int> = flightScheduleDao.getScheduleCount()
-
-    // Airline Info operations
-    fun getAllAirlines(): Flow<List<AirlineInfo>> = airlineInfoDao.getAllAirlines()
-
-    suspend fun getAirlineByCode(code: String): AirlineInfo? =
-        airlineInfoDao.getAirlineByCode(code)
-
-    fun searchAirlines(query: String): Flow<List<AirlineInfo>> =
-        airlineInfoDao.searchAirlines(query)
-
-    suspend fun insertAirlines(airlines: List<AirlineInfo>) {
-        airlineInfoDao.insertAirlines(airlines)
-    }
 
     // Airport Info operations
     fun getAllAirports(): Flow<List<OfflineAirportInfo>> = offlineAirportInfoDao.getAllAirports()
@@ -101,20 +85,17 @@ class FlightScheduleRepository @Inject constructor(
     // Offline data management
     fun getOfflineDataStatus(): Flow<OfflineDataStatus> = flow {
         val scheduleCount = flightScheduleDao.getScheduleCount()
-        val airlineCountFlow = getAllAirlines().map { it.size }
         val airportCountFlow = getAllAirports().map { it.size }
         val packageCountFlow = getAllDownloadedPackages().map { it.size }
 
         // Combine all flows using zip operator
-        val combinedFlow = scheduleCount.zip(airlineCountFlow) { schedules, airlines ->
-            Pair(schedules, airlines)
-        }.zip(airportCountFlow) { (schedules, airlines), airports ->
-            Triple(schedules, airlines, airports)
-        }.zip(packageCountFlow) { (schedules, airlines, airports), packages ->
+        val combinedFlow = scheduleCount.zip(airportCountFlow) { schedules, airports ->
+            Pair(schedules, airports)
+        }.zip(packageCountFlow) { (schedules, airports), packages ->
             OfflineDataStatus(
                 hasFlightSchedules = schedules > 0,
                 scheduleCount = schedules,
-                airlineCount = airlines,
+                airlineCount = 0, // Airline info removed
                 airportCount = airports,
                 packageCount = packages,
                 lastUpdated = System.currentTimeMillis(),

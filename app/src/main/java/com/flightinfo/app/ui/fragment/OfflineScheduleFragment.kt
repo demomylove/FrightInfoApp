@@ -91,7 +91,6 @@ class OfflineScheduleFragment : Fragment() {
             viewModel.uiState.collect { state ->
                 if (state is OfflineScheduleUiState.Success) {
                     setupAirportSpinners(state.airports)
-                    setupAirlineSpinner(state.airlines)
                 }
             }
         }
@@ -115,17 +114,6 @@ class OfflineScheduleFragment : Fragment() {
         }
     }
 
-    private fun setupAirlineSpinner(airlines: List<com.flightinfo.app.data.model.AirlineInfo>) {
-        val airlineNames = airlines.map { "${it.code} - ${it.name}" }
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, airlineNames)
-
-        binding.autoCompleteAirline.setAdapter(adapter)
-        binding.autoCompleteAirline.setOnItemClickListener { _, _, position, _ ->
-            val selectedAirline = airlines[position]
-            viewModel.setAirline(selectedAirline.name)
-        }
-    }
-
     private fun setupClickListeners() {
         binding.buttonDownload.setOnClickListener {
             viewModel.downloadSchedules()
@@ -144,7 +132,6 @@ class OfflineScheduleFragment : Fragment() {
             binding.chipGroupDaysOfWeek.clearCheck()
             binding.autoCompleteDeparture.text?.clear()
             binding.autoCompleteArrival.text?.clear()
-            binding.autoCompleteAirline.text?.clear()
         }
 
         binding.switchAutoRefresh.setOnCheckedChangeListener { _, isChecked ->

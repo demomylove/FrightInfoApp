@@ -18,7 +18,10 @@ class FlightAdapter(
     private val onFlightClick: (FlightInfo) -> Unit = {},
     private val onBookClick: (FlightInfo) -> Unit = {},
     private val onTrackClick: (FlightInfo, Boolean) -> Unit = { _, _ -> },
+    private val onBookmarkClick: (FlightInfo) -> Unit = {},
 ) : ListAdapter<FlightInfo, FlightAdapter.FlightViewHolder>(FlightDiffCallback()) {
+
+    private val bookmarkedFlightNumbers = mutableSetOf<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlightViewHolder {
         val binding = ItemFlightBinding.inflate(
@@ -31,6 +34,12 @@ class FlightAdapter(
 
     override fun onBindViewHolder(holder: FlightViewHolder, position: Int) {
         holder.bind(getItem(position))
+    }
+
+    fun setBookmarkedFlights(bookmarkedFlights: List<String>) {
+        bookmarkedFlightNumbers.clear()
+        bookmarkedFlightNumbers.addAll(bookmarkedFlights)
+        notifyDataSetChanged()
     }
 
     inner class FlightViewHolder(
@@ -59,6 +68,13 @@ class FlightAdapter(
                     // For now, we'll just toggle tracking
                     // In a real implementation, we'd check if the flight is already tracked
                     onTrackClick(flight, true)
+                }
+            }
+
+            binding.bookmarkIcon.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onBookmarkClick(getItem(position))
                 }
             }
         }
@@ -115,6 +131,13 @@ class FlightAdapter(
                 binding.carbonImpactText.text = getCarbonImpactText(carbon.getEnvironmentalImpact())
             } ?: run {
                 binding.carbonFootprintLayout.visibility = View.GONE
+            }
+
+            // Set bookmark icon state
+            if (bookmarkedFlightNumbers.contains(flight.flightNumber)) {
+                binding.bookmarkIcon.setImageResource(R.drawable.ic_bookmark_filled)
+            } else {
+                binding.bookmarkIcon.setImageResource(R.drawable.ic_bookmark_border)
             }
         }
 

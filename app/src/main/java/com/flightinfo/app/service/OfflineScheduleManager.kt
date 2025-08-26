@@ -2,7 +2,6 @@ package com.flightinfo.app.service
 
 import android.content.Context
 import android.util.Log
-import com.flightinfo.app.data.model.AirlineInfo
 import com.flightinfo.app.data.model.DownloadedSchedulePackage
 import com.flightinfo.app.data.model.FlightSchedule
 import com.flightinfo.app.data.model.OfflineAirportInfo
@@ -41,12 +40,10 @@ class OfflineScheduleManager @Inject constructor(
 
             // Simulate network download - in real app, this would call an API
             val mockSchedules = generateMockFlightSchedules()
-            val mockAirlines = generateMockAirlines()
             val mockAirports = generateMockAirports()
 
             // Cache data locally
             flightScheduleRepository.insertSchedules(mockSchedules)
-            flightScheduleRepository.insertAirlines(mockAirlines)
             flightScheduleRepository.insertAirports(mockAirports)
 
             // Update download time
@@ -215,36 +212,6 @@ class OfflineScheduleManager @Inject constructor(
                 daysOfWeek = listOf(2, 4, 6),
                 aircraftType = "Boeing 777-200ER",
                 isDomestic = false,
-            ),
-        )
-    }
-
-    // Generate mock airlines
-    private fun generateMockAirlines(): List<AirlineInfo> {
-        return listOf(
-            AirlineInfo(
-                code = "CA",
-                name = "中国国际航空",
-                logoUrl = null,
-                country = "中国",
-            ),
-            AirlineInfo(
-                code = "MU",
-                name = "中国东方航空",
-                logoUrl = null,
-                country = "中国",
-            ),
-            AirlineInfo(
-                code = "CZ",
-                name = "中国南方航空",
-                logoUrl = null,
-                country = "中国",
-            ),
-            AirlineInfo(
-                code = "UA",
-                name = "美国联合航空",
-                logoUrl = null,
-                country = "美国",
             ),
         )
     }

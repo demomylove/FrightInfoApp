@@ -66,6 +66,7 @@ class FlightListFragment : Fragment() {
         setupRecyclerView()
         setupSwipeRefresh()
         observeFlights()
+        observeBookmarks()
     }
 
     private fun setupRecyclerView() {
@@ -90,6 +91,9 @@ class FlightListFragment : Fragment() {
                     viewModel.trackFlight(flight.flightNumber, flight.flightNumber, flight.status)
                 }
             },
+            onBookmarkClick = { flight ->
+                viewModel.toggleBookmark(flight)
+            }
         )
 
         binding.flightsRecyclerView.apply {
@@ -148,6 +152,16 @@ class FlightListFragment : Fragment() {
                             showError(resource.message ?: "Unknown error occurred")
                         }
                     }
+                }
+            }
+        }
+    }
+
+    private fun observeBookmarks() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.bookmarkedFlights.collect { bookmarkedFlights ->
+                    flightAdapter.setBookmarkedFlights(bookmarkedFlights)
                 }
             }
         }

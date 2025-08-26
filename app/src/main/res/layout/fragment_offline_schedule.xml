@@ -152,16 +152,6 @@
 
             </LinearLayout>
 
-            <!-- Airline Filter -->
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteAirline"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:hint="航空公司"
-                android:padding="12dp"
-                android:background="@drawable/rounded_background" />
-
             <!-- Day of Week Filter -->
             <TextView
                 android:layout_width="match_parent"

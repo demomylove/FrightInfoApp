@@ -2,18 +2,25 @@ package com.flightinfo.app.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.flightinfo.app.data.model.FlightInfo
 import com.flightinfo.app.data.model.FlightSearchResponse
 import com.flightinfo.app.data.model.PriceRangeFilter
 import com.flightinfo.app.data.model.TrackedFlight
 import com.flightinfo.app.data.model.TravelSuggestionResponse
+import com.flightinfo.app.data.repository.BookmarkedFlightRepository
 import com.flightinfo.app.data.repository.FlightRepository
 import com.flightinfo.app.data.repository.TrackedFlightRepository
 import com.flightinfo.app.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,6 +28,7 @@ import javax.inject.Inject
 class FlightSearchViewModel @Inject constructor(
     private val repository: FlightRepository,
     private val trackedFlightRepository: TrackedFlightRepository,
+    private val bookmarkedFlightRepository: BookmarkedFlightRepository,
 ) : ViewModel() {
 
     private val _searchResults = MutableStateFlow<Resource<FlightSearchResponse>>(Resource.Loading())
@@ -40,6 +48,11 @@ class FlightSearchViewModel @Inject constructor(
 
     private val _priceRangeFilter = MutableStateFlow<PriceRangeFilter?>(null)
     val priceRangeFilter: StateFlow<PriceRangeFilter?> = _priceRangeFilter.asStateFlow()
+
+    val bookmarkedFlights: StateFlow<List<String>> =
+        bookmarkedFlightRepository.getAllBookmarkedFlights()
+            .map { flights -> flights.map { it.flightNumber } }
+            .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     // Filtered search results that apply price range filtering
     val filteredSearchResults = _searchResults.combine(_priceRangeFilter) { results, filter ->
@@ -144,5 +157,20 @@ class FlightSearchViewModel @Inject constructor(
 
     fun isPriceFilterActive(): Boolean {
         return _priceRangeFilter.value != null
+    }
+
+    fun isBookmarked(flightNumber: String): Flow<Boolean> {
+        return bookmarkedFlightRepository.isBookmarked(flightNumber)
+    }
+
+    fun toggleBookmark(flightInfo: FlightInfo) {
+        viewModelScope.launch {
+            val isCurrentlyBookmarked = bookmarkedFlightRepository.isBookmarked(flightInfo.flightNumber).first()
+            if (isCurrentlyBookmarked) {
+                bookmarkedFlightRepository.removeBookmark(flightInfo)
+            } else {
+                bookmarkedFlightRepository.addBookmark(flightInfo)
+            }
+        }
     }
 }

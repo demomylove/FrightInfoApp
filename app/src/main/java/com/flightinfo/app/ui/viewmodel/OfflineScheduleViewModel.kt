@@ -2,7 +2,6 @@ package com.flightinfo.app.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.flightinfo.app.data.model.AirlineInfo
 import com.flightinfo.app.data.model.FlightSchedule
 import com.flightinfo.app.data.model.OfflineAirportInfo
 import com.flightinfo.app.data.repository.FlightScheduleRepository
@@ -92,7 +91,6 @@ class OfflineScheduleViewModel @Inject constructor(
                     _uiState.value = OfflineScheduleUiState.Success(
                         schedules = schedules,
                         airports = flightScheduleRepository.getAllAirports().first(),
-                        airlines = flightScheduleRepository.getAllAirlines().first(),
                     )
                 }
         }
@@ -209,7 +207,6 @@ sealed class OfflineScheduleUiState {
     data class Success(
         val schedules: List<FlightSchedule>,
         val airports: List<OfflineAirportInfo>,
-        val airlines: List<AirlineInfo>,
         val downloadStats: DownloadStats? = null,
     ) : OfflineScheduleUiState()
     data class Error(val message: String) : OfflineScheduleUiState()

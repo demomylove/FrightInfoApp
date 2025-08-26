@@ -2,7 +2,7 @@ package com.flightinfo.app.di
 
 import android.content.Context
 import androidx.room.Room
-import com.flightinfo.app.data.dao.AirlineInfoDao
+import com.flightinfo.app.data.dao.BookmarkedFlightDao
 import com.flightinfo.app.data.dao.DownloadedSchedulePackageDao
 import com.flightinfo.app.data.dao.FlightScheduleDao
 import com.flightinfo.app.data.dao.OfflineAirportInfoDao
@@ -40,11 +40,6 @@ object DatabaseModule {
     }
 
     @Provides
-    fun provideAirlineInfoDao(database: FlightInfoDatabase): AirlineInfoDao {
-        return database.airlineInfoDao()
-    }
-
-    @Provides
     fun provideOfflineAirportInfoDao(database: FlightInfoDatabase): OfflineAirportInfoDao {
         return database.offlineAirportInfoDao()
     }
@@ -52,5 +47,10 @@ object DatabaseModule {
     @Provides
     fun provideDownloadedSchedulePackageDao(database: FlightInfoDatabase): DownloadedSchedulePackageDao {
         return database.downloadedSchedulePackageDao()
+    }
+
+    @Provides
+    fun provideBookmarkedFlightDao(database: FlightInfoDatabase): BookmarkedFlightDao {
+        return database.bookmarkedFlightDao()
     }
 }
