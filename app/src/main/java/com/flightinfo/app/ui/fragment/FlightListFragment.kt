@@ -93,7 +93,7 @@ class FlightListFragment : Fragment() {
             },
             onBookmarkClick = { flight ->
                 viewModel.toggleBookmark(flight)
-            }
+            },
         )
 
         binding.flightsRecyclerView.apply {

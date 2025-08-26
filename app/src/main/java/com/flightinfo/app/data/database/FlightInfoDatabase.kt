@@ -8,7 +8,6 @@ import com.flightinfo.app.data.dao.DownloadedSchedulePackageDao
 import com.flightinfo.app.data.dao.FlightScheduleDao
 import com.flightinfo.app.data.dao.OfflineAirportInfoDao
 import com.flightinfo.app.data.dao.TrackedFlightDao
-import com.flightinfo.app.data.model.AirlineInfo
 import com.flightinfo.app.data.model.BookmarkedFlight
 import com.flightinfo.app.data.model.DownloadedSchedulePackage
 import com.flightinfo.app.data.model.FlightSchedule

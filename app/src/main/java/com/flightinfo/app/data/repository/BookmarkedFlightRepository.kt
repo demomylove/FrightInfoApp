@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 @Singleton
 class BookmarkedFlightRepository @Inject constructor(
-    private val bookmarkedFlightDao: BookmarkedFlightDao
+    private val bookmarkedFlightDao: BookmarkedFlightDao,
 ) {
 
     fun getAllBookmarkedFlights(): Flow<List<BookmarkedFlight>> {
@@ -29,7 +29,7 @@ class BookmarkedFlightRepository @Inject constructor(
             arrivalAirport = flightInfo.arrivalAirport,
             departureTime = flightInfo.departureTime,
             arrivalTime = flightInfo.arrivalTime,
-            status = flightInfo.status
+            status = flightInfo.status,
         )
         bookmarkedFlightDao.insert(bookmarkedFlight)
     }
@@ -42,7 +42,7 @@ class BookmarkedFlightRepository @Inject constructor(
             arrivalAirport = flightInfo.arrivalAirport,
             departureTime = flightInfo.departureTime,
             arrivalTime = flightInfo.arrivalTime,
-            status = flightInfo.status
+            status = flightInfo.status,
         )
         bookmarkedFlightDao.delete(bookmarkedFlight)
     }

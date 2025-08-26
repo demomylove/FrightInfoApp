@@ -12,5 +12,5 @@ data class BookmarkedFlight(
     val arrivalAirport: String,
     val departureTime: String,
     val arrivalTime: String,
-    val status: String
+    val status: String,
 )
