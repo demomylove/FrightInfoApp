@@ -11,6 +11,14 @@
     <color name="text_primary">#DE000000</color>
     <color name="text_secondary">#8A000000</color>
     <color name="error_color">#B00020</color>
+    
+    <!-- Material Design Colors -->
+    <color name="purple_500">#9C27B0</color>
+    <color name="purple_700">#7B1FA2</color>
+    <color name="background">#F5F5F5</color>
+    <color name="price_high">#F44336</color>
+    <color name="price_medium">#FFC107</color>
+    <color name="price_low">#4CAF50</color>
     <!-- Status Colors -->
     <color name="status_on_time">#4CAF50</color>
     <color name="status_delayed">#FFC107</color>

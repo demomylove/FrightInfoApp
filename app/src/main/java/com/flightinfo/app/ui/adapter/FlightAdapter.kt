@@ -19,9 +19,11 @@ class FlightAdapter(
     private val onBookClick: (FlightInfo) -> Unit = {},
     private val onTrackClick: (FlightInfo, Boolean) -> Unit = { _, _ -> },
     private val onBookmarkClick: (FlightInfo) -> Unit = {},
+    private val onFavoriteRouteClick: (FlightInfo) -> Unit = {},
 ) : ListAdapter<FlightInfo, FlightAdapter.FlightViewHolder>(FlightDiffCallback()) {
 
     private val bookmarkedFlightNumbers = mutableSetOf<String>()
+    private val favoriteRoutePairs = mutableSetOf<Pair<String, String>>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlightViewHolder {
         val binding = ItemFlightBinding.inflate(
@@ -39,6 +41,12 @@ class FlightAdapter(
     fun setBookmarkedFlights(bookmarkedFlights: List<String>) {
         bookmarkedFlightNumbers.clear()
         bookmarkedFlightNumbers.addAll(bookmarkedFlights)
+        notifyDataSetChanged()
+    }
+
+    fun setFavoriteRoutes(favoriteRoutes: List<Pair<String, String>>) {
+        favoriteRoutePairs.clear()
+        favoriteRoutePairs.addAll(favoriteRoutes)
         notifyDataSetChanged()
     }
 
@@ -75,6 +83,13 @@ class FlightAdapter(
                 val position = bindingAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     onBookmarkClick(getItem(position))
+                }
+            }
+
+            binding.favoriteRouteIcon.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onFavoriteRouteClick(getItem(position))
                 }
             }
         }
@@ -138,6 +153,13 @@ class FlightAdapter(
                 binding.bookmarkIcon.setImageResource(R.drawable.ic_bookmark_filled)
             } else {
                 binding.bookmarkIcon.setImageResource(R.drawable.ic_bookmark_border)
+            }
+
+            // Set favorite route icon state
+            if (favoriteRoutePairs.contains(Pair(flight.departureAirport, flight.arrivalAirport))) {
+                binding.favoriteRouteIcon.setImageResource(R.drawable.ic_star_filled)
+            } else {
+                binding.favoriteRouteIcon.setImageResource(R.drawable.ic_star_border)
             }
         }
 

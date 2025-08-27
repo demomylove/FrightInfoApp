@@ -16,14 +16,26 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flightinfo.app.R
+import com.flightinfo.app.data.repository.FavoriteRouteRepository
+import com.flightinfo.app.data.repository.HistoricalFlightRepository
 import com.flightinfo.app.databinding.FragmentFlightListBinding
 import com.flightinfo.app.ui.adapter.FlightAdapter
 import com.flightinfo.app.ui.dialog.PriceRangeFilterDialog
 import com.flightinfo.app.ui.viewmodel.FlightSearchViewModel
 import com.flightinfo.app.utils.Resource
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class FlightListFragment : Fragment() {
+
+    @Inject
+    lateinit var favoriteRouteRepository: FavoriteRouteRepository
+
+    @Inject
+    lateinit var historicalFlightRepository: HistoricalFlightRepository
 
     private var _binding: FragmentFlightListBinding? = null
     private val binding get() = _binding!!
@@ -67,6 +79,7 @@ class FlightListFragment : Fragment() {
         setupSwipeRefresh()
         observeFlights()
         observeBookmarks()
+        observeFavoriteRoutes()
     }
 
     private fun setupRecyclerView() {
@@ -76,6 +89,7 @@ class FlightListFragment : Fragment() {
                     putString("destination", flight.arrivalAirport)
                 }
                 findNavController().navigate(R.id.action_flightListFragment_to_travelSuggestionFragment, bundle)
+                lifecycleScope.launch { historicalFlightRepository.addHistoricalFlight(flight) }
             },
             onBookClick = { flight ->
                 val bundle = Bundle().apply {
@@ -93,6 +107,16 @@ class FlightListFragment : Fragment() {
             },
             onBookmarkClick = { flight ->
                 viewModel.toggleBookmark(flight)
+            },
+            onFavoriteRouteClick = { flight ->
+                lifecycleScope.launch {
+                    val isFavorite = favoriteRouteRepository.isFavorite(flight.departureAirport, flight.arrivalAirport).first()
+                    if (isFavorite) {
+                        favoriteRouteRepository.removeFavorite(flight.departureAirport, flight.arrivalAirport)
+                    } else {
+                        favoriteRouteRepository.addFavorite(flight.departureAirport, flight.arrivalAirport)
+                    }
+                }
             },
         )
 
@@ -220,6 +244,17 @@ class FlightListFragment : Fragment() {
 
     private fun hideEmpty() {
         binding.emptyStateLayout.isVisible = false
+    }
+
+    private fun observeFavoriteRoutes() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                favoriteRouteRepository.getAllFavoriteRoutes().collect {
+                    val favoritePairs = it.map { route -> Pair(route.originAirport, route.destinationAirport) }
+                    flightAdapter.setFavoriteRoutes(favoritePairs)
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {

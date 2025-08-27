@@ -214,4 +214,62 @@
     <string name="unknown_aircraft">Unknown Aircraft</string>
     <string name="no_data">No Data</string>
     <string name="bookmark_flight">Bookmark flight</string>
+    
+    <!-- Recommendation System -->
+    <string name="recommendation_title">Smart Recommendations</string>
+    <string name="recommendation_stats" formatted="false">Total %d recommendations · Average confidence %.1f%%</string>
+    <string name="recommendation_empty">No recommendations available</string>
+    <string name="recommendation_loading">Loading recommendations...</string>
+    <string name="recommendation_error">Failed to load recommendations</string>
+    <string name="recommendation_filter_all">All</string>
+    <string name="recommendation_filter_history">Based on History</string>
+    <string name="recommendation_filter_popular">Popular Routes</string>
+    <string name="recommendation_filter_price">Price Drop</string>
+    <string name="recommendation_filter_similar">Similar Users</string>
+    <string name="recommendation_filter_trending">Trending</string>
+    <string name="recommendation_filter_personalized">Personalized</string>
+    <string name="recommendation_user_stats">Your Usage Statistics</string>
+    <string name="recommendation_analytics">Recommendation Analytics</string>
+    <string name="recommendation_type_stats">Recommendation Type Distribution</string>
+    <string name="recommendation_confidence">Confidence: %d%%</string>
+    <string name="recommendation_reasons">Recommendation Reasons:</string>
+    <string name="recommendation_details_viewed">Recommendation details viewed</string>
+    <string name="recommendation_bookmarked">Flight bookmarked</string>
+    <string name="recommendation_tracked">Flight tracking started</string>
+    <string name="recommendation_booked">Flight booked</string>
+    
+    <!-- User Behavior Tracking -->
+    <string name="stats_searches">Searches: %d</string>
+    <string name="stats_bookmarks">Bookmarks: %d</string>
+    <string name="stats_tracks">Tracks: %d</string>
+    <string name="stats_books">Books: %d</string>
+    <string name="stats_clickthrough">Click-through rate: %.1f%%</string>
+    <string name="stats_conversion">Conversion rate: %.1f%%</string>
+    <string name="stats_avg_confidence">Average confidence: %.1f%%</string>
+    
+    <!-- Recommendation Types -->
+    <string name="type_based_on_history">Based on History</string>
+    <string name="type_popular_route">Popular Route</string>
+    <string name="type_price_drop">Price Drop</string>
+    <string name="type_similar_users">Similar Users</string>
+    <string name="type_trending">Trending</string>
+    <string name="type_personalized">Personalized</string>
+    
+    <!-- Recommendation Reasons -->
+    <string name="reason_based_on_history">Based on your travel history</string>
+    <string name="reason_high_match">Highly matches your preferences</string>
+    <string name="reason_popular_route">Popular route recommendation</string>
+    <string name="reason_other_users">Other users\' choice</string>
+    <string name="reason_price_drop">Price discount</string>
+    <string name="reason_good_value">Good value for money</string>
+    <string name="reason_similar_users">Similar users like this</string>
+    <string name="reason_high_recommendation">High recommendation score</string>
+    <string name="reason_trending">Currently trending</string>
+    <string name="reason_trend_recommendation">Trend recommendation</string>
+    <string name="reason_personalized">Personalized recommendation</string>
+    <string name="reason_customized">Customized for you</string>
+    <string name="reason_strong_recommend">Strongly recommended</string>
+    <string name="reason_high_score">High recommendation score</string>
+    <string name="favorite_routes">Favorite Routes</string>
+    <string name="search_history">Search History</string>
 </resources>

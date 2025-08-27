@@ -151,4 +151,60 @@
     <string name="current_weather">当前天气</string>
     <string name="weather_forecast">天气预报</string>
     <string name="flight_weather_impact">航班天气影响</string>
+    
+    <!-- Recommendation System -->
+    <string name="recommendation_title">智能推荐</string>
+    <string name="recommendation_stats" formatted="false">共 %d 个推荐 · 平均置信度 %.1f%%</string>
+    <string name="recommendation_empty">暂无推荐内容</string>
+    <string name="recommendation_loading">加载推荐中...</string>
+    <string name="recommendation_error">加载推荐失败</string>
+    <string name="recommendation_filter_all">全部</string>
+    <string name="recommendation_filter_history">基于历史</string>
+    <string name="recommendation_filter_popular">热门航线</string>
+    <string name="recommendation_filter_price">价格优惠</string>
+    <string name="recommendation_filter_similar">相似用户</string>
+    <string name="recommendation_filter_trending">趋势推荐</string>
+    <string name="recommendation_filter_personalized">个性化推荐</string>
+    <string name="recommendation_user_stats">您的使用统计</string>
+    <string name="recommendation_analytics">推荐效果分析</string>
+    <string name="recommendation_type_stats">推荐类型分布</string>
+    <string name="recommendation_confidence">置信度: %d%%</string>
+    <string name="recommendation_reasons">推荐理由:</string>
+    <string name="recommendation_details_viewed">已查看推荐详情</string>
+    <string name="recommendation_bookmarked">已收藏航班</string>
+    <string name="recommendation_tracked">已开始跟踪航班</string>
+    <string name="recommendation_booked">已预订航班</string>
+    
+    <!-- User Behavior Tracking -->
+    <string name="stats_searches">搜索次数: %d</string>
+    <string name="stats_bookmarks">收藏次数: %d</string>
+    <string name="stats_tracks">跟踪次数: %d</string>
+    <string name="stats_books">预订次数: %d</string>
+    <string name="stats_clickthrough">点击率: %.1f%%</string>
+    <string name="stats_conversion">转化率: %.1f%%</string>
+    <string name="stats_avg_confidence">平均置信度: %.1f%%</string>
+    
+    <!-- Recommendation Types -->
+    <string name="type_based_on_history">基于历史</string>
+    <string name="type_popular_route">热门航线</string>
+    <string name="type_price_drop">价格优惠</string>
+    <string name="type_similar_users">相似用户</string>
+    <string name="type_trending">趋势推荐</string>
+    <string name="type_personalized">个性化推荐</string>
+    
+    <!-- Recommendation Reasons -->
+    <string name="reason_based_on_history">基于您的旅行历史</string>
+    <string name="reason_high_match">高度匹配您的偏好</string>
+    <string name="reason_popular_route">热门航线推荐</string>
+    <string name="reason_other_users">其他用户常选</string>
+    <string name="reason_price_drop">价格折扣</string>
+    <string name="reason_good_value">性价比高</string>
+    <string name="reason_similar_users">相似用户喜欢</string>
+    <string name="reason_high_recommendation">推荐指数高</string>
+    <string name="reason_trending">当前热门</string>
+    <string name="reason_trend_recommendation">趋势推荐</string>
+    <string name="reason_personalized">个性化推荐</string>
+    <string name="reason_customized">专为您定制</string>
+    <string name="reason_strong_recommend">强烈推荐</string>
+    <string name="reason_high_score">推荐指数高</string>
 </resources>

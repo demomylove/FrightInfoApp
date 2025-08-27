@@ -16,6 +16,19 @@
         <action
             android:id="@+id/action_flightListFragment_to_flightBookingFragment"
             app:destination="@id/flightBookingFragment" />
+        <action
+            android:id="@+id/action_flightListFragment_to_recommendationFragment"
+            app:destination="@id/recommendationFragment" />
+    </fragment>
+    
+    <fragment
+        android:id="@+id/recommendationFragment"
+        android:name="com.flightinfo.app.ui.fragment.RecommendationFragment"
+        android:label="智能推荐"
+        tools:layout="@layout/fragment_recommendation">
+        <action
+            android:id="@+id/action_recommendationFragment_to_flightBookingFragment"
+            app:destination="@id/flightBookingFragment" />
     </fragment>
 
     <fragment
@@ -53,4 +66,5 @@
         android:name="com.flightinfo.app.ui.fragment.OfflineScheduleFragment"
         android:label="Offline Schedule"
         tools:layout="@layout/fragment_offline_schedule" />
+    <include app:graph="@navigation/history_nav_graph" />
 </navigation>

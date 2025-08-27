@@ -3,6 +3,8 @@ package com.flightinfo.app.ui
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.RadioGroup
@@ -55,12 +57,33 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(R.id.offlineScheduleFragment)
         }
 
+        findViewById<Button>(R.id.recommendation_button).setOnClickListener {
+            navController.navigate(R.id.recommendationFragment)
+        }
+
         findViewById<Button>(R.id.language_switch_button).setOnClickListener {
             showLanguageDialog()
         }
 
         // Add theme switch button to the UI
         addThemeSwitchButton()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_flight_list, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        return when (item.itemId) {
+            R.id.action_history -> {
+                navController.navigate(R.id.history_nav_graph)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun applyTheme() {

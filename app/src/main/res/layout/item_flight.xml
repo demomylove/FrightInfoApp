@@ -53,6 +53,15 @@
                 android:contentDescription="@string/bookmark_flight"
                 app:tint="?attr/colorPrimary" />
 
+            <ImageView
+                android:id="@+id/favoriteRouteIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_star_border"
+                android:contentDescription="Favorite route"
+                app:tint="?attr/colorPrimary" />
+
             <TextView
                 android:id="@+id/statusText"
                 android:layout_width="wrap_content"
