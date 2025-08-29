@@ -7,13 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import com.flightinfo.app.R
 import com.flightinfo.app.databinding.FragmentProfileBinding
-import com.flightinfo.app.ui.viewmodel.AuthViewModel
+import com.flightinfo.app.ui.viewmodel.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
@@ -21,7 +17,7 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: AuthViewModel by viewModels()
+    private val viewModel: ProfileViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,25 +31,27 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupClickListeners()
-        observeViewModel()
-    }
+        viewModel.loadCurrentUser()
 
-    private fun setupClickListeners() {
-        binding.buttonLogout.setOnClickListener {
-            viewModel.logout()
-            Toast.makeText(requireContext(), "已退出登录", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
-        }
-    }
-
-    private fun observeViewModel() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.currentUser.collect { user ->
-                user?.let {
-                    binding.textViewEmail.text = it.email
-                }
+        viewModel.user.observe(viewLifecycleOwner) { user ->
+            if (user != null) {
+                binding.tvUserName.text = "Username: ${user.firstName} ${user.lastName}"
+                binding.tvUserEmail.text = "Email: ${user.email}"
+            } else {
+                // Handle user not found case
+                binding.tvUserName.text = "Username: Not available"
+                binding.tvUserEmail.text = "Email: Not available"
             }
+        }
+
+        binding.btnFavoriteRoutes.setOnClickListener {
+            Toast.makeText(context, "Favorite Routes clicked", Toast.LENGTH_SHORT).show()
+            // TODO: Navigate to Favorite Routes screen
+        }
+
+        binding.btnBookmarkedFlights.setOnClickListener {
+            Toast.makeText(context, "Bookmarked Flights clicked", Toast.LENGTH_SHORT).show()
+            // TODO: Navigate to Bookmarked Flights screen
         }
     }
 

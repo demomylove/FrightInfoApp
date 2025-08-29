@@ -134,6 +134,14 @@ class MainActivity : AppCompatActivity() {
                 navController.navigate(R.id.history_nav_graph)
                 true
             }
+            R.id.action_profile -> {
+                if (authManager.getCurrentUserId() != null) {
+                    navController.navigate(R.id.profileFragment)
+                } else {
+                    navController.navigate(R.id.loginFragment)
+                }
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
