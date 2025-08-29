@@ -59,7 +59,7 @@ class FlightRepository @Inject constructor(
                     emit(Resource.Success(it))
                 } ?: emit(Resource.Error("Empty response"))
             } else {
-                emit(Resource.Error("Error: ${response.code()}"))
+                emit(Resource.Error("Error loading real-time flights: ${response.code()}"))
             }
         } catch (e: Exception) {
             emit(Resource.Error("Error loading real-time flights: ${e.message}"))
