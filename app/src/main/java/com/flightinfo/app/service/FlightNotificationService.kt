@@ -17,29 +17,14 @@ class FlightNotificationService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
 
-        // Check if message contains a data payload
-        remoteMessage.data.isNotEmpty().let {
-            // Handle data payload
-            handleDataMessage(remoteMessage.data)
-        }
+        // Data messages are handled here, both in foreground and background.
+        remoteMessage.data.let { data ->
+            val title = data["title"]
+            val message = data["message"]
 
-        // Check if message contains a notification payload
-        remoteMessage.notification?.let {
-            // Handle notification payload
-            notificationHelper.showFlightStatusNotification(
-                "Flight", // This would typically be extracted from the notification
-                it.body ?: "Flight status update",
-            )
-        }
-    }
-
-    private fun handleDataMessage(data: Map<String, String>) {
-        val flightNumber = data["flightNumber"]
-        val status = data["status"]
-        data["message"]
-
-        if (flightNumber != null && status != null) {
-            notificationHelper.showFlightStatusNotification(flightNumber, status)
+            if (!title.isNullOrBlank() && !message.isNullOrBlank()) {
+                notificationHelper.showFlightStatusNotification(title, message)
+            }
         }
     }
 
