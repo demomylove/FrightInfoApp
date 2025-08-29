@@ -129,6 +129,9 @@ class RecommendationFragment : Fragment() {
             // 观察推荐列表
             viewModel.recommendations.collect { resource ->
                 when (resource) {
+                    is com.flightinfo.app.utils.Resource.Idle -> {
+                        // Initial state, do nothing
+                    }
                     is com.flightinfo.app.utils.Resource.Loading -> {
                         binding.progressBar.visibility = View.VISIBLE
                         binding.textViewEmpty.visibility = View.GONE

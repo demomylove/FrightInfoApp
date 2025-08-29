@@ -13,6 +13,7 @@ import com.flightinfo.app.data.dao.HistoricalFlightDao
 import com.flightinfo.app.data.dao.OfflineAirportInfoDao
 import com.flightinfo.app.data.dao.TrackedFlightDao
 import com.flightinfo.app.data.dao.UserBehaviorDao
+import com.flightinfo.app.data.dao.UserDao
 import com.flightinfo.app.data.model.BookmarkedFlight
 import com.flightinfo.app.data.model.DownloadedSchedulePackage
 import com.flightinfo.app.data.model.FavoriteRoute
@@ -24,6 +25,7 @@ import com.flightinfo.app.data.model.RecommendationConverters
 import com.flightinfo.app.data.model.ScheduleConverters
 import com.flightinfo.app.data.model.TrackedFlight
 import com.flightinfo.app.data.model.TrackedFlightConverters
+import com.flightinfo.app.data.model.User
 import com.flightinfo.app.data.model.UserBehavior
 import com.flightinfo.app.data.model.UserPreferences
 
@@ -39,8 +41,9 @@ import com.flightinfo.app.data.model.UserPreferences
         RecommendationCache::class,
         FavoriteRoute::class,
         HistoricalFlight::class,
+        User::class,
     ],
-    version = 5,
+    version = 6,
     exportSchema = false,
 )
 @TypeConverters(ScheduleConverters::class, TrackedFlightConverters::class, RecommendationConverters::class)
@@ -53,6 +56,7 @@ abstract class FlightInfoDatabase : RoomDatabase() {
     abstract fun userBehaviorDao(): UserBehaviorDao
     abstract fun favoriteRouteDao(): FavoriteRouteDao
     abstract fun historicalFlightDao(): HistoricalFlightDao
+    abstract fun userDao(): UserDao
 
     companion object {
         val MIGRATION_3_4 = object : Migration(3, 4) {
@@ -114,6 +118,7 @@ abstract class FlightInfoDatabase : RoomDatabase() {
                 )
             }
         }
+
         val MIGRATION_4_5 = object : Migration(4, 5) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL(
@@ -142,6 +147,20 @@ abstract class FlightInfoDatabase : RoomDatabase() {
                         `arrivalTime` TEXT NOT NULL,
                         `status` TEXT NOT NULL,
                         `accessedTimestamp` INTEGER NOT NULL
+                    )
+                    """.trimIndent(),
+                )
+            }
+        }
+
+        val MIGRATION_5_6 = object : Migration(5, 6) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `users` (
+                        `userId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        `email` TEXT NOT NULL,
+                        `passwordHash` TEXT NOT NULL
                     )
                     """.trimIndent(),
                 )

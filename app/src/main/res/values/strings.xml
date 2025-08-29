@@ -272,4 +272,34 @@
     <string name="reason_high_score">High recommendation score</string>
     <string name="favorite_routes">Favorite Routes</string>
     <string name="search_history">Search History</string>
+
+    <!-- User Account -->
+    <string name="login_title">Login</string>
+    <string name="register_title">Register</string>
+    <string name="profile_title">Profile</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+    <string name="logout_button">Logout</string>
+    <string name="no_account_register_link">Don\'t have an account? Register</string>
+    <string name="has_account_login_link">Already have an account? Login</string>
+    <string name="profile_email_label">Email:</string>
+    
+    <!-- Authentication messages -->
+    <string name="auth_email_required">Email is required</string>
+    <string name="auth_password_required">Password is required</string>
+    <string name="auth_password_too_short">Password must be at least 6 characters</string>
+    <string name="auth_password_mismatch">Passwords do not match</string>
+    <string name="auth_email_invalid">Invalid email format</string>
+    <string name="auth_login_success">Login successful</string>
+    <string name="auth_register_success">Registration successful</string>
+    <string name="auth_login_failed">Login failed</string>
+    <string name="auth_register_failed">Registration failed</string>
+    <string name="auth_user_exists">User with this email already exists</string>
+    <string name="auth_invalid_credentials">Invalid email or password</string>
+    <string name="auth_account_deactivated">Account is deactivated</string>
+    <string name="auth_logout_success">Successfully logged out</string>
+
 </resources>

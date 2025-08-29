@@ -38,6 +38,9 @@ class TravelSuggestionFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.travelSuggestions.collect { resource ->
                 when (resource) {
+                    is Resource.Idle -> {
+                        // Initial state, do nothing
+                    }
                     is Resource.Success -> {
                         resource.data?.suggestions?.firstOrNull()?.let { suggestion ->
                             updateUi(suggestion)

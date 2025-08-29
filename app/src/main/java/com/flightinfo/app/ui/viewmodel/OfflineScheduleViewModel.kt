@@ -51,6 +51,9 @@ class OfflineScheduleViewModel @Inject constructor(
             offlineScheduleManager.getOfflineDataStatus()
                 .collect { resource ->
                     when (resource) {
+                        is Resource.Idle -> {
+                            // Initial state, do nothing
+                        }
                         is Resource.Loading -> {
                             _uiState.value = OfflineScheduleUiState.Loading
                         }
@@ -129,6 +132,9 @@ class OfflineScheduleViewModel @Inject constructor(
             offlineScheduleManager.downloadAndCacheSchedules()
                 .collect { resource ->
                     when (resource) {
+                        is Resource.Idle -> {
+                            // Initial state, do nothing
+                        }
                         is Resource.Loading -> {
                             _uiState.value = OfflineScheduleUiState.Downloading
                         }
@@ -148,6 +154,9 @@ class OfflineScheduleViewModel @Inject constructor(
             offlineScheduleManager.clearAllCachedData()
                 .collect { resource ->
                     when (resource) {
+                        is Resource.Idle -> {
+                            // Initial state, do nothing
+                        }
                         is Resource.Loading -> {
                             _uiState.value = OfflineScheduleUiState.Loading
                         }
@@ -171,6 +180,9 @@ class OfflineScheduleViewModel @Inject constructor(
             offlineScheduleManager.getDownloadStats()
                 .collect { resource ->
                     when (resource) {
+                        is Resource.Idle -> {
+                            // Initial state, do nothing
+                        }
                         is Resource.Loading -> {
                             // Update UI state if needed
                         }

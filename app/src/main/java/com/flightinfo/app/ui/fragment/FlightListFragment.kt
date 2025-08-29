@@ -150,6 +150,9 @@ class FlightListFragment : Fragment() {
                     binding.swipeRefreshLayout.isRefreshing = false
 
                     when (resource) {
+                        is Resource.Idle -> {
+                            // Initial state, do nothing
+                        }
                         is Resource.Loading -> {
                             showLoading(true)
                             hideError()

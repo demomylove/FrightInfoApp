@@ -199,6 +199,9 @@ class FlightBookingFragment : Fragment() {
             viewLifecycleOwner.lifecycleScope.launch {
                 weatherViewModel.flightWeather.collect { resource ->
                     when (resource) {
+                        is com.flightinfo.app.utils.Resource.Idle -> {
+                            // Initial state, do nothing
+                        }
                         is com.flightinfo.app.utils.Resource.Loading -> {
                             // 显示加载状态
                             binding.departureWeatherInfo.text = "正在加载天气信息..."

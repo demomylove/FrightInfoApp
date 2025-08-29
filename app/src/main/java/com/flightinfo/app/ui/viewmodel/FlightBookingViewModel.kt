@@ -41,6 +41,9 @@ class FlightBookingViewModel @Inject constructor(
             repository.bookFlight(flightId, bookingInfo)
                 .collect { resource ->
                     when (resource) {
+                        is Resource.Idle<*> -> {
+                            // Initial state, do nothing
+                        }
                         is Resource.Success<*> -> {
                             _bookingUiState.value = BookingUiState.Success()
                         }

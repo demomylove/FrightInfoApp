@@ -10,15 +10,21 @@ import android.widget.LinearLayout
 import android.widget.RadioGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.flightinfo.app.R
+import com.flightinfo.app.utils.AuthManager
 import com.flightinfo.app.utils.FlightTrackingManager
 import com.flightinfo.app.utils.LocaleManager
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var authManager: AuthManager
 
     private lateinit var localeManager: LocaleManager
     private lateinit var sharedPreferences: SharedPreferences
@@ -45,6 +51,9 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         setupActionBarWithNavController(navController)
 
+        // 添加认证状态检查
+        checkAuthAndNavigate(navController)
+
         findViewById<Button>(R.id.airport_lookup_button).setOnClickListener {
             navController.navigate(R.id.airportLookupFragment)
         }
@@ -67,6 +76,49 @@ class MainActivity : AppCompatActivity() {
 
         // Add theme switch button to the UI
         addThemeSwitchButton()
+
+        // 添加个人资料按钮
+        addProfileButton()
+    }
+
+    private fun checkAuthAndNavigate(navController: NavController) {
+        // 检查用户是否已登录
+        val isLoggedIn = authManager.getCurrentUserId() != null
+
+        if (!isLoggedIn) {
+            // 如果当前不在登录页面，导航到登录页面
+            if (navController.currentDestination?.id != R.id.loginFragment &&
+                navController.currentDestination?.id != R.id.registerFragment
+            ) {
+                navController.navigate(R.id.loginFragment)
+            }
+        } else {
+            // 如果用户已登录但在登录页面，导航到主页面
+            if (navController.currentDestination?.id == R.id.loginFragment ||
+                navController.currentDestination?.id == R.id.registerFragment
+            ) {
+                navController.navigate(R.id.flightListFragment)
+            }
+        }
+    }
+
+    private fun addProfileButton() {
+        val button = Button(this).apply {
+            text = "个人资料"
+            setOnClickListener {
+                val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+                val navController = navHostFragment.navController
+
+                if (authManager.getCurrentUserId() != null) {
+                    navController.navigate(R.id.profileFragment)
+                } else {
+                    navController.navigate(R.id.loginFragment)
+                }
+            }
+        }
+
+        val linearLayout = findViewById<LinearLayout>(R.id.bottom_button_container)
+        linearLayout.addView(button)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

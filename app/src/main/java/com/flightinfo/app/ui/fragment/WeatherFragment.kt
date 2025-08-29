@@ -72,6 +72,9 @@ class WeatherFragment : Fragment() {
 
         viewModel.currentWeather.onEach { resource ->
             when (resource) {
+                is com.flightinfo.app.utils.Resource.Idle -> {
+                    // Initial state, do nothing
+                }
                 is com.flightinfo.app.utils.Resource.Loading -> {
                     // Loading state handled by isLoading
                 }
@@ -92,6 +95,9 @@ class WeatherFragment : Fragment() {
 
         viewModel.weatherForecast.onEach { resource ->
             when (resource) {
+                is com.flightinfo.app.utils.Resource.Idle -> {
+                    // Initial state, do nothing
+                }
                 is com.flightinfo.app.utils.Resource.Loading -> {
                     // Loading state handled by isLoading
                 }
@@ -112,6 +118,9 @@ class WeatherFragment : Fragment() {
 
         viewModel.flightWeather.onEach { resource ->
             when (resource) {
+                is com.flightinfo.app.utils.Resource.Idle -> {
+                    // Initial state, do nothing
+                }
                 is com.flightinfo.app.utils.Resource.Loading -> {
                     // Loading state handled by isLoading
                 }
