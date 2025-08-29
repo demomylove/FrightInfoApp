@@ -209,6 +209,10 @@ class FlightListFragment : Fragment() {
                 showPriceRangeFilter()
                 true
             }
+            R.id.action_route_map -> {
+                findNavController().navigate(R.id.action_flightListFragment_to_routeMapFragment)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

@@ -60,7 +60,16 @@
         <action
             android:id="@+id/action_flightListFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_flightListFragment_to_routeMapFragment"
+            app:destination="@id/routeMapFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/routeMapFragment"
+        android:name="com.flightinfo.app.ui.fragment.RouteMapFragment"
+        android:label="Route Map"
+        tools:layout="@layout/fragment_route_map" />
     
     <fragment
         android:id="@+id/recommendationFragment"
