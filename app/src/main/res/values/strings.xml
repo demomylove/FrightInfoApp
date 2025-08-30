@@ -94,10 +94,14 @@
     <string name="flight_status_changed" formatted="false">Your flight status has changed to %s</string>
     
     <!-- Notification Settings -->
-    <string name="notification_types">Notification Types</string>
+    <string name="flight_status_notifications">Flight Status Notifications</string>
     <string name="delay_notifications">Delay Notifications</string>
     <string name="cancellation_notifications">Cancellation Notifications</string>
     <string name="gate_change_notifications">Gate Change Notifications</string>
+    <string name="boarding_time_reminders">Boarding Time Reminders</string>
+    <string name="trip_reminders">Trip Reminders</string>
+    <string name="remind_me_to_leave_for_the_airport">Remind me to leave for the airport</string>
+    <string name="remind_me_before_departure">Remind me before departure</string>
     <string name="do_not_disturb">Do Not Disturb</string>
     <string name="enable_do_not_disturb">Enable Do Not Disturb</string>
     <string name="start_time">Start Time</string>

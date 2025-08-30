@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.NotificationSettingsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,78 +12,121 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Notification Types -->
+        <!-- Flight Status Notifications -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/notification_types"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp" />
+            android:text="@string/flight_status_notifications"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:layout_marginBottom="8dp" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/delayNotificationsSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/delay_notifications"
-            android:layout_marginBottom="16dp" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/cancellationNotificationsSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/cancellation_notifications"
-            android:layout_marginBottom="16dp" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/gateChangeNotificationsSwitch"
+            android:id="@+id/gateChangeSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/gate_change_notifications"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/delaySwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/delay_notifications"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/cancellationSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cancellation_notifications"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/boardingTimeSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/boarding_time_reminders"
             android:layout_marginBottom="16dp" />
+
+        <!-- Trip Reminders -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/trip_reminders"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/leaveForAirportSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/remind_me_to_leave_for_the_airport" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/remind_me_before_departure"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+        <Spinner
+            android:id="@+id/reminderTimeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:entries="@array/reminder_time_options" />
 
         <!-- Do Not Disturb -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/do_not_disturb"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="16dp" />
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/doNotDisturbSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/enable_do_not_disturb"
-            android:layout_marginBottom="16dp" />
+            android:text="@string/enable_do_not_disturb" />
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/timePickerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/start_time"
-            android:layout_marginBottom="8dp" />
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
 
-        <TimePicker
-            android:id="@+id/startTimePicker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:enabled="false" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/start_time"
+                android:layout_marginTop="8dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/end_time"
-            android:layout_marginBottom="8dp" />
+            <TimePicker
+                android:id="@+id/startTimePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner" />
 
-        <TimePicker
-            android:id="@+id/endTimePicker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:enabled="false" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/end_time"
+                android:layout_marginTop="8dp" />
+
+            <TimePicker
+                android:id="@+id/endTimePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner" />
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

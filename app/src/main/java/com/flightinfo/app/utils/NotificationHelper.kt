@@ -13,30 +13,37 @@ import com.flightinfo.app.ui.MainActivity
 
 class NotificationHelper(private val context: Context) {
     companion object {
-        const val CHANNEL_ID = "flight_status_channel"
+        const val FLIGHT_STATUS_CHANNEL_ID = "flight_status_channel"
+        const val TRIP_REMINDER_CHANNEL_ID = "trip_reminder_channel"
         private const val NOTIFICATION_ID_BASE = 10000
     }
 
     init {
-        createNotificationChannel()
+        createNotificationChannels()
     }
 
-    private fun createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
+    private fun createNotificationChannels() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                CHANNEL_ID,
+            val statusChannel = NotificationChannel(
+                FLIGHT_STATUS_CHANNEL_ID,
                 context.getString(R.string.notification_channel_name),
                 NotificationManager.IMPORTANCE_DEFAULT,
             ).apply {
                 description = context.getString(R.string.notification_channel_description)
             }
 
-            // Register the channel with the system
+            val reminderChannel = NotificationChannel(
+                TRIP_REMINDER_CHANNEL_ID,
+                "Trip Reminders", // Consider adding to strings.xml
+                NotificationManager.IMPORTANCE_HIGH,
+            ).apply {
+                description = "Notifications to remind you to leave for the airport."
+            }
+
             val notificationManager: NotificationManager =
                 context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
+            notificationManager.createNotificationChannel(statusChannel)
+            notificationManager.createNotificationChannel(reminderChannel)
         }
     }
 
@@ -44,19 +51,9 @@ class NotificationHelper(private val context: Context) {
         val title = context.getString(R.string.flight_status_update)
         val message = context.getString(R.string.flight_status_changed, newStatus)
 
-        // Create an intent that will be fired when the user taps the notification
-        val intent = Intent(context, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
+        val pendingIntent = createMainActivityPendingIntent()
 
-        val pendingIntent = PendingIntent.getActivity(
-            context,
-            0,
-            intent,
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
-        )
-
-        val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
+        val notificationBuilder = NotificationCompat.Builder(context, FLIGHT_STATUS_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_flight)
             .setContentTitle(title)
             .setContentText(message)
@@ -73,19 +70,9 @@ class NotificationHelper(private val context: Context) {
         val title = "Price Alert for flight $flightNumber"
         val message = "The price has changed to $newPrice"
 
-        // Create an intent that will be fired when the user taps the notification
-        val intent = Intent(context, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
+        val pendingIntent = createMainActivityPendingIntent()
 
-        val pendingIntent = PendingIntent.getActivity(
-            context,
-            0,
-            intent,
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
-        )
-
-        val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
+        val notificationBuilder = NotificationCompat.Builder(context, FLIGHT_STATUS_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_flight)
             .setContentTitle(title)
             .setContentText(message)
@@ -96,5 +83,37 @@ class NotificationHelper(private val context: Context) {
         with(NotificationManagerCompat.from(context)) {
             notify(flightNumber.hashCode() + NOTIFICATION_ID_BASE + 1, notificationBuilder.build())
         }
+    }
+
+    fun showTripReminderNotification(flightNumber: String, departureAirport: String, reminderText: String) {
+        val title = "Reminder for Flight $flightNumber"
+        val message = "Leaving from $departureAirport. $reminderText"
+
+        val pendingIntent = createMainActivityPendingIntent()
+
+        val notificationBuilder = NotificationCompat.Builder(context, TRIP_REMINDER_CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_car) // Using a different icon for trip reminders
+            .setContentTitle(title)
+            .setContentText(message)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
+
+        with(NotificationManagerCompat.from(context)) {
+            // Use a unique ID for trip reminders
+            notify(flightNumber.hashCode() + NOTIFICATION_ID_BASE + 2, notificationBuilder.build())
+        }
+    }
+
+    private fun createMainActivityPendingIntent(): PendingIntent {
+        val intent = Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        return PendingIntent.getActivity(
+            context,
+            0,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
+        )
     }
 }

@@ -1,7 +1,12 @@
 package com.flightinfo.app.ui.viewmodel
 
+import android.app.Application
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.Data
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.flightinfo.app.data.model.FlightInfo
 import com.flightinfo.app.data.model.FlightSearchResponse
 import com.flightinfo.app.data.model.PriceRangeFilter
@@ -10,7 +15,9 @@ import com.flightinfo.app.data.model.TravelSuggestionResponse
 import com.flightinfo.app.data.repository.BookmarkedFlightRepository
 import com.flightinfo.app.data.repository.FlightRepository
 import com.flightinfo.app.data.repository.TrackedFlightRepository
+import com.flightinfo.app.ui.fragment.NotificationSettingsFragment
 import com.flightinfo.app.utils.Resource
+import com.flightinfo.app.workers.TripReminderWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,10 +29,15 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Locale
+import java.util.TimeZone
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @HiltViewModel
 class FlightSearchViewModel @Inject constructor(
+    private val application: Application,
     private val repository: FlightRepository,
     private val trackedFlightRepository: TrackedFlightRepository,
     private val bookmarkedFlightRepository: BookmarkedFlightRepository,
@@ -116,22 +128,62 @@ class FlightSearchViewModel @Inject constructor(
         }
     }
 
-    fun trackFlight(flightId: String, flightNumber: String, currentStatus: String) {
+    fun trackFlight(flight: FlightInfo) {
         viewModelScope.launch {
             val trackedFlight = TrackedFlight(
-                flightId = flightId,
-                flightNumber = flightNumber,
-                lastStatus = currentStatus,
+                flightId = flight.flightNumber, // Use flightNumber as the unique ID
+                flightNumber = flight.flightNumber,
+                lastStatus = flight.status,
                 lastUpdated = System.currentTimeMillis(),
                 notificationEnabled = true,
             )
             trackedFlightRepository.insertTrackedFlight(trackedFlight)
+            scheduleTripReminder(flight)
         }
     }
 
-    fun untrackFlight(flightId: String) {
+    private fun scheduleTripReminder(flight: FlightInfo) {
+        val prefs = application.getSharedPreferences(NotificationSettingsFragment.PREFS_NAME, Context.MODE_PRIVATE)
+        val isReminderEnabled = prefs.getBoolean(NotificationSettingsFragment.KEY_LEAVE_FOR_AIRPORT, false)
+
+        if (isReminderEnabled) {
+            try {
+                // Assuming ISO 8601 format "yyyy-MM-dd'T'HH:mm:ss'Z'"
+                val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US).apply {
+                    timeZone = TimeZone.getTimeZone("UTC")
+                }
+                val departureTimeMillis = sdf.parse(flight.departureTime)?.time ?: return
+
+                val reminderTimeIndex = prefs.getInt(NotificationSettingsFragment.KEY_REMINDER_TIME_INDEX, 1)
+                val hoursBefore = reminderTimeIndex + 2 // 0=2h, 1=3h, 2=4h, 3=5h
+                val reminderTimeMillis = departureTimeMillis - TimeUnit.HOURS.toMillis(hoursBefore.toLong())
+                val delay = reminderTimeMillis - System.currentTimeMillis()
+
+                if (delay > 0) {
+                    val data = Data.Builder()
+                        .putString(TripReminderWorker.KEY_FLIGHT_NUMBER, flight.flightNumber)
+                        .putString(TripReminderWorker.KEY_DEPARTURE_AIRPORT, flight.departureAirport)
+                        .build()
+
+                    val reminderWorkRequest = OneTimeWorkRequestBuilder<TripReminderWorker>()
+                        .setInitialDelay(delay, TimeUnit.MILLISECONDS)
+                        .setInputData(data)
+                        .addTag("reminder_${flight.flightNumber}")
+                        .build()
+
+                    WorkManager.getInstance(application).enqueue(reminderWorkRequest)
+                }
+            } catch (e: Exception) {
+                // Handle parsing exception, e.g., log it
+            }
+        }
+    }
+
+    fun untrackFlight(flightNumber: String) {
         viewModelScope.launch {
-            trackedFlightRepository.deleteTrackedFlightById(flightId)
+            trackedFlightRepository.deleteTrackedFlightById(flightNumber)
+            // Cancel the reminder work request
+            WorkManager.getInstance(application).cancelAllWorkByTag("reminder_$flightNumber")
         }
     }
 

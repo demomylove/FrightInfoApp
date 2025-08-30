@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="initial_price_range">
-        <item>0.0</item>
-        <item>2000.0</item>
+    <string-array name="reminder_time_options">
+        <item>2 hours before</item>
+        <item>3 hours before</item>
+        <item>4 hours before</item>
+        <item>5 hours before</item>
     </string-array>
+    <integer-array name="initial_price_range">
+        <item>100</item>
+        <item>1000</item>
+    </integer-array>
 </resources>

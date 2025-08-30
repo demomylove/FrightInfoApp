@@ -102,7 +102,7 @@ class FlightListFragment : Fragment() {
                 if (isTracked) {
                     viewModel.untrackFlight(flight.flightNumber)
                 } else {
-                    viewModel.trackFlight(flight.flightNumber, flight.flightNumber, flight.status)
+                    viewModel.trackFlight(flight)
                 }
             },
             onBookmarkClick = { flight ->
