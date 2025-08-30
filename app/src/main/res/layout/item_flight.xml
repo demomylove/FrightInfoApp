@@ -49,6 +49,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="8dp"
+                android:padding="12dp"
                 android:src="@drawable/ic_bookmark_border"
                 android:contentDescription="@string/bookmark_flight"
                 app:tint="?attr/colorPrimary" />
@@ -56,10 +57,11 @@
             <ImageView
                 android:id="@+id/favoriteRouteIcon"
                 android:layout_width="24dp"
-                android:layout_height="24dp"
+                android.layout_height="24dp"
                 android:layout_marginEnd="8dp"
+                android:padding="12dp"
                 android:src="@drawable/ic_star_border"
-                android:contentDescription="Favorite route"
+                android:contentDescription="@string/favorite_route_description"
                 app:tint="?attr/colorPrimary" />
 
             <TextView
@@ -132,6 +134,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_flight_path"
+                    android:importantForAccessibility="no"
                     app:tint="?attr/colorPrimary" />
 
             </LinearLayout>

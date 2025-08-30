@@ -48,6 +48,7 @@
     <string name="flight_item_description" formatted="false">Flight %s from %s to %s</string>
     <string name="search_button_description">Search for flights</string>
     <string name="refresh_button_description">Refresh flight data</string>
+    <string name="favorite_route_description">Favorite route</string>
     
     <!-- Flight Booking -->
     <string name="passenger_name">Passenger Name</string>
