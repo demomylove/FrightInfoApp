@@ -1,13 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF6200EE</color>
-    <color name="colorPrimaryVariant">#FF3700B3</color>
-    <color name="colorOnPrimary">#FFFFFFFF</color>
-    <color name="colorSecondary">#FF03DAC5</color>
-    <color name="colorSecondaryVariant">#FF018786</color>
-    <color name="colorOnSecondary">#FF000000</color>
-    <color name="colorSurface">#FF121212</color>
-    <color name="colorOnSurface">#FFFFFFFF</color>
-    <color name="backgroundColor">#FF121212</color>
-    <color name="textColor">#FFFFFFFF</color>
+    <!-- Primary colors for dark theme -->
+    <color name="primary_color">#BB86FC</color>
+    <color name="primary_color_dark">#3700B3</color>
+    <color name="accent_color">#03DAC6</color>
+    <color name="accent_color_light">#66FFFFFF</color>
+    
+    <!-- Background and surface colors -->
+    <color name="background_color">#121212</color>
+    <color name="surface_color">#1E1E1E</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="error_color">#CF6679</color>
+    
+    <!-- Material Design Colors -->
+    <color name="purple_500">#BB86FC</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="background">#121212</color>
+    <color name="price_high">#CF6679</color>
+    <color name="price_medium">#FFB74D</color>
+    <color name="price_low">#81C784</color>
+    
+    <!-- Status Colors -->
+    <color name="status_on_time">#81C784</color>
+    <color name="status_delayed">#FFD54F</color>
+    <color name="status_cancelled">#CF6679</color>
+    <color name="status_boarding">#64B5F6</color>
+    <color name="status_departed">#9E9E9E</color>
+    
+    <!-- Dark Theme Colors -->
+    <color name="background_color_dark">#121212</color>
+    <color name="surface_color_dark">#1E1E1E</color>
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_secondary_dark">#B0B0B0</color>
+    <color name="card_background_dark">#2C2C2C</color>
+    <color name="divider_color_dark">#404040</color>
+    
+    <!-- Dark Theme Status Colors -->
+    <color name="status_on_time_dark">#81C784</color>
+    <color name="status_delayed_dark">#FFD54F</color>
+    <color name="status_cancelled_dark">#CF6679</color>
+    <color name="status_boarding_dark">#64B5F6</color>
+    <color name="status_departed_dark">#9E9E9E</color>
+    
+    <!-- Seat Selection Colors -->
+    <color name="seat_available">#424242</color>
+    <color name="seat_selected">#66BB6A</color>
+    <color name="seat_occupied">#EF5350</color>
+    <color name="seat_available_dark">#424242</color>
+    <color name="seat_selected_dark">#66BB6A</color>
+    <color name="seat_occupied_dark">#EF5350</color>
+    
+    <!-- Carbon Footprint Colors -->
+    <color name="carbon_background">#1B5E20</color>
+    <color name="carbon_text">#81C784</color>
+    <color name="carbon_value">#A5D6A7</color>
+    <color name="carbon_impact">#2E7D32</color>
+    <color name="carbon_low">#66BB6A</color>
+    <color name="carbon_medium">#FFD54F</color>
+    <color name="carbon_high">#CF6679</color>
+    
+    <!-- Dark Theme Carbon Footprint Colors -->
+    <color name="carbon_background_dark">#1B5E20</color>
+    <color name="carbon_text_dark">#81C784</color>
+    <color name="carbon_value_dark">#A5D6A7</color>
+    <color name="carbon_impact_dark">#2E7D32</color>
+    <color name="carbon_low_dark">#66BB6A</color>
+    <color name="carbon_medium_dark">#FFD54F</color>
+    <color name="carbon_high_dark">#CF6679</color>
 </resources>

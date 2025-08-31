@@ -1,41 +1,83 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme -->
-    <style name="Theme.FlightInfoApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.FlightInfoApp" parent="Theme.Material3.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary_color</item>
-        <item name="colorPrimaryVariant">@color/primary_color_dark</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/primary_color_dark</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+        
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/accent_color</item>
-        <item name="colorSecondaryVariant">@color/accent_color_light</item>
         <item name="colorOnSecondary">@color/white</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="colorSecondaryContainer">@color/accent_color_light</item>
+        <item name="colorOnSecondaryContainer">@color/black</item>
+        
+        <!-- Tertiary brand color. -->
+        <item name="colorTertiary">@color/purple_500</item>
+        <item name="colorOnTertiary">@color/white</item>
+        
+        <!-- Background colors -->
         <item name="android:windowBackground">@color/background_color</item>
         <item name="colorSurface">@color/surface_color</item>
         <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/background_color</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        
+        <!-- Status and navigation bars -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/surface_color</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">@color/surface_color</item>
+        
+        <!-- Error colors -->
         <item name="colorError">@color/error_color</item>
+        <item name="colorOnError">@color/white</item>
+        
+        <!-- Component styles -->
+        <item name="materialButtonStyle">@style/Widget.Material3.Button</item>
+        <item name="materialCardViewStyle">@style/Widget.Material3.CardView.Elevated</item>
+        <item name="bottomNavigationStyle">@style/Widget.Material3.BottomNavigationView</item>
     </style>
     
     <!-- Dark theme -->
-    <style name="Theme.FlightInfoApp.Dark" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.FlightInfoApp.Dark" parent="Theme.Material3.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary_color</item>
-        <item name="colorPrimaryVariant">@color/primary_color_dark</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/primary_color_dark</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+        
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/accent_color</item>
-        <item name="colorSecondaryVariant">@color/accent_color_light</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="colorSecondaryContainer">@color/accent_color_light</item>
+        <item name="colorOnSecondaryContainer">@color/black</item>
+        
+        <!-- Tertiary brand color. -->
+        <item name="colorTertiary">@color/purple_700</item>
+        <item name="colorOnTertiary">@color/white</item>
+        
+        <!-- Background colors -->
         <item name="android:windowBackground">@color/background_color_dark</item>
         <item name="colorSurface">@color/surface_color_dark</item>
         <item name="colorOnSurface">@color/text_primary_dark</item>
+        <item name="colorSurfaceVariant">@color/surface_color_dark</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary_dark</item>
+        
+        <!-- Status and navigation bars -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/surface_color_dark</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">@color/surface_color_dark</item>
+        
+        <!-- Error colors -->
         <item name="colorError">@color/error_color</item>
+        <item name="colorOnError">@color/white</item>
+        
+        <!-- Divider colors -->
         <item name="android:divider">@color/divider_color_dark</item>
         <item name="dividerColor">@color/divider_color_dark</item>
+        
+        <!-- Component styles -->
+        <item name="materialButtonStyle">@style/Widget.Material3.Button</item>
+        <item name="materialCardViewStyle">@style/Widget.Material3.CardView.Elevated</item>
+        <item name="bottomNavigationStyle">@style/Widget.Material3.BottomNavigationView</item>
     </style>
 </resources>

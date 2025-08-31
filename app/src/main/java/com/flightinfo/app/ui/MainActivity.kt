@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.RadioGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -147,8 +148,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun applyTheme() {
-        val isDarkMode = sharedPreferences.getBoolean("dark_mode", false)
-        if (isDarkMode) {
+        val themeMode = sharedPreferences.getInt("theme_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        AppCompatDelegate.setDefaultNightMode(themeMode)
+
+        if (themeMode == AppCompatDelegate.MODE_NIGHT_YES) {
             setTheme(R.style.Theme_FlightInfoApp_Dark)
         }
     }
@@ -166,7 +169,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showThemeDialog() {
-        val isDarkMode = sharedPreferences.getBoolean("dark_mode", false)
+        val currentMode = sharedPreferences.getInt("theme_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
 
         AlertDialog.Builder(this)
             .setTitle(R.string.theme_settings)
@@ -174,26 +177,33 @@ class MainActivity : AppCompatActivity() {
                 arrayOf(
                     resources.getString(R.string.theme_light),
                     resources.getString(R.string.theme_dark),
+                    resources.getString(R.string.theme_system),
                 ),
-                if (isDarkMode) 1 else 0,
+                when (currentMode) {
+                    AppCompatDelegate.MODE_NIGHT_NO -> 0
+                    AppCompatDelegate.MODE_NIGHT_YES -> 1
+                    else -> 2
+                },
                 null,
             )
             .setPositiveButton(R.string.restart_app) { dialog, which ->
-                val selectedMode = (dialog as? AlertDialog)?.listView?.checkedItemPosition == 1
-                if (selectedMode != isDarkMode) {
-                    sharedPreferences.edit().putBoolean("dark_mode", selectedMode).apply()
+                val selectedPosition = (dialog as AlertDialog).listView.checkedItemPosition
+                val newMode = when (selectedPosition) {
+                    0 -> AppCompatDelegate.MODE_NIGHT_NO
+                    1 -> AppCompatDelegate.MODE_NIGHT_YES
+                    else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+                }
 
-                    // Restart app to apply theme
-                    AlertDialog.Builder(this)
-                        .setTitle(R.string.theme_changed)
-                        .setMessage(R.string.restart_for_theme)
-                        .setPositiveButton(R.string.restart_app) { _, _ ->
-                            val intent = intent
-                            finish()
-                            startActivity(intent)
-                        }
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show()
+                if (newMode != currentMode) {
+                    sharedPreferences.edit().putInt("theme_mode", newMode).apply()
+                    AppCompatDelegate.setDefaultNightMode(newMode)
+
+                    // Show confirmation message
+                    android.widget.Toast.makeText(
+                        this,
+                        R.string.theme_applied_immediately,
+                        android.widget.Toast.LENGTH_SHORT,
+                    ).show()
                 }
             }
             .setNegativeButton(android.R.string.cancel, null)

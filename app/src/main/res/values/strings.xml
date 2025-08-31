@@ -120,9 +120,11 @@
     <string name="theme_settings">Theme Settings</string>
     <string name="theme_light">Light Mode</string>
     <string name="theme_dark">Dark Mode</string>
+    <string name="theme_system">Follow System</string>
     <string name="theme_changed">Theme Changed</string>
     <string name="restart_for_theme">Restart app to apply new theme</string>
     <string name="switch_theme">Switch Theme</string>
+    <string name="theme_applied_immediately">Theme will be applied immediately</string>
     
     <!-- Airport Lookup -->
     <string name="airport_lookup">Airport Lookup</string>
