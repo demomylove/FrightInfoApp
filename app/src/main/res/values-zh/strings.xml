@@ -40,4 +40,81 @@
     <string name="enable_do_not_disturb">启用勿扰模式</string>
     <string name="start_time">开始时间</string>
     <string name="end_time">结束时间</string>
+
+    <!-- Flight Details -->
+    <string name="gate">登机口</string>
+    <string name="terminal">航站楼</string>
+
+    <!-- Accessibility -->
+    <string name="favorite_route_description">收藏航线</string>
+    <string name="share_flight">分享航班</string>
+    <string name="bookmark_flight">收藏航班</string>
+
+    <!-- Theme Settings -->
+    <string name="theme_settings">主题设置</string>
+    <string name="theme_light">浅色模式</string>
+    <string name="theme_dark">深色模式</string>
+    <string name="theme_system">跟随系统</string>
+    <string name="theme_changed">主题已切换</string>
+    <string name="restart_for_theme">重启应用以应用新主题</string>
+    <string name="switch_theme">切换主题</string>
+    <string name="theme_applied_immediately">主题将立即应用</string>
+
+    <!-- Carbon Footprint -->
+    <string name="carbon_footprint">碳足迹</string>
+    <string name="carbon_footprint_stats">碳足迹统计</string>
+    <string name="total_emissions">总排放量</string>
+    <string name="total_flights">总航班数</string>
+    <string name="average_emission">平均排放量</string>
+    <string name="total_distance">总距离</string>
+    <string name="impact_level">影响等级</string>
+    <string name="equivalent_impact">等效影响</string>
+    <string name="car_travel">汽车行驶</string>
+    <string name="trees_to_plant">需植树</string>
+    <string name="monthly_trend">月度趋势</string>
+    <string name="airline_breakdown">航司分布</string>
+    <string name="low_impact">低</string>
+    <string name="medium_impact">中</string>
+    <string name="high_impact">高</string>
+    <string name="co2_emission_format" formatted="false">%.1f 千克二氧化碳</string>
+    <string name="emission_per_flight_format" formatted="false">%.1f 千克/航班</string>
+    <string name="distance_format" formatted="false">%.0f 公里</string>
+    <string name="car_equivalent_format" formatted="false">%.0f 公里</string>
+    <string name="trees_format" formatted="false">%d 棵树</string>
+    <string name="low_impact_description">低影响 - 环境友好</string>
+    <string name="medium_impact_description">中等影响 - 考虑碳补偿</string>
+    <string name="high_impact_description">高影响 - 考虑替代交通方式</string>
+    <string name="carbon_offset_suggestions">碳补偿建议</string>
+    <string name="tree_planting">植树</string>
+    <string name="renewable_energy">可再生能源</string>
+    <string name="carbon_credits">碳信用</string>
+
+    <!-- User Account -->
+    <string name="login_title">登录</string>
+    <string name="register_title">注册</string>
+    <string name="profile_title">个人资料</string>
+    <string name="email_hint">邮箱</string>
+    <string name="password_hint">密码</string>
+    <string name="confirm_password_hint">确认密码</string>
+    <string name="login_button">登录</string>
+    <string name="register_button">注册</string>
+    <string name="logout_button">退出登录</string>
+    <string name="no_account_register_link">没有账户？点击注册</string>
+    <string name="has_account_login_link">已有账户？点击登录</string>
+    <string name="profile_email_label">邮箱：</string>
+    <string name="auth_email_required">需要输入邮箱</string>
+    <string name="auth_password_required">需要输入密码</string>
+    <string name="auth_password_too_short">密码长度至少为6位</string>
+    <string name="auth_password_mismatch">两次输入的密码不一致</string>
+    <string name="auth_email_invalid">邮箱格式无效</string>
+    <string name="auth_login_success">登录成功</string>
+    <string name="auth_register_success">注册成功</string>
+    <string name="auth_login_failed">登录失败</string>
+    <string name="auth_register_failed">注册失败</string>
+    <string name="auth_user_exists">该邮箱已被注册</string>
+    <string name="auth_invalid_credentials">邮箱或密码无效</string>
+    <string name="auth_account_deactivated">账户已被停用</string>
+    <string name="auth_logout_success">已成功退出登录</string>
+    <string name="favorite_routes">收藏的航线</string>
+    <string name="search_history">搜索历史</string>
 </resources>

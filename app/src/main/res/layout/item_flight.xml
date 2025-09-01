@@ -57,11 +57,20 @@
             <ImageView
                 android:id="@+id/favoriteRouteIcon"
                 android:layout_width="24dp"
-                android.layout_height="24dp"
+                android:layout_height="24dp"
                 android:layout_marginEnd="8dp"
                 android:padding="12dp"
                 android:src="@drawable/ic_star_border"
                 android:contentDescription="@string/favorite_route_description"
+                app:tint="?attr/colorPrimary" />
+
+            <ImageView
+                android:id="@+id/shareIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:src="@android:drawable/ic_menu_share"
+                android:contentDescription="@string/share_flight"
                 app:tint="?attr/colorPrimary" />
 
             <TextView
@@ -185,6 +194,7 @@
                 android:gravity="center_vertical"
                 android:textColor="?attr/colorOnSecondary"
                 android:textSize="12sp"
+                android:contentDescription="@string/gate"
                 tools:text="Gate A12" />
 
             <TextView
@@ -197,6 +207,7 @@
                 android:gravity="center_vertical"
                 android:textColor="?attr/colorOnSecondary"
                 android:textSize="12sp"
+                android:contentDescription="@string/terminal"
                 tools:text="Terminal T3" />
 
             <TextView

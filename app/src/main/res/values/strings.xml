@@ -17,6 +17,8 @@
     <string name="status_in_flight">IN FLIGHT</string>
     
     <!-- Flight Details -->
+    <string name="gate">Gate</string>
+    <string name="terminal">Terminal</string>
     <string name="gate_format">Gate %s</string>
     <string name="terminal_format">Terminal %s</string>
     <string name="delay_format">Delayed %d min</string>
@@ -49,6 +51,7 @@
     <string name="search_button_description">Search for flights</string>
     <string name="refresh_button_description">Refresh flight data</string>
     <string name="favorite_route_description">Favorite route</string>
+    <string name="share_flight">Share flight</string>
     
     <!-- Flight Booking -->
     <string name="passenger_name">Passenger Name</string>

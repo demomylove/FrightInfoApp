@@ -1,5 +1,6 @@
 package com.flightinfo.app.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ class FlightAdapter(
     private val onTrackClick: (FlightInfo, Boolean) -> Unit = { _, _ -> },
     private val onBookmarkClick: (FlightInfo) -> Unit = {},
     private val onFavoriteRouteClick: (FlightInfo) -> Unit = {},
+    private val onShareClick: (FlightInfo) -> Unit = {},
 ) : ListAdapter<FlightInfo, FlightAdapter.FlightViewHolder>(FlightDiffCallback()) {
 
     private val bookmarkedFlightNumbers = mutableSetOf<String>()
@@ -90,6 +92,28 @@ class FlightAdapter(
                 val position = bindingAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     onFavoriteRouteClick(getItem(position))
+                }
+            }
+
+            binding.shareIcon.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val flight = getItem(position)
+                    val shareText = """
+                        Check out this flight:
+                        Flight: ${flight.flightNumber} (${flight.airline})
+                        From: ${flight.departureAirport} at ${formatTime(flight.departureTime)}
+                        To: ${flight.arrivalAirport} at ${formatTime(flight.arrivalTime)}
+                        Status: ${flight.status.uppercase()}
+                    """.trimIndent()
+
+                    val intent = Intent(Intent.ACTION_SEND).apply {
+                        type = "text/plain"
+                        putExtra(Intent.EXTRA_SUBJECT, "Flight Information: ${flight.flightNumber}")
+                        putExtra(Intent.EXTRA_TEXT, shareText)
+                    }
+                    binding.root.context.startActivity(Intent.createChooser(intent, "Share Flight via"))
+                    onShareClick(flight)
                 }
             }
         }

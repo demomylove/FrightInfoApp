@@ -36,7 +36,8 @@
             android:hint="@string/search_airport_hint"
             android:imeOptions="actionSearch"
             android:inputType="text"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:contentDescription="@string/search_airport_hint" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
