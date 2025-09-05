@@ -16,7 +16,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.flightinfo.app.R
 import com.flightinfo.app.utils.AuthManager
-import com.flightinfo.app.utils.FlightTrackingManager
 import com.flightinfo.app.utils.LocaleManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -44,8 +43,8 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        // Start the flight tracking service
-        FlightTrackingManager.getInstance().startTrackingService(this)
+        // Request notification permission on Android 13+
+        maybeRequestNotificationPermission()
 
         // Setup NavController after view is created
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -80,6 +79,16 @@ class MainActivity : AppCompatActivity() {
 
         // 添加个人资料按钮
         addProfileButton()
+    }
+
+    private fun maybeRequestNotificationPermission() {
+        if (android.os.Build.VERSION.SDK_INT >= 33) {
+            val permission = android.Manifest.permission.POST_NOTIFICATIONS
+            val granted = checkSelfPermission(permission) == android.content.pm.PackageManager.PERMISSION_GRANTED
+            if (!granted) {
+                requestPermissions(arrayOf(permission), 1001)
+            }
+        }
     }
 
     private fun checkAuthAndNavigate(navController: NavController) {

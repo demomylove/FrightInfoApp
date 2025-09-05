@@ -3,10 +3,10 @@ package com.flightinfo.app.service
 import android.content.Context
 import android.content.SharedPreferences
 import com.flightinfo.app.utils.NotificationHelper
+import com.flightinfo.app.utils.NotificationPolicy
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.Calendar
 import com.flightinfo.app.ui.fragment.NotificationSettingsFragment.Companion as Prefs
 
 @AndroidEntryPoint
@@ -52,32 +52,7 @@ class FlightNotificationService : FirebaseMessagingService() {
         }
     }
 
-    private fun isDndActive(): Boolean {
-        if (!prefs.getBoolean(Prefs.KEY_DO_NOT_DISTURB, false)) {
-            return false
-        }
-
-        val startHour = prefs.getInt(Prefs.KEY_DND_START_HOUR, 22)
-        val startMinute = prefs.getInt(Prefs.KEY_DND_START_MINUTE, 0)
-        val endHour = prefs.getInt(Prefs.KEY_DND_END_HOUR, 7)
-        val endMinute = prefs.getInt(Prefs.KEY_DND_END_MINUTE, 0)
-
-        val now = Calendar.getInstance()
-        val start = Calendar.getInstance().apply {
-            set(Calendar.HOUR_OF_DAY, startHour)
-            set(Calendar.MINUTE, startMinute)
-        }
-        val end = Calendar.getInstance().apply {
-            set(Calendar.HOUR_OF_DAY, endHour)
-            set(Calendar.MINUTE, endMinute)
-        }
-
-        // Handle overnight DND period (e.g., 10 PM to 7 AM)
-        if (start.after(end)) {
-            return now.after(start) || now.before(end)
-        }
-        return now.after(start) && now.before(end)
-    }
+    private fun isDndActive(): Boolean = NotificationPolicy.isDndActive(this)
 
     override fun onNewToken(token: String) {
         // Handle new token

@@ -34,10 +34,10 @@ class NotificationHelper(private val context: Context) {
 
             val reminderChannel = NotificationChannel(
                 TRIP_REMINDER_CHANNEL_ID,
-                "Trip Reminders", // Consider adding to strings.xml
+                context.getString(R.string.trip_reminder_channel_name),
                 NotificationManager.IMPORTANCE_HIGH,
             ).apply {
-                description = "Notifications to remind you to leave for the airport."
+                description = context.getString(R.string.trip_reminder_channel_description)
             }
 
             val notificationManager: NotificationManager =

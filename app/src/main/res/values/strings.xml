@@ -93,6 +93,8 @@
     <string name="flight_tracking_disabled">Flight tracking disabled</string>
     <string name="notification_channel_name">Flight Status Updates</string>
     <string name="notification_channel_description">Notifications for flight status changes</string>
+    <string name="trip_reminder_channel_name">Trip Reminders</string>
+    <string name="trip_reminder_channel_description">Reminders to leave for the airport and key trip notices</string>
     <string name="flight_status_update">Flight Status Update</string>
     <string name="flight_status_changed" formatted="false">Your flight status has changed to %s</string>
     
