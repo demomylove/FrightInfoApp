@@ -2,6 +2,7 @@ package com.flightinfo.app.di
 
 import android.content.Context
 import androidx.room.Room
+import com.flightinfo.app.data.dao.BaggageDao
 import com.flightinfo.app.data.dao.BookmarkedFlightDao
 import com.flightinfo.app.data.dao.DownloadedSchedulePackageDao
 import com.flightinfo.app.data.dao.FavoriteRouteDao
@@ -30,7 +31,7 @@ object DatabaseModule {
             context,
             FlightInfoDatabase::class.java,
             "flight_info_database",
-        ).addMigrations(FlightInfoDatabase.MIGRATION_4_5, FlightInfoDatabase.MIGRATION_5_6, FlightInfoDatabase.MIGRATION_6_7)
+        ).addMigrations(FlightInfoDatabase.MIGRATION_4_5, FlightInfoDatabase.MIGRATION_5_6, FlightInfoDatabase.MIGRATION_6_7, FlightInfoDatabase.MIGRATION_7_8)
             .build()
     }
 
@@ -82,6 +83,11 @@ object DatabaseModule {
     @Provides
     fun provideItineraryDao(database: FlightInfoDatabase): ItineraryDao {
         return database.itineraryDao()
+    }
+
+    @Provides
+    fun provideBaggageDao(database: FlightInfoDatabase): BaggageDao {
+        return database.baggageDao()
     }
 
     @Provides

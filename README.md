@@ -21,6 +21,7 @@ FlightInfoApp 是一个基于 Android MVVM 架构的实时航班信息查询应�
 *   **🔄 离线支持**: 在网络不佳时可访问基础航班数据。
 *   **🌍 多语言支持**: 支持中英文界面，并可根据系统语言自动适配。
 *   **🧳 行程管理（新增）**: 支持行程单聚合（多航段）、待办与时间线视图、日历同步、一键跳转值机/登机牌。
+*   **🧳 行李跟踪（新增）**: 支持行李标签号查询、实时状态跟踪、航班关联查询、行李位置更新和状态推送。
 
 ## 技术架构概览
 
@@ -38,6 +39,14 @@ FlightInfoApp 采用现代化的 **MVVM (Model-View-ViewModel)** 架构模式，
 *   **状态与界面**: `ItineraryViewModel` + `ItineraryFragment`，提供时间线、值机/登机牌深链按钮、日历同步按钮。
 *   **系统集成**: `CalendarSyncManager` 写入系统日历，`DeepLinkHelper` 打开值机/登机牌链接。
 
+### 行李跟踪模块（新增）
+
+*   **数据模型**: `BaggageItem`、`BaggageTrackingResponse`、`BaggageType`、`BaggageStatus`（路径：`app/src/main/java/com/flightinfo/app/data/model/BaggageTracking.kt`）。
+*   **存储与迁移**: 新增 `baggage_items` 表（Room），数据库版本升级至 `8`，迁移 `MIGRATION_7_8`（路径：`data/database/FlightInfoDatabase.kt`）。
+*   **DAO/仓库**: `BaggageDao`、`BaggageRepository`（路径：`data/dao/BaggageDao.kt`、`data/repository/BaggageRepository.kt`）。
+*   **状态与界面**: `BaggageViewModel` + `BaggageFragment`，提供行李列表、状态跟踪、位置更新、扫码查询等功能。
+*   **依赖注入**: 在 `DatabaseModule` 中添加 `BaggageDao` 提供者，支持 Hilt 依赖注入。
+
 ## 使用说明：行程管理
 
 *   **入口**: 导航图已注册 `itineraryFragment`，可从现有页面通过 `findNavController().navigate(R.id.itineraryFragment)` 进入。
@@ -46,13 +55,29 @@ FlightInfoApp 采用现代化的 **MVVM (Model-View-ViewModel)** 架构模式，
     - 一个主行程事件（覆盖整个行程时段）
     - 每个航段一个事件（起飞/到达时段、航司/航站楼/登机口等备注）
     - 每个待办一个提醒事件（默认 0 分钟前提醒，可在系统日历中调整）
-*   **值机/登机牌**: 点击“去值机”“查看登机牌”将通过外部浏览器打开链接（依据行程中 `checkInUrl`/`boardingPassUrl`）。
+*   **值机/登机牌**: 点击"去值机""查看登机牌"将通过外部浏览器打开链接（依据行程中 `checkInUrl`/`boardingPassUrl`）。
+
+## 使用说明：行李跟踪
+
+*   **入口**: 导航图已注册 `baggageFragment`，可从现有页面通过 `findNavController().navigate(R.id.baggageFragment)` 进入。
+*   **行李查询**: 支持通过行李标签号手动输入或扫码查询行李状态。
+*   **状态跟踪**: 实时显示行李状态（已托运、已装载、运输中、已卸载、传送带上、已送达等）。
+*   **航班关联**: 可按航班号查询该航班的所有行李信息。
+*   **位置更新**: 支持手动更新行李位置和状态信息。
+*   **推送通知**: 行李状态变更时发送通知提醒。
 
 ## 开发者提示：行程与预订联动
 
-* 在用户完成航班预订后，可生成 `Itinerary` 并保存至仓库，默认附加“出发前往机场”“在线值机”等待办。
+* 在用户完成航班预订后，可生成 `Itinerary` 并保存至仓库，默认附加"出发前往机场""在线值机"等待办。
 * 如需根据航司/IATA 规则构造更可靠的值机/登机牌链接，可在 `DeepLinkHelper` 统一封装。
-* 后续可在首页或个人中心添加“行程管理”入口按钮，以提升发现性。
+* 后续可在首页或个人中心添加"行程管理"入口按钮，以提升发现性。
+
+## 开发者提示：行李跟踪集成
+
+* 在用户办理值机手续后，可自动创建 `BaggageItem` 记录并关联到对应航班。
+* 支持与航空公司行李跟踪系统对接，实现实时状态同步。
+* 扫码功能可集成 `zxing` 或 `ML Kit` 等二维码扫描库。
+* 状态推送可利用 `WorkManager` 实现后台轮询或与推送服务集成。
 
 ## 使用场景
 

@@ -5,6 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.flightinfo.app.data.dao.BaggageDao
 import com.flightinfo.app.data.dao.BookmarkedFlightDao
 import com.flightinfo.app.data.dao.DownloadedSchedulePackageDao
 import com.flightinfo.app.data.dao.FavoriteRouteDao
@@ -15,6 +16,7 @@ import com.flightinfo.app.data.dao.OfflineAirportInfoDao
 import com.flightinfo.app.data.dao.TrackedFlightDao
 import com.flightinfo.app.data.dao.UserBehaviorDao
 import com.flightinfo.app.data.dao.UserDao
+import com.flightinfo.app.data.model.BaggageItem
 import com.flightinfo.app.data.model.BookmarkedFlight
 import com.flightinfo.app.data.model.DownloadedSchedulePackage
 import com.flightinfo.app.data.model.FavoriteRoute
@@ -46,11 +48,12 @@ import com.flightinfo.app.data.model.UserPreferences
         HistoricalFlight::class,
         User::class,
         Itinerary::class,
+        BaggageItem::class,
     ],
-    version = 7,
+    version = 8,
     exportSchema = false,
 )
-@TypeConverters(ScheduleConverters::class, TrackedFlightConverters::class, RecommendationConverters::class, ItineraryConverters::class)
+@TypeConverters(ScheduleConverters::class, TrackedFlightConverters::class, RecommendationConverters::class, ItineraryConverters::class, Converters::class)
 abstract class FlightInfoDatabase : RoomDatabase() {
     abstract fun trackedFlightDao(): TrackedFlightDao
     abstract fun flightScheduleDao(): FlightScheduleDao
@@ -62,6 +65,7 @@ abstract class FlightInfoDatabase : RoomDatabase() {
     abstract fun historicalFlightDao(): HistoricalFlightDao
     abstract fun userDao(): UserDao
     abstract fun itineraryDao(): ItineraryDao
+    abstract fun baggageDao(): BaggageDao
 
     companion object {
         val MIGRATION_3_4 = object : Migration(3, 4) {
@@ -188,6 +192,42 @@ abstract class FlightInfoDatabase : RoomDatabase() {
                         `checkInUrl` TEXT,
                         `boardingPassUrl` TEXT
                     )
+                    """.trimIndent(),
+                )
+            }
+        }
+
+        val MIGRATION_7_8 = object : Migration(7, 8) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `baggage_items` (
+                        `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        `baggage_tag_number` TEXT NOT NULL,
+                        `flight_number` TEXT NOT NULL,
+                        `baggage_type` TEXT NOT NULL,
+                        `weight` REAL NOT NULL,
+                        `weight_unit` TEXT NOT NULL,
+                        `status` TEXT NOT NULL,
+                        `last_location` TEXT,
+                        `last_updated` INTEGER NOT NULL,
+                        `check_in_time` INTEGER,
+                        `loaded_time` INTEGER,
+                        `unloaded_time` INTEGER,
+                        `carousel_number` TEXT,
+                        `special_handling` INTEGER NOT NULL,
+                        `notes` TEXT
+                    )
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    """
+                    CREATE INDEX IF NOT EXISTS `index_baggage_items_flight_number` ON `baggage_items` (`flight_number`)
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    """
+                    CREATE INDEX IF NOT EXISTS `index_baggage_items_baggage_tag_number` ON `baggage_items` (`baggage_tag_number`)
                     """.trimIndent(),
                 )
             }
