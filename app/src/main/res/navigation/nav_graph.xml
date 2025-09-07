@@ -104,6 +104,12 @@
         android:name="com.flightinfo.app.ui.fragment.PriceTrackingFragment"
         android:label="Price Tracking"
         tools:layout="@layout/fragment_price_tracking" />
+
+    <fragment
+        android:id="@+id/itineraryFragment"
+        android:name="com.flightinfo.app.ui.fragment.ItineraryFragment"
+        android:label="行程管理"
+        tools:layout="@layout/fragment_itinerary" />
     
     <fragment
         android:id="@+id/airportLookupFragment"

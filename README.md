@@ -20,6 +20,7 @@ FlightInfoApp 是一个基于 Android MVVM 架构的实时航班信息查询应�
 *   **💡 直观用户界面**: 采用 Material Design 3 设计，通过色彩编码快速识别航班状态。
 *   **🔄 离线支持**: 在网络不佳时可访问基础航班数据。
 *   **🌍 多语言支持**: 支持中英文界面，并可根据系统语言自动适配。
+*   **🧳 行程管理（新增）**: 支持行程单聚合（多航段）、待办与时间线视图、日历同步、一键跳转值机/登机牌。
 
 ## 技术架构概览
 
@@ -28,6 +29,30 @@ FlightInfoApp 采用现代化的 **MVVM (Model-View-ViewModel)** 架构模式，
 *   **开发语言**: Kotlin
 *   **核心技术**: Android Jetpack (Lifecycle, ViewModel, Navigation), Coroutines, Hilt, Retrofit, Room.
 *   **界面框架**: Material Design Components, ViewBinding.
+
+### 行程管理模块（新增）
+
+*   **数据模型**: `Itinerary`、`ItinerarySegment`、`TripTask`（路径：`app/src/main/java/com/flightinfo/app/data/model/Itinerary.kt`）。
+*   **存储与迁移**: 新增 `itineraries` 表（Room），数据库版本升级至 `7`，迁移 `MIGRATION_6_7`（路径：`data/database/FlightInfoDatabase.kt`）。
+*   **DAO/仓库**: `ItineraryDao`、`ItineraryRepository`（路径：`data/dao/ItineraryDao.kt`、`data/repository/ItineraryRepository.kt`）。
+*   **状态与界面**: `ItineraryViewModel` + `ItineraryFragment`，提供时间线、值机/登机牌深链按钮、日历同步按钮。
+*   **系统集成**: `CalendarSyncManager` 写入系统日历，`DeepLinkHelper` 打开值机/登机牌链接。
+
+## 使用说明：行程管理
+
+*   **入口**: 导航图已注册 `itineraryFragment`，可从现有页面通过 `findNavController().navigate(R.id.itineraryFragment)` 进入。
+*   **首次体验**: 若无数据，应用会自动生成示例行程（含 1 段航班与 2 个待办）。
+*   **日历同步**: 点击“同步到日历”，首次将请求 `READ_CALENDAR`/`WRITE_CALENDAR` 权限；成功后会创建：
+    - 一个主行程事件（覆盖整个行程时段）
+    - 每个航段一个事件（起飞/到达时段、航司/航站楼/登机口等备注）
+    - 每个待办一个提醒事件（默认 0 分钟前提醒，可在系统日历中调整）
+*   **值机/登机牌**: 点击“去值机”“查看登机牌”将通过外部浏览器打开链接（依据行程中 `checkInUrl`/`boardingPassUrl`）。
+
+## 开发者提示：行程与预订联动
+
+* 在用户完成航班预订后，可生成 `Itinerary` 并保存至仓库，默认附加“出发前往机场”“在线值机”等待办。
+* 如需根据航司/IATA 规则构造更可靠的值机/登机牌链接，可在 `DeepLinkHelper` 统一封装。
+* 后续可在首页或个人中心添加“行程管理”入口按钮，以提升发现性。
 
 ## 使用场景
 

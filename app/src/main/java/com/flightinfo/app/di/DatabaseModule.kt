@@ -7,6 +7,7 @@ import com.flightinfo.app.data.dao.DownloadedSchedulePackageDao
 import com.flightinfo.app.data.dao.FavoriteRouteDao
 import com.flightinfo.app.data.dao.FlightScheduleDao
 import com.flightinfo.app.data.dao.HistoricalFlightDao
+import com.flightinfo.app.data.dao.ItineraryDao
 import com.flightinfo.app.data.dao.OfflineAirportInfoDao
 import com.flightinfo.app.data.dao.TrackedFlightDao
 import com.flightinfo.app.data.dao.UserBehaviorDao
@@ -29,7 +30,7 @@ object DatabaseModule {
             context,
             FlightInfoDatabase::class.java,
             "flight_info_database",
-        ).addMigrations(FlightInfoDatabase.MIGRATION_4_5, FlightInfoDatabase.MIGRATION_5_6)
+        ).addMigrations(FlightInfoDatabase.MIGRATION_4_5, FlightInfoDatabase.MIGRATION_5_6, FlightInfoDatabase.MIGRATION_6_7)
             .build()
     }
 
@@ -76,6 +77,11 @@ object DatabaseModule {
     @Provides
     fun provideUserDao(database: FlightInfoDatabase): UserDao {
         return database.userDao()
+    }
+
+    @Provides
+    fun provideItineraryDao(database: FlightInfoDatabase): ItineraryDao {
+        return database.itineraryDao()
     }
 
     @Provides

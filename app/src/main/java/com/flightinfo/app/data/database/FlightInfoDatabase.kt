@@ -10,6 +10,7 @@ import com.flightinfo.app.data.dao.DownloadedSchedulePackageDao
 import com.flightinfo.app.data.dao.FavoriteRouteDao
 import com.flightinfo.app.data.dao.FlightScheduleDao
 import com.flightinfo.app.data.dao.HistoricalFlightDao
+import com.flightinfo.app.data.dao.ItineraryDao
 import com.flightinfo.app.data.dao.OfflineAirportInfoDao
 import com.flightinfo.app.data.dao.TrackedFlightDao
 import com.flightinfo.app.data.dao.UserBehaviorDao
@@ -19,6 +20,8 @@ import com.flightinfo.app.data.model.DownloadedSchedulePackage
 import com.flightinfo.app.data.model.FavoriteRoute
 import com.flightinfo.app.data.model.FlightSchedule
 import com.flightinfo.app.data.model.HistoricalFlight
+import com.flightinfo.app.data.model.Itinerary
+import com.flightinfo.app.data.model.ItineraryConverters
 import com.flightinfo.app.data.model.OfflineAirportInfo
 import com.flightinfo.app.data.model.RecommendationCache
 import com.flightinfo.app.data.model.RecommendationConverters
@@ -42,11 +45,12 @@ import com.flightinfo.app.data.model.UserPreferences
         FavoriteRoute::class,
         HistoricalFlight::class,
         User::class,
+        Itinerary::class,
     ],
-    version = 6,
+    version = 7,
     exportSchema = false,
 )
-@TypeConverters(ScheduleConverters::class, TrackedFlightConverters::class, RecommendationConverters::class)
+@TypeConverters(ScheduleConverters::class, TrackedFlightConverters::class, RecommendationConverters::class, ItineraryConverters::class)
 abstract class FlightInfoDatabase : RoomDatabase() {
     abstract fun trackedFlightDao(): TrackedFlightDao
     abstract fun flightScheduleDao(): FlightScheduleDao
@@ -57,6 +61,7 @@ abstract class FlightInfoDatabase : RoomDatabase() {
     abstract fun favoriteRouteDao(): FavoriteRouteDao
     abstract fun historicalFlightDao(): HistoricalFlightDao
     abstract fun userDao(): UserDao
+    abstract fun itineraryDao(): ItineraryDao
 
     companion object {
         val MIGRATION_3_4 = object : Migration(3, 4) {
@@ -161,6 +166,27 @@ abstract class FlightInfoDatabase : RoomDatabase() {
                         `userId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                         `email` TEXT NOT NULL,
                         `passwordHash` TEXT NOT NULL
+                    )
+                    """.trimIndent(),
+                )
+            }
+        }
+
+        val MIGRATION_6_7 = object : Migration(6, 7) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `itineraries` (
+                        `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        `title` TEXT NOT NULL,
+                        `pnr` TEXT,
+                        `passengers` TEXT NOT NULL,
+                        `startTime` INTEGER NOT NULL,
+                        `endTime` INTEGER NOT NULL,
+                        `segments` TEXT NOT NULL,
+                        `tasks` TEXT NOT NULL,
+                        `checkInUrl` TEXT,
+                        `boardingPassUrl` TEXT
                     )
                     """.trimIndent(),
                 )
