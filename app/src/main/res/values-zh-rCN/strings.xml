@@ -151,6 +151,20 @@
     <string name="current_weather">当前天气</string>
     <string name="weather_forecast">天气预报</string>
     <string name="flight_weather_impact">航班天气影响</string>
+
+    <!-- Flight Detail (Inbound & Prediction & Ops) -->
+    <string name="flight_detail_title">航班详情</string>
+    <string name="inbound_title">入站飞机</string>
+    <string name="inbound_origin_format" formatted="false">入站起点：%s</string>
+    <string name="inbound_eta_format" formatted="false">预计到达：%s</string>
+    <string name="prediction_title">延误预测</string>
+    <string name="prediction_delay_format" formatted="false">预计延误 ~%d 分钟</string>
+    <string name="prediction_confidence_format" formatted="false">置信度 %d%%</string>
+    <string name="operational_title">运行态势</string>
+    <string name="dep_nas_format" formatted="false">出发地 NAS：%s</string>
+    <string name="arr_nas_format" formatted="false">到达地 NAS：%s</string>
+    <string name="dep_metar_format" formatted="false">出发地 METAR：%s</string>
+    <string name="arr_metar_format" formatted="false">到达地 METAR：%s</string>
     
     <!-- Recommendation System -->
     <string name="recommendation_title">智能推荐</string>
@@ -207,4 +221,38 @@
     <string name="reason_customized">专为您定制</string>
     <string name="reason_strong_recommend">强烈推荐</string>
     <string name="reason_high_score">推荐指数高</string>
+
+    <!-- Voice Assistant -->
+    <string name="voice_assistant_title">语音助手</string>
+    <string name="voice_assistant_ready">语音助手就绪</string>
+    <string name="voice_assistant_listening">正在聆听...</string>
+    <string name="voice_assistant_processing">正在处理...</string>
+    <string name="voice_assistant_button">语音助手按钮</string>
+    <string name="voice_assistant_language">当前语言</string>
+    <string name="voice_assistant_help">语音助手帮助</string>
+    <string name="voice_assistant_settings">语音助手设置</string>
+    <string name="voice_assistant_history">语音命令历史</string>
+    <string name="voice_permission_required">语音识别需要麦克风权限</string>
+    <string name="voice_permission_denied">权限被拒绝。请在设置中启用麦克风权限。</string>
+    <string name="voice_recognition_error">语音识别失败</string>
+    <string name="voice_synthesis_error">语音合成失败</string>
+    <string name="voice_commands_title">可用语音命令</string>
+    <string name="voice_command_flight_search">查询航班 [航班号]</string>
+    <string name="voice_command_flight_status">航班状态 [航班号]</string>
+    <string name="voice_command_airport_info">机场信息 [机场名称]</string>
+    <string name="voice_command_reminder">设置提醒 [时间] [航班号]</string>
+    <string name="voice_command_weather">天气 [地点]</string>
+    <string name="voice_command_help">帮助</string>
+    <string name="voice_example_1">"查询航班CA1234"</string>
+    <string name="voice_example_2">"航班状态UA456"</string>
+    <string name="voice_example_3">"北京机场信息"</string>
+    <string name="voice_example_4">"设置提醒14:30 CA1234"</string>
+    <string name="voice_example_5">"上海天气"</string>
+    <string name="voice_example_6">"帮助"</string>
+
+    <!-- Missing resources for Voice Assistant -->
+    <string name="settings">设置</string>
+    <string name="history">历史</string>
+    <string name="help">帮助</string>
+
 </resources>

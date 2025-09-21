@@ -97,6 +97,7 @@
     <string name="trip_reminder_channel_description">Reminders to leave for the airport and key trip notices</string>
     <string name="flight_status_update">Flight Status Update</string>
     <string name="flight_status_changed" formatted="false">Your flight status has changed to %s</string>
+    <string name="notification_types">Notification Types</string>
     
     <!-- Notification Settings -->
     <string name="flight_status_notifications">Flight Status Notifications</string>
@@ -170,6 +171,20 @@
     <string name="current_weather">Current Weather</string>
     <string name="weather_forecast">Weather Forecast</string>
     <string name="flight_weather_impact">Flight Weather Impact</string>
+
+    <!-- Flight Detail (Inbound & Prediction & Ops) -->
+    <string name="flight_detail_title">Flight Detail</string>
+    <string name="inbound_title">Inbound Aircraft</string>
+    <string name="inbound_origin_format" formatted="false">Origin: %s</string>
+    <string name="inbound_eta_format" formatted="false">ETA: %s</string>
+    <string name="prediction_title">Delay Prediction</string>
+    <string name="prediction_delay_format" formatted="false">Predicted delay ~%dm</string>
+    <string name="prediction_confidence_format" formatted="false">Confidence %d%%</string>
+    <string name="operational_title">Operational Context</string>
+    <string name="dep_nas_format" formatted="false">DEP NAS: %s</string>
+    <string name="arr_nas_format" formatted="false">ARR NAS: %s</string>
+    <string name="dep_metar_format" formatted="false">DEP METAR: %s</string>
+    <string name="arr_metar_format" formatted="false">ARR METAR: %s</string>
     
     <!-- Carbon Footprint -->
     <string name="carbon_footprint">Carbon Footprint</string>
@@ -313,5 +328,38 @@
     <string name="auth_invalid_credentials">Invalid email or password</string>
     <string name="auth_account_deactivated">Account is deactivated</string>
     <string name="auth_logout_success">Successfully logged out</string>
+
+    <!-- Voice Assistant -->
+    <string name="voice_assistant_title">Voice Assistant</string>
+    <string name="voice_assistant_ready">Voice Assistant Ready</string>
+    <string name="voice_assistant_listening">Listening...</string>
+    <string name="voice_assistant_processing">Processing...</string>
+    <string name="voice_assistant_button">Voice Assistant Button</string>
+    <string name="voice_assistant_language">Current Language</string>
+    <string name="voice_assistant_help">Voice Assistant Help</string>
+    <string name="voice_assistant_settings">Voice Assistant Settings</string>
+    <string name="voice_assistant_history">Voice Command History</string>
+    <string name="voice_permission_required">Microphone permission required for voice recognition</string>
+    <string name="voice_permission_denied">Permission denied. Enable microphone permission in settings.</string>
+    <string name="voice_recognition_error">Voice recognition failed</string>
+    <string name="voice_synthesis_error">Voice synthesis failed</string>
+    <string name="voice_commands_title">Available Voice Commands</string>
+    <string name="voice_command_flight_search">Search flight [flight number]</string>
+    <string name="voice_command_flight_status">Flight status [flight number]</string>
+    <string name="voice_command_airport_info">Airport information [airport name]</string>
+    <string name="voice_command_reminder">Set reminder [time] [flight number]</string>
+    <string name="voice_command_weather">Weather [location]</string>
+    <string name="voice_command_help">Help</string>
+    <string name="voice_example_1">"Search flight CA1234"</string>
+    <string name="voice_example_2">"Flight status UA456"</string>
+    <string name="voice_example_3">"Beijing airport information"</string>
+    <string name="voice_example_4">"Set reminder 14:30 CA1234"</string>
+    <string name="voice_example_5">"Shanghai weather"</string>
+    <string name="voice_example_6">"Help"</string>
+
+    <!-- Missing resources for Voice Assistant -->
+    <string name="settings">Settings</string>
+    <string name="history">History</string>
+    <string name="help">Help</string>
 
 </resources>

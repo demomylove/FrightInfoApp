@@ -63,6 +63,12 @@
         <action
             android:id="@+id/action_flightListFragment_to_routeMapFragment"
             app:destination="@id/routeMapFragment" />
+        <action
+            android:id="@+id/action_flightListFragment_to_flightDetailFragment"
+            app:destination="@id/flightDetailFragment" />
+        <action
+            android:id="@+id/action_flightListFragment_to_voiceAssistantFragment"
+            app:destination="@id/voiceAssistantFragment" />
     </fragment>
 
     <fragment
@@ -92,6 +98,17 @@
         android:name="com.flightinfo.app.ui.fragment.FlightBookingFragment"
         android:label="Flight Booking"
         tools:layout="@layout/fragment_flight_booking" />
+
+    <fragment
+        android:id="@+id/flightDetailFragment"
+        android:name="com.flightinfo.app.ui.fragment.FlightDetailFragment"
+        android:label="@string/flight_detail_title"
+        tools:layout="@layout/fragment_flight_detail">
+        <argument
+            android:name="flightNumber"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
     
     <fragment
         android:id="@+id/notificationSettingsFragment"
@@ -122,5 +139,12 @@
         android:name="com.flightinfo.app.ui.fragment.OfflineScheduleFragment"
         android:label="Offline Schedule"
         tools:layout="@layout/fragment_offline_schedule" />
+
+    <fragment
+        android:id="@+id/voiceAssistantFragment"
+        android:name="com.flightinfo.app.ui.fragment.VoiceAssistantFragment"
+        android:label="语音助手"
+        tools:layout="@layout/fragment_voice_assistant" />
+
     <include app:graph="@navigation/history_nav_graph" />
 </navigation>
