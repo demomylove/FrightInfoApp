@@ -6,6 +6,7 @@ import com.flightinfo.app.data.model.VoiceIntent
 import com.flightinfo.app.data.model.VoiceRecognitionResult
 import com.flightinfo.app.data.model.VoiceSettings
 import com.flightinfo.app.data.repository.FlightRepository
+import com.flightinfo.app.utils.Resource
 import com.flightinfo.app.utils.VoiceRecognitionManager
 import com.flightinfo.app.utils.VoiceRecognitionManager.RecognitionState
 import com.flightinfo.app.utils.VoiceSynthesisManager
@@ -118,18 +119,22 @@ class VoiceAssistantViewModel @Inject constructor(
                 when (resource) {
                     is Resource.Success -> {
                         val flightInfo = resource.data
-                        val response = "找到航班${flightInfo.flightNumber}，从${flightInfo.departureAirport}飞往${flightInfo.arrivalAirport}。"
-                        _assistantResponse.value = response
+                        if (flightInfo != null) {
+                            val response = "找到航班${flightInfo.flightNumber}，从${flightInfo.departureAirport}飞往${flightInfo.arrivalAirport}。"
+                            _assistantResponse.value = response
 
-                        if (_voiceSettings.value.voiceFeedbackEnabled) {
-                            voiceSynthesisManager.speakFlightInfo(
-                                flightNumber = flightInfo.flightNumber,
-                                status = flightInfo.status,
-                                departure = flightInfo.departureAirport,
-                                arrival = flightInfo.arrivalAirport,
-                                scheduledTime = flightInfo.scheduledDeparture,
-                                actualTime = flightInfo.actualDeparture,
-                            )
+                            if (_voiceSettings.value.voiceFeedbackEnabled) {
+                                voiceSynthesisManager.speakFlightInfo(
+                                    flightNumber = flightInfo.flightNumber,
+                                    status = flightInfo.status,
+                                    departure = flightInfo.departureAirport,
+                                    arrival = flightInfo.arrivalAirport,
+                                    scheduledTime = flightInfo.scheduledDeparture ?: flightInfo.departureTime,
+                                    actualTime = flightInfo.actualDeparture,
+                                )
+                            }
+                        } else {
+                            _assistantResponse.value = "未找到航班信息"
                         }
                     }
                     is Resource.Error -> {
@@ -141,6 +146,9 @@ class VoiceAssistantViewModel @Inject constructor(
                     }
                     is Resource.Loading -> {
                         _assistantResponse.value = "正在查询航班信息..."
+                    }
+                    is Resource.Idle -> {
+                        // Do nothing for idle state
                     }
                 }
             }
@@ -169,11 +177,15 @@ class VoiceAssistantViewModel @Inject constructor(
                 when (resource) {
                     is Resource.Success -> {
                         val flightInfo = resource.data
-                        val response = "航班$flightNumber 的状态是：${flightInfo.status}"
-                        _assistantResponse.value = response
+                        if (flightInfo != null) {
+                            val response = "航班$flightNumber 的状态是：${flightInfo.status}"
+                            _assistantResponse.value = response
 
-                        if (_voiceSettings.value.voiceFeedbackEnabled) {
-                            voiceSynthesisManager.speakSuccess("航班状态已查询")
+                            if (_voiceSettings.value.voiceFeedbackEnabled) {
+                                voiceSynthesisManager.speakSuccess("航班状态已查询")
+                            }
+                        } else {
+                            _assistantResponse.value = "未找到航班信息"
                         }
                     }
                     is Resource.Error -> {
@@ -185,6 +197,9 @@ class VoiceAssistantViewModel @Inject constructor(
                     }
                     is Resource.Loading -> {
                         _assistantResponse.value = "正在查询航班状态..."
+                    }
+                    is Resource.Idle -> {
+                        // Do nothing for idle state
                     }
                 }
             }
@@ -241,7 +256,7 @@ class VoiceAssistantViewModel @Inject constructor(
         }
 
         // 这里应该调用提醒设置服务
-        val response = "已设置$time的提醒：$description"
+        val response = "已设置${time}的提醒：$description"
         _assistantResponse.value = response
 
         if (_voiceSettings.value.voiceFeedbackEnabled) {
@@ -251,7 +266,7 @@ class VoiceAssistantViewModel @Inject constructor(
 
     private fun handleWeatherInfo(parameters: Map<String, String>) {
         val location = parameters["location"] ?: "当前城市"
-        val response = "正在查询$location的天气信息..."
+        val response = "正在查询${location}的天气信息..."
         _assistantResponse.value = response
 
         if (_voiceSettings.value.voiceFeedbackEnabled) {

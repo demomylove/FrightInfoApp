@@ -21,6 +21,12 @@ data class FlightInfo(
     @SerializedName("arrival_time")
     val arrivalTime: String,
 
+    @SerializedName("scheduled_departure")
+    val scheduledDeparture: String?,
+
+    @SerializedName("actual_departure")
+    val actualDeparture: String?,
+
     @SerializedName("status")
     val status: String,
 

@@ -69,4 +69,21 @@
     <color name="carbon_low_dark">#66BB6A</color>
     <color name="carbon_medium_dark">#FFD54F</color>
     <color name="carbon_high_dark">#EF5350</color>
+
+    <!-- Missing colors for baggage and voice assistant fragments -->
+    <color name="error">#B00020</color>
+    <color name="text_hint">#8A000000</color>
+    <color name="primary">#6200EE</color>
+    <color name="divider">#E0E0E0</color>
+
+    <!-- Baggage status colors -->
+    <color name="baggage_delivered">#4CAF50</color>
+    <color name="baggage_on_carousel">#2196F3</color>
+    <color name="baggage_unloaded">#9C27B0</color>
+    <color name="baggage_loaded">#FF9800</color>
+    <color name="baggage_in_transit">#03A9F4</color>
+    <color name="baggage_checked_in">#8BC34A</color>
+    <color name="baggage_delayed">#FFC107</color>
+    <color name="baggage_lost">#F44336</color>
+    <color name="baggage_damaged">#795548</color>
 </resources>

@@ -10,6 +10,7 @@ import android.speech.tts.UtteranceProgressListener
 import android.util.Log
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import java.util.HashMap
 import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -90,7 +91,11 @@ class VoiceSynthesisManager @Inject constructor(
                     tts.speak(text, TextToSpeech.QUEUE_ADD, params, utteranceId)
                 } else {
                     @Suppress("DEPRECATION")
-                    tts.speak(text, TextToSpeech.QUEUE_ADD, params)
+                    val hashMap = HashMap<String, String>()
+                    if (utteranceId != null) {
+                        hashMap[TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID] = utteranceId
+                    }
+                    tts.speak(text, TextToSpeech.QUEUE_ADD, hashMap)
                 }
             } else {
                 Log.e("VoiceSynthesis", "Language not supported: $language")
