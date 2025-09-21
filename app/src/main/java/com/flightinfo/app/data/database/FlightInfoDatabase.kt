@@ -8,17 +8,23 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.flightinfo.app.data.dao.BaggageDao
 import com.flightinfo.app.data.dao.BookmarkedFlightDao
 import com.flightinfo.app.data.dao.DownloadedSchedulePackageDao
+import com.flightinfo.app.data.dao.FamilyAccountDao
+import com.flightinfo.app.data.dao.FamilyMemberDao
 import com.flightinfo.app.data.dao.FavoriteRouteDao
 import com.flightinfo.app.data.dao.FlightScheduleDao
 import com.flightinfo.app.data.dao.HistoricalFlightDao
 import com.flightinfo.app.data.dao.ItineraryDao
 import com.flightinfo.app.data.dao.OfflineAirportInfoDao
+import com.flightinfo.app.data.dao.SharedItineraryDao
+import com.flightinfo.app.data.dao.SyncRecordDao
 import com.flightinfo.app.data.dao.TrackedFlightDao
 import com.flightinfo.app.data.dao.UserBehaviorDao
 import com.flightinfo.app.data.dao.UserDao
 import com.flightinfo.app.data.model.BaggageItem
 import com.flightinfo.app.data.model.BookmarkedFlight
 import com.flightinfo.app.data.model.DownloadedSchedulePackage
+import com.flightinfo.app.data.model.FamilyAccount
+import com.flightinfo.app.data.model.FamilyMember
 import com.flightinfo.app.data.model.FavoriteRoute
 import com.flightinfo.app.data.model.FlightSchedule
 import com.flightinfo.app.data.model.HistoricalFlight
@@ -28,6 +34,9 @@ import com.flightinfo.app.data.model.OfflineAirportInfo
 import com.flightinfo.app.data.model.RecommendationCache
 import com.flightinfo.app.data.model.RecommendationConverters
 import com.flightinfo.app.data.model.ScheduleConverters
+import com.flightinfo.app.data.model.SharedItinerary
+import com.flightinfo.app.data.model.SyncRecord
+import com.flightinfo.app.data.model.SyncRecordConverters
 import com.flightinfo.app.data.model.TrackedFlight
 import com.flightinfo.app.data.model.TrackedFlightConverters
 import com.flightinfo.app.data.model.User
@@ -49,11 +58,15 @@ import com.flightinfo.app.data.model.UserPreferences
         User::class,
         Itinerary::class,
         BaggageItem::class,
+        SyncRecord::class,
+        FamilyAccount::class,
+        FamilyMember::class,
+        SharedItinerary::class,
     ],
-    version = 8,
+    version = 11,
     exportSchema = false,
 )
-@TypeConverters(ScheduleConverters::class, TrackedFlightConverters::class, RecommendationConverters::class, ItineraryConverters::class, Converters::class)
+@TypeConverters(ScheduleConverters::class, TrackedFlightConverters::class, RecommendationConverters::class, ItineraryConverters::class, SyncRecordConverters::class, Converters::class)
 abstract class FlightInfoDatabase : RoomDatabase() {
     abstract fun trackedFlightDao(): TrackedFlightDao
     abstract fun flightScheduleDao(): FlightScheduleDao
@@ -66,6 +79,10 @@ abstract class FlightInfoDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun itineraryDao(): ItineraryDao
     abstract fun baggageDao(): BaggageDao
+    abstract fun syncRecordDao(): SyncRecordDao
+    abstract fun familyAccountDao(): FamilyAccountDao
+    abstract fun familyMemberDao(): FamilyMemberDao
+    abstract fun sharedItineraryDao(): SharedItineraryDao
 
     companion object {
         val MIGRATION_3_4 = object : Migration(3, 4) {
@@ -228,6 +245,119 @@ abstract class FlightInfoDatabase : RoomDatabase() {
                 database.execSQL(
                     """
                     CREATE INDEX IF NOT EXISTS `index_baggage_items_baggage_tag_number` ON `baggage_items` (`baggage_tag_number`)
+                    """.trimIndent(),
+                )
+            }
+        }
+
+        val MIGRATION_8_9 = object : Migration(8, 9) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `sync_records` (
+                        `id` TEXT PRIMARY KEY NOT NULL,
+                        `dataType` TEXT NOT NULL,
+                        `entityId` TEXT NOT NULL,
+                        `action` TEXT NOT NULL,
+                        `data` TEXT NOT NULL,
+                        `metadata` TEXT NOT NULL,
+                        `status` TEXT NOT NULL,
+                        `retryCount` INTEGER NOT NULL,
+                        `createdAt` INTEGER NOT NULL,
+                        `syncedAt` INTEGER
+                    )
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    """
+                    CREATE INDEX IF NOT EXISTS `index_sync_records_status` ON `sync_records` (`status`)
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    """
+                    CREATE INDEX IF NOT EXISTS `index_sync_records_dataType_entityId` ON `sync_records` (`dataType`, `entityId`)
+                    """.trimIndent(),
+                )
+            }
+        }
+
+        val MIGRATION_9_10 = object : Migration(9, 10) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `family_accounts` (
+                        `id` TEXT PRIMARY KEY NOT NULL,
+                        `name` TEXT NOT NULL,
+                        `ownerId` TEXT NOT NULL,
+                        `inviteCode` TEXT NOT NULL,
+                        `createdAt` INTEGER NOT NULL,
+                        `isActive` INTEGER NOT NULL
+                    )
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    """
+                    CREATE UNIQUE INDEX IF NOT EXISTS `index_family_accounts_inviteCode` ON `family_accounts` (`inviteCode`)
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `family_members` (
+                        `id` TEXT PRIMARY KEY NOT NULL,
+                        `familyAccountId` TEXT NOT NULL,
+                        `userId` TEXT NOT NULL,
+                        `userEmail` TEXT NOT NULL,
+                        `userName` TEXT NOT NULL,
+                        `role` TEXT NOT NULL,
+                        `joinedAt` INTEGER NOT NULL,
+                        `permissions` TEXT NOT NULL,
+                        `isActive` INTEGER NOT NULL
+                    )
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    """
+                    CREATE INDEX IF NOT EXISTS `index_family_members_familyAccountId` ON `family_members` (`familyAccountId`)
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    """
+                    CREATE INDEX IF NOT EXISTS `index_family_members_userId` ON `family_members` (`userId`)
+                    """.trimIndent(),
+                )
+            }
+        }
+
+        val MIGRATION_10_11 = object : Migration(10, 11) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `shared_itineraries` (
+                        `id` TEXT PRIMARY KEY NOT NULL,
+                        `itineraryId` TEXT NOT NULL,
+                        `sharedBy` TEXT NOT NULL,
+                        `sharedWith` TEXT NOT NULL,
+                        `familyAccountId` TEXT,
+                        `permissions` TEXT NOT NULL,
+                        `sharedAt` INTEGER NOT NULL,
+                        `expiresAt` INTEGER,
+                        `isActive` INTEGER NOT NULL
+                    )
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    """
+                    CREATE INDEX IF NOT EXISTS `index_shared_itineraries_itineraryId` ON `shared_itineraries` (`itineraryId`)
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    """
+                    CREATE INDEX IF NOT EXISTS `index_shared_itineraries_sharedWith` ON `shared_itineraries` (`sharedWith`)
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    """
+                    CREATE INDEX IF NOT EXISTS `index_shared_itineraries_familyAccountId` ON `shared_itineraries` (`familyAccountId`)
                     """.trimIndent(),
                 )
             }

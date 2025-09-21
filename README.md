@@ -22,6 +22,7 @@ FlightInfoApp 是一个基于 Android MVVM 架构的实时航班信息查询应�
 *   **🌍 多语言支持**: 支持中英文界面，并可根据系统语言自动适配。
 *   **🧳 行程管理（新增）**: 支持行程单聚合（多航段）、待办与时间线视图、日历同步、一键跳转值机/登机牌。
 *   **🧳 行李跟踪（新增）**: 支持行李标签号查询、实时状态跟踪、航班关联查询、行李位置更新和状态推送。
+*   **☁️ 多设备同步（新增）**: 云端数据同步、跨设备行程共享、家庭账户管理、离线缓存与冲突解决。
 
 ## 技术架构概览
 
@@ -47,6 +48,15 @@ FlightInfoApp 采用现代化的 **MVVM (Model-View-ViewModel)** 架构模式，
 *   **状态与界面**: `BaggageViewModel` + `BaggageFragment`，提供行李列表、状态跟踪、位置更新、扫码查询等功能。
 *   **依赖注入**: 在 `DatabaseModule` 中添加 `BaggageDao` 提供者，支持 Hilt 依赖注入。
 
+### 多设备同步模块（新增）
+
+*   **数据模型**: `SyncRecord`、`FamilyAccount`、`FamilyMember`、`SharedItinerary`、`DeviceInfo`（路径：`app/src/main/java/com/flightinfo/app/data/model/CloudSync.kt`）。
+*   **存储与迁移**: 新增 `sync_records`、`family_accounts`、`family_members`、`shared_itineraries` 表，数据库版本升级至 `11`，迁移 `MIGRATION_8_9`、`MIGRATION_9_10`、`MIGRATION_10_11`。
+*   **云端API**: `CloudSyncApi` 提供用户认证、设备管理、数据同步、家庭账户管理、行程共享等接口。
+*   **核心服务**: `CloudSyncService` 处理周期性同步、上传下载、冲突解决；`CrossDeviceSharingManager` 管理跨设备共享；`OfflineCacheManager` 处理离线缓存。
+*   **状态与界面**: `SyncSettingsViewModel` + `SyncSettingsFragment`，提供同步设置、设备管理、家庭账户管理等功能。
+*   **依赖注入**: `CloudSyncModule` 提供云端同步相关的依赖注入配置。
+
 ## 使用说明：行程管理
 
 *   **入口**: 导航图已注册 `itineraryFragment`，可从现有页面通过 `findNavController().navigate(R.id.itineraryFragment)` 进入。
@@ -66,6 +76,17 @@ FlightInfoApp 采用现代化的 **MVVM (Model-View-ViewModel)** 架构模式，
 *   **位置更新**: 支持手动更新行李位置和状态信息。
 *   **推送通知**: 行李状态变更时发送通知提醒。
 
+## 使用说明：多设备同步
+
+*   **入口**: 导航图需注册 `syncSettingsFragment`，可从设置页面进入同步管理。
+*   **账户管理**: 支持用户注册登录、设备注册、多设备管理。
+*   **自动同步**: 可设置自动同步间隔（15-120分钟），支持WiFi优先同步策略。
+*   **数据类型**: 可选择同步的数据类型（行程、行李、追踪航班、收藏航班等）。
+*   **家庭账户**: 支持创建家庭账户、邀请成员加入、管理成员权限。
+*   **行程共享**: 支持将行程分享给家庭成员或指定用户，设置查看/编辑权限和过期时间。
+*   **离线缓存**: 数据自动缓存到本地，网络恢复后自动同步。
+*   **冲突解决**: 自动检测和解决数据冲突，支持保留本地/远程/合并策略。
+
 ## 开发者提示：行程与预订联动
 
 * 在用户完成航班预订后，可生成 `Itinerary` 并保存至仓库，默认附加"出发前往机场""在线值机"等待办。
@@ -78,6 +99,15 @@ FlightInfoApp 采用现代化的 **MVVM (Model-View-ViewModel)** 架构模式，
 * 支持与航空公司行李跟踪系统对接，实现实时状态同步。
 * 扫码功能可集成 `zxing` 或 `ML Kit` 等二维码扫描库。
 * 状态推送可利用 `WorkManager` 实现后台轮询或与推送服务集成。
+
+## 开发者提示：多设备同步集成
+
+* 云端同步需要配置后端服务器，实现 `CloudSyncApi` 定义的接口。
+* 建议使用 JWT 令牌进行用户认证，并实现令牌自动刷新机制。
+* 数据冲突解决策略可根据业务需求调整，支持用户手动选择解决方案。
+* 离线缓存使用 GZIP 压缩，可显著减少存储空间占用。
+* 家庭账户功能支持成员权限管理，可扩展更细粒度的权限控制。
+* 分享链接可集成深链接（Deep Link）功能，支持通过链接直接访问共享内容。
 
 ## 使用场景
 
