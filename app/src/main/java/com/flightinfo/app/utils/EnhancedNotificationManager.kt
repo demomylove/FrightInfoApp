@@ -289,8 +289,29 @@ class EnhancedNotificationManager @Inject constructor(
     ): Boolean {
         if (!preferences.notificationsEnabled) return false
 
-        // 检查勿扰模式
-        if (NotificationPolicy.isDndActive(context)) return false
+        // 基于数据库中的 DND 设置判断免打扰（支持跨天时间段）
+        if (preferences.dndEnabled) {
+            val now = java.util.Calendar.getInstance()
+            val start = java.util.Calendar.getInstance().apply {
+                set(java.util.Calendar.HOUR_OF_DAY, preferences.dndStartHour)
+                set(java.util.Calendar.MINUTE, preferences.dndStartMinute)
+                set(java.util.Calendar.SECOND, 0)
+                set(java.util.Calendar.MILLISECOND, 0)
+            }
+            val end = java.util.Calendar.getInstance().apply {
+                set(java.util.Calendar.HOUR_OF_DAY, preferences.dndEndHour)
+                set(java.util.Calendar.MINUTE, preferences.dndEndMinute)
+                set(java.util.Calendar.SECOND, 0)
+                set(java.util.Calendar.MILLISECOND, 0)
+            }
+
+            val isDnd = if (start.after(end)) {
+                now.after(start) || now.before(end)
+            } else {
+                now.after(start) && now.before(end)
+            }
+            if (isDnd) return false
+        }
 
         // 检查特定类型通知开关
         return when (type) {
