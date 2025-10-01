@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.NotificationSettingsFragment">
+    android:background="@android:color/white"
+    android:scrollbars="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,121 +11,263 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Flight Status Notifications -->
-        <TextView
+        <!-- 通知总开关 -->
+        <androidx.cardview.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/flight_status_notifications"
-            android:textAppearance="?attr/textAppearanceTitleMedium"
-            android:layout_marginBottom="8dp" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/gateChangeSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/gate_change_notifications"
-            android:layout_marginBottom="8dp" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/delaySwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/delay_notifications"
-            android:layout_marginBottom="8dp" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/cancellationSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/cancellation_notifications"
-            android:layout_marginBottom="8dp" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/boardingTimeSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/boarding_time_reminders"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Trip Reminders -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/trip_reminders"
-            android:textAppearance="?attr/textAppearanceTitleMedium"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/leaveForAirportSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/remind_me_to_leave_for_the_airport" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/remind_me_before_departure"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:textAppearance="?attr/textAppearanceBodyMedium" />
-
-        <Spinner
-            android:id="@+id/reminderTimeSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:entries="@array/reminder_time_options" />
+            card_view:cardCornerRadius="8dp"
+            card_view:cardElevation="2dp">
 
-        <!-- Do Not Disturb -->
-        <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="通知总开关"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_notifications"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="启用通知"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- 勿扰模式设置 -->
+        <androidx.cardview.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/do_not_disturb"
-            android:textAppearance="?attr/textAppearanceTitleMedium"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="16dp"
+            card_view:cardCornerRadius="8dp"
+            card_view:cardElevation="2dp">
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/doNotDisturbSwitch"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="勿扰模式"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_dnd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="启用勿扰模式"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- 时间选择器容器 -->
+                <LinearLayout
+                    android:id="@+id/layout_dnd_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="勿扰时间段:"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/text_dnd_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="22:00 - 07:00"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/black"
+                        android:background="@drawable/rounded_background"
+                        android:padding="8dp" />
+
+                </LinearLayout>
+
+                <!-- 时间选择器 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="开始时间:"
+                        android:textSize="14sp" />
+
+                    <TimePicker
+                        android:id="@+id/time_picker_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:timePickerMode="spinner" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="结束时间:"
+                        android:textSize="14sp" />
+
+                    <TimePicker
+                        android:id="@+id/time_picker_end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:timePickerMode="spinner" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- 通知类型设置 -->
+        <androidx.cardview.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/enable_do_not_disturb" />
+            android:layout_marginBottom="16dp"
+            card_view:cardCornerRadius="8dp"
+            card_view:cardElevation="2dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="通知类型"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="12dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- 高级设置 -->
+        <androidx.cardview.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            card_view:cardCornerRadius="8dp"
+            card_view:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="高级设置"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_vibration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="振动提醒"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_sound"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="声音提醒"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_led"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LED灯提醒"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- 操作按钮 -->
         <LinearLayout
-            android:id="@+id/timePickerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone"
-            tools:visibility="visible">
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
 
-            <TextView
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/start_time"
-                android:layout_marginTop="8dp" />
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="重置默认"
+                android:textColor="@android:color/white"
+                android:background="@android:color/holo_orange_dark"
+                style="?android:attr/buttonStyleSmall" />
 
-            <TimePicker
-                android:id="@+id/startTimePicker"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:timePickerMode="spinner" />
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="保存设置"
+                android:textColor="@android:color/white"
+                android:background="@android:color/holo_blue_dark"
+                style="?android:attr/buttonStyleSmall" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/end_time"
-                android:layout_marginTop="8dp" />
-
-            <TimePicker
-                android:id="@+id/endTimePicker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:timePickerMode="spinner" />
         </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>

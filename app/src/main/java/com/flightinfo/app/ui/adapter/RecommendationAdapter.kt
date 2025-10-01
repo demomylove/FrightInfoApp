@@ -11,7 +11,7 @@ import com.flightinfo.app.data.model.FlightRecommendation
 import com.flightinfo.app.data.model.RecommendationType
 import com.flightinfo.app.databinding.ItemRecommendationBinding
 import java.text.NumberFormat
-import java.util.*
+import java.util.Locale
 
 class RecommendationAdapter(
     private val onRecommendationClick: (FlightRecommendation) -> Unit,

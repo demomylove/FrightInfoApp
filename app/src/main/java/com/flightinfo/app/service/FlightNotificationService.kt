@@ -7,10 +7,17 @@ import com.flightinfo.app.utils.NotificationPolicy
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import dagger.hilt.android.AndroidEntryPoint
-import com.flightinfo.app.ui.fragment.NotificationSettingsFragment.Companion as Prefs
 
 @AndroidEntryPoint
 class FlightNotificationService : FirebaseMessagingService() {
+
+    companion object Prefs {
+        const val PREFS_NAME = "notification_prefs"
+        const val KEY_GATE_CHANGE = "gate_change"
+        const val KEY_DELAY = "delay"
+        const val KEY_CANCELLATION = "cancellation"
+        const val KEY_BOARDING_TIME = "boarding_time"
+    }
 
     private lateinit var notificationHelper: NotificationHelper
     private lateinit var prefs: SharedPreferences

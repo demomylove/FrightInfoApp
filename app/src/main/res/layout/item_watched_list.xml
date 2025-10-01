@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- 添加新项目区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+
+        <EditText
+            android:id="@+id/edit_add_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="添加项目"
+            android:textSize="14sp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加"
+            android:textSize="12sp"
+            android:background="@android:color/holo_blue_dark"
+            android:textColor="@android:color/white"
+            style="?android:attr/buttonStyleSmall" />
+
+    </LinearLayout>
+
+    <!-- 已关注项目列表 -->
+    <LinearLayout
+        android:id="@+id/container_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <!-- 动态添加的标签会出现在这里 -->
+
+    </LinearLayout>
+
+</LinearLayout>

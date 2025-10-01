@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_filter"
+        android:title="筛选"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_mark_all_read"
+        android:title="全部标记已读"
+        android:icon="@drawable/ic_history"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_clear_all"
+        android:title="清空历史"
+        android:icon="@android:drawable/ic_menu_delete"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_multi_select"
+        android:title="多选模式"
+        android:icon="@android:drawable/ic_menu_agenda"
+        app:showAsAction="never" />
+
+</menu>
