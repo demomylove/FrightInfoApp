@@ -25,4 +25,34 @@
         android:icon="@drawable/ic_flight_path"
         android:title="Route Map"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_theme"
+        android:icon="@android:drawable/ic_menu_day"
+        android:title="Theme"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_language"
+        android:icon="@android:drawable/ic_menu_set_as"
+        android:title="Language"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_recommendations"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="Recommendations"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_price_tracking"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="Price Tracking"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_offline_schedule"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Offline Schedule"
+        app:showAsAction="never" />
 </menu>

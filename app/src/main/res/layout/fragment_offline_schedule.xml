@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +35,9 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
                 android:text="下载时刻表"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:background="@drawable/button_background"
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/buttonRefresh"
@@ -44,7 +47,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="刷新数据"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:background="@drawable/button_background"
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/buttonClearCache"
@@ -53,7 +58,9 @@
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
                 android:text="清除缓存"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:background="@drawable/button_background"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
@@ -71,7 +78,7 @@
                 android:layout_weight="1"
                 android:text="最后更新: 暂无数据"
                 android:textSize="12sp"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="@color/text_secondary" />
 
             <TextView
                 android:id="@+id/textScheduleCount"
@@ -80,7 +87,7 @@
                 android:layout_weight="1"
                 android:text="航班数量: 0"
                 android:textSize="12sp"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="@color/text_secondary" />
 
         </LinearLayout>
 
@@ -174,7 +181,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="清除筛选"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:background="@drawable/button_background"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
@@ -202,7 +211,7 @@
                 android:layout_height="80dp"
                 android:src="@drawable/ic_flight"
                 android:layout_marginBottom="16dp"
-                app:tint="@android:color/darker_gray" />
+                app:tint="@color/text_secondary" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -217,7 +226,7 @@
                 android:layout_height="wrap_content"
                 android:text="点击 &quot;下载时刻表&quot; 按钮获取最新航班信息"
                 android:textSize="14sp"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/text_secondary"
                 android:gravity="center" />
 
         </LinearLayout>
@@ -237,7 +246,7 @@
                 android:layout_height="80dp"
                 android:src="@android:drawable/ic_dialog_alert"
                 android:layout_marginBottom="16dp"
-                app:tint="@android:color/holo_red_light" />
+                app:tint="@color/error_color" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -253,7 +262,7 @@
                 android:layout_height="wrap_content"
                 android:text="错误信息"
                 android:textSize="14sp"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/text_secondary"
                 android:gravity="center" />
 
         </LinearLayout>

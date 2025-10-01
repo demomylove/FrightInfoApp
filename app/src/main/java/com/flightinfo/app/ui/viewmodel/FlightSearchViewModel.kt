@@ -43,7 +43,7 @@ class FlightSearchViewModel @Inject constructor(
     private val bookmarkedFlightRepository: BookmarkedFlightRepository,
 ) : ViewModel() {
 
-    private val _searchResults = MutableStateFlow<Resource<FlightSearchResponse>>(Resource.Loading())
+    private val _searchResults = MutableStateFlow<Resource<FlightSearchResponse>>(Resource.Idle())
     val searchResults: StateFlow<Resource<FlightSearchResponse>> = _searchResults.asStateFlow()
 
     private val _realtimeFlights = MutableStateFlow<Resource<FlightSearchResponse>>(Resource.Loading())

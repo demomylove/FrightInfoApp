@@ -131,6 +131,7 @@
     <string name="restart_for_theme">Restart app to apply new theme</string>
     <string name="switch_theme">Switch Theme</string>
     <string name="theme_applied_immediately">Theme will be applied immediately</string>
+    <string name="apply">Apply</string>
     
     <!-- Airport Lookup -->
     <string name="airport_lookup">Airport Lookup</string>
@@ -244,6 +245,7 @@
     
     <!-- Recommendation System -->
     <string name="recommendation_title">Smart Recommendations</string>
+    <string name="smart_recommendation">智能推荐</string>
     <string name="recommendation_stats" formatted="false">Total %d recommendations · Average confidence %.1f%%</string>
     <string name="recommendation_empty">No recommendations available</string>
     <string name="recommendation_loading">Loading recommendations...</string>

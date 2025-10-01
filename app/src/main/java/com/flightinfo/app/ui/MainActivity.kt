@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.RadioGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.flightinfo.app.R
@@ -51,34 +51,24 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         setupActionBarWithNavController(navController)
 
-        // 添加认证状态检查
-        checkAuthAndNavigate(navController)
+        // Bottom navigation
+        findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottom_nav)
+            .setOnItemSelectedListener { item ->
+                when (item.itemId) {
+                    R.id.flightListFragment -> navController.navigate(R.id.flightListFragment)
+                    R.id.exploreFragment -> navController.navigate(R.id.exploreFragment)
+                    R.id.itineraryFragment -> navController.navigate(R.id.itineraryFragment)
+                    R.id.profileFragment -> {
+                        if (authManager.getCurrentUserId() != null) navController.navigate(R.id.profileFragment)
+                        else navController.navigate(R.id.loginFragment)
+                    }
+                }
+                true
+            }
 
-        findViewById<Button>(R.id.airport_lookup_button).setOnClickListener {
-            navController.navigate(R.id.airportLookupFragment)
-        }
+        // language/theme actions moved to toolbar menu
 
-        findViewById<Button>(R.id.price_tracking_button).setOnClickListener {
-            navController.navigate(R.id.priceTrackingFragment)
-        }
-
-        findViewById<Button>(R.id.offline_schedule_button).setOnClickListener {
-            navController.navigate(R.id.offlineScheduleFragment)
-        }
-
-        findViewById<Button>(R.id.recommendation_button).setOnClickListener {
-            navController.navigate(R.id.recommendationFragment)
-        }
-
-        findViewById<Button>(R.id.language_switch_button).setOnClickListener {
-            showLanguageDialog()
-        }
-
-        // Add theme switch button to the UI
-        addThemeSwitchButton()
-
-        // 添加个人资料按钮
-        addProfileButton()
+        // no dynamic buttons
     }
 
     private fun maybeRequestNotificationPermission() {
@@ -112,29 +102,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun addProfileButton() {
-        val button = Button(this).apply {
-            text = "个人资料"
-            setOnClickListener {
-                val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-                val navController = navHostFragment.navController
+    // removed addProfileButton()
 
-                if (authManager.getCurrentUserId() != null) {
-                    navController.navigate(R.id.profileFragment)
-                } else {
-                    navController.navigate(R.id.loginFragment)
-                }
-            }
-        }
-
-        val linearLayout = findViewById<LinearLayout>(R.id.bottom_button_container)
-        linearLayout.addView(button)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_flight_list, menu)
-        return true
-    }
+    // Menu is provided by fragments (e.g., FlightListFragment) to avoid duplicate items
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -152,6 +122,24 @@ class MainActivity : AppCompatActivity() {
                 }
                 true
             }
+            R.id.action_theme -> {
+                showThemeDialog(); true
+            }
+            R.id.action_language -> {
+                showLanguageDialog(); true
+            }
+            R.id.action_recommendations -> {
+                navController.navigate(R.id.recommendationFragment)
+                true
+            }
+            R.id.action_price_tracking -> {
+                navController.navigate(R.id.priceTrackingFragment)
+                true
+            }
+            R.id.action_offline_schedule -> {
+                navController.navigate(R.id.offlineScheduleFragment)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -165,58 +153,44 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun addThemeSwitchButton() {
-        val button = Button(this).apply {
-            text = getString(R.string.switch_theme)
-            setOnClickListener {
-                showThemeDialog()
-            }
-        }
-
-        val linearLayout = findViewById<LinearLayout>(R.id.bottom_button_container)
-        linearLayout.addView(button, 0) // Add at the beginning
-    }
-
     private fun showThemeDialog() {
         val currentMode = sharedPreferences.getInt("theme_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_theme_settings, null)
+        val chipGroup = dialogView.findViewById<com.google.android.material.chip.ChipGroup>(R.id.chipGroupTheme)
+        val chipLight = dialogView.findViewById<com.google.android.material.chip.Chip>(R.id.chipLight)
+        val chipDark = dialogView.findViewById<com.google.android.material.chip.Chip>(R.id.chipDark)
+        val chipSystem = dialogView.findViewById<com.google.android.material.chip.Chip>(R.id.chipSystem)
 
-        AlertDialog.Builder(this)
-            .setTitle(R.string.theme_settings)
-            .setSingleChoiceItems(
-                arrayOf(
-                    resources.getString(R.string.theme_light),
-                    resources.getString(R.string.theme_dark),
-                    resources.getString(R.string.theme_system),
-                ),
-                when (currentMode) {
-                    AppCompatDelegate.MODE_NIGHT_NO -> 0
-                    AppCompatDelegate.MODE_NIGHT_YES -> 1
-                    else -> 2
-                },
-                null,
-            )
-            .setPositiveButton(R.string.restart_app) { dialog, which ->
-                val selectedPosition = (dialog as AlertDialog).listView.checkedItemPosition
-                val newMode = when (selectedPosition) {
-                    0 -> AppCompatDelegate.MODE_NIGHT_NO
-                    1 -> AppCompatDelegate.MODE_NIGHT_YES
-                    else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-                }
+        when (currentMode) {
+            AppCompatDelegate.MODE_NIGHT_NO -> chipLight.isChecked = true
+            AppCompatDelegate.MODE_NIGHT_YES -> chipDark.isChecked = true
+            else -> chipSystem.isChecked = true
+        }
 
-                if (newMode != currentMode) {
-                    sharedPreferences.edit().putInt("theme_mode", newMode).apply()
-                    AppCompatDelegate.setDefaultNightMode(newMode)
+        val dialog = MaterialAlertDialogBuilder(this)
+            .setView(dialogView)
+            .create()
 
-                    // Show confirmation message
-                    android.widget.Toast.makeText(
-                        this,
-                        R.string.theme_applied_immediately,
-                        android.widget.Toast.LENGTH_SHORT,
-                    ).show()
-                }
+        dialogView.findViewById<android.view.View>(R.id.buttonCancel).setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialogView.findViewById<android.view.View>(R.id.buttonApply).setOnClickListener {
+            val selectedId = chipGroup.checkedChipId
+            val newMode = when (selectedId) {
+                chipLight.id -> AppCompatDelegate.MODE_NIGHT_NO
+                chipDark.id -> AppCompatDelegate.MODE_NIGHT_YES
+                else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
             }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
+            if (newMode != currentMode) {
+                sharedPreferences.edit().putInt("theme_mode", newMode).apply()
+                AppCompatDelegate.setDefaultNightMode(newMode)
+                android.widget.Toast.makeText(this, R.string.theme_applied_immediately, android.widget.Toast.LENGTH_SHORT).show()
+            }
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -227,17 +201,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun showLanguageDialog() {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_language_settings, null)
-        val radioGroup = dialogView.findViewById<RadioGroup>(R.id.radioGroupLanguage)
+        val chipGroup = dialogView.findViewById<com.google.android.material.chip.ChipGroup>(R.id.chipGroupLanguage)
+        val chipEnglish = dialogView.findViewById<com.google.android.material.chip.Chip>(R.id.chipEnglish)
+        val chipChinese = dialogView.findViewById<com.google.android.material.chip.Chip>(R.id.chipChinese)
 
-        // Set current language selection
         val currentLanguage = localeManager.getLanguage()
         when (currentLanguage) {
-            LocaleManager.LANGUAGE_CHINESE -> radioGroup.check(R.id.radioButtonChinese)
-            else -> radioGroup.check(R.id.radioButtonEnglish)
+            LocaleManager.LANGUAGE_CHINESE -> chipChinese.isChecked = true
+            else -> chipEnglish.isChecked = true
         }
 
-        val dialog = AlertDialog.Builder(this)
-            .setTitle(getString(R.string.language_settings))
+        val dialog = MaterialAlertDialogBuilder(this)
             .setView(dialogView)
             .create()
 
@@ -246,20 +220,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         dialogView.findViewById<Button>(R.id.buttonConfirm).setOnClickListener {
-            val selectedLanguage = when (radioGroup.checkedRadioButtonId) {
-                R.id.radioButtonChinese -> LocaleManager.LANGUAGE_CHINESE
+            val selectedLanguage = when (chipGroup.checkedChipId) {
+                chipChinese.id -> LocaleManager.LANGUAGE_CHINESE
                 else -> LocaleManager.LANGUAGE_ENGLISH
             }
 
             if (selectedLanguage != currentLanguage) {
                 localeManager.setLanguage(this, selectedLanguage)
-
-                // Show restart message
-                AlertDialog.Builder(this)
+                MaterialAlertDialogBuilder(this)
                     .setTitle(getString(R.string.language_changed))
                     .setMessage(getString(R.string.restart_app))
                     .setPositiveButton(getString(R.string.restart_app)) { _, _ ->
-                        // Restart the app
                         val intent = intent
                         finish()
                         startActivity(intent)

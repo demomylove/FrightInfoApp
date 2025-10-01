@@ -80,6 +80,12 @@ class FlightListFragment : Fragment() {
         observeFlights()
         observeBookmarks()
         observeFavoriteRoutes()
+
+        binding.buttonSearchFlights.setOnClickListener {
+            val from = binding.inputFrom.text?.toString()?.takeIf { it.isNotBlank() }
+            val to = binding.inputTo.text?.toString()?.takeIf { it.isNotBlank() }
+            viewModel.searchFlights(departureAirport = from, arrivalAirport = to)
+        }
     }
 
     private fun setupRecyclerView() {

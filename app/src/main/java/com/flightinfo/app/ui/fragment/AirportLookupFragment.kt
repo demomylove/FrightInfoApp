@@ -46,8 +46,14 @@ class AirportLookupFragment : Fragment(), OnMapReadyCallback {
         setupSearchInput()
         observeViewModel()
 
-        binding.mapView.onCreate(savedInstanceState)
-        binding.mapView.getMapAsync(this)
+        // Only initialize map if Google Play Services is available
+        if (isGooglePlayServicesAvailable()) {
+            binding.mapView.onCreate(savedInstanceState)
+            binding.mapView.getMapAsync(this)
+        } else {
+            // Hide map view if Google Play Services is not available
+            binding.mapView.visibility = View.GONE
+        }
     }
 
     private fun setupRecyclerView() {
@@ -130,6 +136,9 @@ class AirportLookupFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun updateMap(airport: Airport) {
+        if (!isGooglePlayServicesAvailable()) {
+            return
+        }
         googleMap?.let { map ->
             val location = LatLng(airport.latitude, airport.longitude)
             map.clear()
@@ -148,39 +157,63 @@ class AirportLookupFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    private fun isGooglePlayServicesAvailable(): Boolean {
+        return try {
+            val result = com.google.android.gms.common.GoogleApiAvailability.getInstance()
+                .isGooglePlayServicesAvailable(requireContext())
+            result == com.google.android.gms.common.ConnectionResult.SUCCESS
+        } catch (e: Exception) {
+            false
+        }
+    }
+
     override fun onResume() {
         super.onResume()
-        binding.mapView.onResume()
+        if (isGooglePlayServicesAvailable()) {
+            binding.mapView.onResume()
+        }
     }
 
     override fun onStart() {
         super.onStart()
-        binding.mapView.onStart()
+        if (isGooglePlayServicesAvailable()) {
+            binding.mapView.onStart()
+        }
     }
 
     override fun onStop() {
         super.onStop()
-        binding.mapView.onStop()
+        if (isGooglePlayServicesAvailable()) {
+            binding.mapView.onStop()
+        }
     }
 
     override fun onPause() {
         super.onPause()
-        binding.mapView.onPause()
+        if (isGooglePlayServicesAvailable()) {
+            binding.mapView.onPause()
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding.mapView.onDestroy()
+        if (isGooglePlayServicesAvailable()) {
+            binding.mapView.onDestroy()
+        }
         _binding = null
     }
 
     override fun onLowMemory() {
         super.onLowMemory()
-        binding.mapView.onLowMemory()
+        if (isGooglePlayServicesAvailable()) {
+            binding.mapView.onLowMemory()
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        binding.mapView.onSaveInstanceState(outState)
+        if (isGooglePlayServicesAvailable()) {
+            binding.mapView.onSaveInstanceState(outState)
+        }
     }
 }

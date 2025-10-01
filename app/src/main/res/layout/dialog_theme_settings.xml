@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/select_language"
+        android:text="@string/theme_settings"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
@@ -19,13 +19,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="选择应用显示语言"
+        android:text="选择主题模式"
         android:textSize="12sp"
         android:textColor="@color/text_secondary"
         android:layout_marginBottom="8dp"/>
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroupLanguage"
+        android:id="@+id/chipGroupTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:singleSelection="true"
@@ -33,18 +33,25 @@
         android:layout_marginBottom="8dp">
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chipEnglish"
+            android:id="@+id/chipLight"
             style="@style/Widget.Material3.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/language_english" />
+            android:text="@string/theme_light" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chipChinese"
+            android:id="@+id/chipDark"
             style="@style/Widget.Material3.Chip.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/language_chinese" />
+            android:text="@string/theme_dark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSystem"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/theme_system" />
 
     </com.google.android.material.chip.ChipGroup>
 
@@ -64,12 +71,12 @@
             android:layout_marginEnd="8dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonConfirm"
+            android:id="@+id/buttonApply"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@android:string/ok"
+            android:text="@string/apply"
             android:layout_marginStart="8dp"
             android:backgroundTint="@color/primary_color"
             android:textColor="@color/white" />
