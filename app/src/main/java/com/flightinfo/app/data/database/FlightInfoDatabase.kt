@@ -14,6 +14,8 @@ import com.flightinfo.app.data.dao.FavoriteRouteDao
 import com.flightinfo.app.data.dao.FlightScheduleDao
 import com.flightinfo.app.data.dao.HistoricalFlightDao
 import com.flightinfo.app.data.dao.ItineraryDao
+import com.flightinfo.app.data.dao.NotificationHistoryDao
+import com.flightinfo.app.data.dao.NotificationPreferencesDao
 import com.flightinfo.app.data.dao.OfflineAirportInfoDao
 import com.flightinfo.app.data.dao.SharedItineraryDao
 import com.flightinfo.app.data.dao.SyncRecordDao
@@ -30,6 +32,9 @@ import com.flightinfo.app.data.model.FlightSchedule
 import com.flightinfo.app.data.model.HistoricalFlight
 import com.flightinfo.app.data.model.Itinerary
 import com.flightinfo.app.data.model.ItineraryConverters
+import com.flightinfo.app.data.model.NotificationConverters
+import com.flightinfo.app.data.model.NotificationHistory
+import com.flightinfo.app.data.model.NotificationPreferences
 import com.flightinfo.app.data.model.OfflineAirportInfo
 import com.flightinfo.app.data.model.RecommendationCache
 import com.flightinfo.app.data.model.RecommendationConverters
@@ -62,11 +67,21 @@ import com.flightinfo.app.data.model.UserPreferences
         FamilyAccount::class,
         FamilyMember::class,
         SharedItinerary::class,
+        NotificationHistory::class,
+        NotificationPreferences::class,
     ],
-    version = 11,
+    version = 12,
     exportSchema = false,
 )
-@TypeConverters(ScheduleConverters::class, TrackedFlightConverters::class, RecommendationConverters::class, ItineraryConverters::class, SyncRecordConverters::class, Converters::class)
+@TypeConverters(
+    ScheduleConverters::class,
+    TrackedFlightConverters::class,
+    RecommendationConverters::class,
+    ItineraryConverters::class,
+    SyncRecordConverters::class,
+    NotificationConverters::class,
+    Converters::class,
+)
 abstract class FlightInfoDatabase : RoomDatabase() {
     abstract fun trackedFlightDao(): TrackedFlightDao
     abstract fun flightScheduleDao(): FlightScheduleDao
@@ -83,6 +98,8 @@ abstract class FlightInfoDatabase : RoomDatabase() {
     abstract fun familyAccountDao(): FamilyAccountDao
     abstract fun familyMemberDao(): FamilyMemberDao
     abstract fun sharedItineraryDao(): SharedItineraryDao
+    abstract fun notificationHistoryDao(): NotificationHistoryDao
+    abstract fun notificationPreferencesDao(): NotificationPreferencesDao
 
     companion object {
         val MIGRATION_3_4 = object : Migration(3, 4) {
@@ -358,6 +375,77 @@ abstract class FlightInfoDatabase : RoomDatabase() {
                 database.execSQL(
                     """
                     CREATE INDEX IF NOT EXISTS `index_shared_itineraries_familyAccountId` ON `shared_itineraries` (`familyAccountId`)
+                    """.trimIndent(),
+                )
+            }
+        }
+
+        val MIGRATION_11_12 = object : Migration(11, 12) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                // Create notification_history table
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `notification_history` (
+                        `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        `title` TEXT NOT NULL,
+                        `message` TEXT NOT NULL,
+                        `type` TEXT NOT NULL,
+                        `category` TEXT NOT NULL,
+                        `flightNumber` TEXT,
+                        `departureAirport` TEXT,
+                        `arrivalAirport` TEXT,
+                        `airline` TEXT,
+                        `baggageTagNumber` TEXT,
+                        `baggageStatus` TEXT,
+                        `timestamp` INTEGER NOT NULL,
+                        `scheduledTime` INTEGER,
+                        `isRead` INTEGER NOT NULL,
+                        `priority` TEXT NOT NULL,
+                        `extraData` TEXT
+                    )
+                    """.trimIndent(),
+                )
+
+                // Create notification_preferences table
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `notification_preferences` (
+                        `userId` TEXT PRIMARY KEY NOT NULL,
+                        `notificationsEnabled` INTEGER NOT NULL,
+                        `dndEnabled` INTEGER NOT NULL,
+                        `dndStartHour` INTEGER NOT NULL,
+                        `dndStartMinute` INTEGER NOT NULL,
+                        `dndEndHour` INTEGER NOT NULL,
+                        `dndEndMinute` INTEGER NOT NULL,
+                        `flightStatusEnabled` INTEGER NOT NULL,
+                        `flightDelayEnabled` INTEGER NOT NULL,
+                        `flightCancellationEnabled` INTEGER NOT NULL,
+                        `boardingTimeEnabled` INTEGER NOT NULL,
+                        `gateChangeEnabled` INTEGER NOT NULL,
+                        `baggageStatusEnabled` INTEGER NOT NULL,
+                        `priceAlertEnabled` INTEGER NOT NULL,
+                        `tripReminderEnabled` INTEGER NOT NULL,
+                        `weatherAlertEnabled` INTEGER NOT NULL,
+                        `watchedFlightNumbers` TEXT NOT NULL,
+                        `watchedAirports` TEXT NOT NULL,
+                        `watchedAirlines` TEXT NOT NULL,
+                        `notificationFrequency` TEXT NOT NULL,
+                        `vibrationEnabled` INTEGER NOT NULL,
+                        `soundEnabled` INTEGER NOT NULL,
+                        `ledEnabled` INTEGER NOT NULL,
+                        `scheduledNotifications` TEXT NOT NULL,
+                        `lastUpdated` INTEGER NOT NULL
+                    )
+                    """.trimIndent(),
+                )
+
+                // Insert default preferences row if absent
+                database.execSQL(
+                    """
+                    INSERT OR IGNORE INTO `notification_preferences` (userId, notificationsEnabled, dndEnabled, dndStartHour, dndStartMinute, dndEndHour, dndEndMinute, 
+                        flightStatusEnabled, flightDelayEnabled, flightCancellationEnabled, boardingTimeEnabled, gateChangeEnabled, baggageStatusEnabled, priceAlertEnabled, 
+                        tripReminderEnabled, weatherAlertEnabled, watchedFlightNumbers, watchedAirports, watchedAirlines, notificationFrequency, vibrationEnabled, soundEnabled, ledEnabled, scheduledNotifications, lastUpdated)
+                    VALUES ('default_user', 1, 0, 22, 0, 7, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, '[]', '[]', '[]', 'IMMEDIATE', 1, 1, 1, '[]', strftime('%s','now')*1000)
                     """.trimIndent(),
                 )
             }

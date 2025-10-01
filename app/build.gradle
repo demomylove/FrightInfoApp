@@ -117,3 +117,8 @@ spotless {
         ktlint("0.48.2").editorConfigOverride(['ktlint_android_mode': 'true'])
     }
 }
+
+// Ensure Spotless runs as part of the build lifecycle
+tasks.named("check") {
+    dependsOn("spotlessCheck")
+}

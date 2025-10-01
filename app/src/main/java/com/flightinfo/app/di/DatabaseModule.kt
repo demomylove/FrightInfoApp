@@ -9,6 +9,8 @@ import com.flightinfo.app.data.dao.FavoriteRouteDao
 import com.flightinfo.app.data.dao.FlightScheduleDao
 import com.flightinfo.app.data.dao.HistoricalFlightDao
 import com.flightinfo.app.data.dao.ItineraryDao
+import com.flightinfo.app.data.dao.NotificationHistoryDao
+import com.flightinfo.app.data.dao.NotificationPreferencesDao
 import com.flightinfo.app.data.dao.OfflineAirportInfoDao
 import com.flightinfo.app.data.dao.TrackedFlightDao
 import com.flightinfo.app.data.dao.UserBehaviorDao
@@ -31,7 +33,25 @@ object DatabaseModule {
             context,
             FlightInfoDatabase::class.java,
             "flight_info_database",
-        ).addMigrations(FlightInfoDatabase.MIGRATION_4_5, FlightInfoDatabase.MIGRATION_5_6, FlightInfoDatabase.MIGRATION_6_7, FlightInfoDatabase.MIGRATION_7_8)
+        )
+            .addMigrations(
+                FlightInfoDatabase.MIGRATION_3_4,
+                FlightInfoDatabase.MIGRATION_4_5,
+                FlightInfoDatabase.MIGRATION_5_6,
+                FlightInfoDatabase.MIGRATION_6_7,
+                FlightInfoDatabase.MIGRATION_7_8,
+                FlightInfoDatabase.MIGRATION_8_9,
+                FlightInfoDatabase.MIGRATION_9_10,
+                FlightInfoDatabase.MIGRATION_10_11,
+                FlightInfoDatabase.MIGRATION_11_12,
+            )
+            // 数据库优化配置
+            .setQueryExecutor {
+                // 使用自定义线程池处理数据库查询
+                Thread {
+                    it.run()
+                }.start()
+            }
             .build()
     }
 
@@ -88,6 +108,16 @@ object DatabaseModule {
     @Provides
     fun provideBaggageDao(database: FlightInfoDatabase): BaggageDao {
         return database.baggageDao()
+    }
+
+    @Provides
+    fun provideNotificationHistoryDao(database: FlightInfoDatabase): NotificationHistoryDao {
+        return database.notificationHistoryDao()
+    }
+
+    @Provides
+    fun provideNotificationPreferencesDao(database: FlightInfoDatabase): NotificationPreferencesDao {
+        return database.notificationPreferencesDao()
     }
 
     @Provides
