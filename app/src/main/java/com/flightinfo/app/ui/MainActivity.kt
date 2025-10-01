@@ -3,20 +3,17 @@ package com.flightinfo.app.ui
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.navigation.NavController
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.flightinfo.app.R
 import com.flightinfo.app.utils.AuthManager
 import com.flightinfo.app.utils.LocaleManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -59,8 +56,11 @@ class MainActivity : AppCompatActivity() {
                     R.id.exploreFragment -> navController.navigate(R.id.exploreFragment)
                     R.id.itineraryFragment -> navController.navigate(R.id.itineraryFragment)
                     R.id.profileFragment -> {
-                        if (authManager.getCurrentUserId() != null) navController.navigate(R.id.profileFragment)
-                        else navController.navigate(R.id.loginFragment)
+                        if (authManager.getCurrentUserId() != null) {
+                            navController.navigate(R.id.profileFragment)
+                        } else {
+                            navController.navigate(R.id.loginFragment)
+                        }
                     }
                 }
                 true
