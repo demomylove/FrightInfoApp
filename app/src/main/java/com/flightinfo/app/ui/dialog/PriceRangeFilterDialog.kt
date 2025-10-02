@@ -14,8 +14,8 @@ import java.util.Locale
 
 class PriceRangeFilterDialog : DialogFragment() {
 
-    private var _binding: DialogPriceRangeFilterBinding? = null
-    private val binding get() = _binding!!
+    private var bindingInternal: DialogPriceRangeFilterBinding? = null
+    private val binding get() = bindingInternal!!
 
     private val viewModel: FlightSearchViewModel by activityViewModels()
     private val numberFormat = NumberFormat.getCurrencyInstance(Locale.US)
@@ -25,7 +25,7 @@ class PriceRangeFilterDialog : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = DialogPriceRangeFilterBinding.inflate(inflater, container, false)
+        bindingInternal = DialogPriceRangeFilterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -141,6 +141,6 @@ class PriceRangeFilterDialog : DialogFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        bindingInternal = null
     }
 }

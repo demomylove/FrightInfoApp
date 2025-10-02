@@ -38,7 +38,7 @@ class FlightListFragment : Fragment() {
     lateinit var historicalFlightRepository: HistoricalFlightRepository
 
     private var _binding: FragmentFlightListBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val viewModel: FlightSearchViewModel by activityViewModels()
     private lateinit var flightAdapter: FlightAdapter

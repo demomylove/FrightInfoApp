@@ -16,10 +16,10 @@ data class FlightSchedule(
     val departureAirportCode: String,
     val arrivalAirport: String,
     val arrivalAirportCode: String,
-    val departureTime: String, // HH:mm format
-    val arrivalTime: String, // HH:mm format
-    val duration: Int, // in minutes
-    val daysOfWeek: List<Int>, // 1-7 for Monday-Sunday
+    val departureTime: String,
+    val arrivalTime: String,
+    val duration: Int,
+    val daysOfWeek: List<Int>,
     val aircraftType: String?,
     val isDomestic: Boolean,
     val lastUpdated: Long = System.currentTimeMillis(),

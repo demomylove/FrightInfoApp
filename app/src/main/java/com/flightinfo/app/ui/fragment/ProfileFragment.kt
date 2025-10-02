@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val viewModel: ProfileViewModel by viewModels()
     private lateinit var sharedPreferences: SharedPreferences

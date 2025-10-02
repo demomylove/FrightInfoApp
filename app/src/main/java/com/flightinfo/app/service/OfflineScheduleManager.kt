@@ -54,7 +54,7 @@ class OfflineScheduleManager @Inject constructor(
                 packageName = "Default Flight Schedule",
                 description = "Comprehensive flight schedule package",
                 downloadDate = System.currentTimeMillis(),
-                fileSize = 1024 * 1024L, // Mock file size
+                fileSize = 1024 * 1024L,
                 version = "1.0.0",
             )
             flightScheduleRepository.addDownloadedPackage(packageInfo)

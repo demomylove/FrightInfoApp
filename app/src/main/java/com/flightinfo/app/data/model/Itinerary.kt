@@ -10,15 +10,15 @@ import com.google.gson.reflect.TypeToken
 data class Itinerary(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val title: String, // 行程标题（如：北京出差）
-    val pnr: String? = null, // 订座记录号
-    val passengers: List<String> = emptyList(), // 乘客姓名列表
-    val startTime: Long, // 行程开始（第一段起飞）
-    val endTime: Long, // 行程结束（最后一段到达）
-    val segments: List<ItinerarySegment> = emptyList(), // 多航段
-    val tasks: List<TripTask> = emptyList(), // 待办
-    val checkInUrl: String? = null, // 值机链接
-    val boardingPassUrl: String? = null, // 登机牌链接
+    val title: String,
+    val pnr: String? = null,
+    val passengers: List<String> = emptyList(),
+    val startTime: Long,
+    val endTime: Long,
+    val segments: List<ItinerarySegment> = emptyList(),
+    val tasks: List<TripTask> = emptyList(),
+    val checkInUrl: String? = null,
+    val boardingPassUrl: String? = null,
 )
 
 data class ItinerarySegment(
@@ -26,16 +26,16 @@ data class ItinerarySegment(
     val airline: String?,
     val departureAirport: String,
     val arrivalAirport: String,
-    val departureTime: Long, // 使用UTC毫秒
+    val departureTime: Long,
     val arrivalTime: Long,
     val gate: String? = null,
     val terminal: String? = null,
 )
 
 data class TripTask(
-    val id: String, // 客户端生成的UUID
-    val title: String, // 任务名（如 提前3小时出发 前往机场）
-    val dueTime: Long, // 截止时间/提醒时间
+    val id: String,
+    val title: String,
+    val dueTime: Long,
     val completed: Boolean = false,
 )
 

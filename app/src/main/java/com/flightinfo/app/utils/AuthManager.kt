@@ -45,7 +45,7 @@ class AuthManager @Inject constructor(
             val user = User(
                 userId = userId,
                 email = userEmail,
-                passwordHash = "", // 不存储密码哈希
+                passwordHash = "",
                 isActive = true,
             )
             _currentUser.value = user

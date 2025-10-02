@@ -19,8 +19,8 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
-    private val binding get() = _binding!!
+    private var bindingNullable: FragmentLoginBinding? = null
+    private val binding get() = bindingNullable!!
 
     private val viewModel: AuthViewModel by viewModels()
 
@@ -29,7 +29,7 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        bindingNullable = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -97,6 +97,6 @@ class LoginFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        bindingNullable = null
     }
 }

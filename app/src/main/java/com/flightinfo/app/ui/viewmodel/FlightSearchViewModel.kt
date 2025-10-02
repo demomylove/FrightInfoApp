@@ -131,7 +131,7 @@ class FlightSearchViewModel @Inject constructor(
     fun trackFlight(flight: FlightInfo) {
         viewModelScope.launch {
             val trackedFlight = TrackedFlight(
-                flightId = flight.flightNumber, // Use flightNumber as the unique ID
+                flightId = flight.flightNumber,
                 flightNumber = flight.flightNumber,
                 lastStatus = flight.status,
                 lastUpdated = System.currentTimeMillis(),

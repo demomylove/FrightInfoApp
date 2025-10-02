@@ -24,7 +24,7 @@ import kotlinx.coroutines.launch
 class AirportLookupFragment : Fragment(), OnMapReadyCallback {
 
     private var _binding: FragmentAirportLookupBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val viewModel: AirportViewModel by viewModels()
     private lateinit var airportAdapter: AirportAdapter

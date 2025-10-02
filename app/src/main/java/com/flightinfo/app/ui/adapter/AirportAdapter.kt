@@ -1,11 +1,13 @@
 package com.flightinfo.app.ui.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.flightinfo.app.databinding.ItemAirportBinding
+import com.flightinfo.app.R
 import com.flightinfo.app.model.Airport
 
 class AirportAdapter(
@@ -13,29 +15,28 @@ class AirportAdapter(
 ) : ListAdapter<Airport, AirportAdapter.AirportViewHolder>(AirportDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AirportViewHolder {
-        val binding = ItemAirportBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false,
-        )
-        return AirportViewHolder(binding)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_airport, parent, false)
+        return AirportViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: AirportViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    inner class AirportViewHolder(
-        private val binding: ItemAirportBinding,
-    ) : RecyclerView.ViewHolder(binding.root) {
+    inner class AirportViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        private val code: TextView = view.findViewById(R.id.textViewAirportCode)
+        private val name: TextView = view.findViewById(R.id.textViewAirportName)
+        private val location: TextView = view.findViewById(R.id.textViewAirportLocation)
+        private val country: TextView = view.findViewById(R.id.textViewAirportCountry)
 
         fun bind(airport: Airport) {
-            binding.textViewAirportCode.text = airport.code
-            binding.textViewAirportName.text = airport.name
-            binding.textViewAirportLocation.text = airport.city
-            binding.textViewAirportCountry.text = airport.country
+            code.text = airport.code
+            name.text = airport.name
+            location.text = airport.city
+            country.text = airport.country
 
-            binding.root.setOnClickListener {
+            itemView.setOnClickListener {
                 onAirportClick(airport)
             }
         }

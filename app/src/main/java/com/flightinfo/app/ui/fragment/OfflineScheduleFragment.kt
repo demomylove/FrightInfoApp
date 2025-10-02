@@ -23,7 +23,7 @@ import kotlinx.coroutines.launch
 class OfflineScheduleFragment : Fragment() {
 
     private var _binding: FragmentOfflineScheduleBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val viewModel: OfflineScheduleViewModel by viewModels()
     private lateinit var scheduleAdapter: OfflineScheduleAdapter

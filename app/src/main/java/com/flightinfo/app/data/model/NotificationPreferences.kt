@@ -70,5 +70,5 @@ data class ScheduledNotification(
     val type: NotificationType,
     val scheduledTime: Long,
     val isActive: Boolean = true,
-    val repeatInterval: Long? = null, // 重复间隔（毫秒），null表示一次性
+    val repeatInterval: Long? = null,
 )

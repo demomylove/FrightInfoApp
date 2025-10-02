@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class FavoriteRoutesFragment : Fragment() {
 
     private var _binding: FragmentFavoriteRoutesBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val viewModel: FavoriteRoutesViewModel by viewModels()
     private lateinit var adapter: FavoriteRouteAdapter

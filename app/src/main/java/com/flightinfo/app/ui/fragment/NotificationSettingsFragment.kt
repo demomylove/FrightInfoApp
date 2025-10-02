@@ -28,7 +28,7 @@ class NotificationSettingsFragment : Fragment() {
     }
 
     private var _binding: FragmentNotificationSettingsBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val viewModel: NotificationSettingsViewModel by viewModels()
     private lateinit var adapter: NotificationSettingsAdapter

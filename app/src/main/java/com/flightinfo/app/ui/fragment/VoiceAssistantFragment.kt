@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
 class VoiceAssistantFragment : Fragment() {
 
     private var _binding: FragmentVoiceAssistantBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val viewModel: VoiceAssistantViewModel by viewModels()
     private val handler = Handler(Looper.getMainLooper())

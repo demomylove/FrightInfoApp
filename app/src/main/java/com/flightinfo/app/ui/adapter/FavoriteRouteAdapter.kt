@@ -15,8 +15,7 @@ class FavoriteRouteAdapter(
     private val onDeleteClick: (FavoriteRoute) -> Unit,
 ) : ListAdapter<FavoriteRoute, FavoriteRouteAdapter.ViewHolder>(FavoriteRouteDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-        ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_favorite_route, parent, false)
         return ViewHolder(view)
@@ -39,13 +38,11 @@ class FavoriteRouteAdapter(
 }
 
 class FavoriteRouteDiffCallback : DiffUtil.ItemCallback<FavoriteRoute>() {
-    override fun areItemsTheSame(oldItem: FavoriteRoute, newItem: FavoriteRoute):
-        Boolean {
+    override fun areItemsTheSame(oldItem: FavoriteRoute, newItem: FavoriteRoute): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: FavoriteRoute, newItem: FavoriteRoute):
-        Boolean {
+    override fun areContentsTheSame(oldItem: FavoriteRoute, newItem: FavoriteRoute): Boolean {
         return oldItem == newItem
     }
 }

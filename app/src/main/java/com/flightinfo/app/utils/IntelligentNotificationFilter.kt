@@ -234,7 +234,7 @@ object IntelligentNotificationFilter {
         val watchedAirports: Set<String> = emptySet(),
         val watchedAirlines: Set<String> = emptySet(),
         val frequentlyAccessedTypes: Set<NotificationType> = emptySet(),
-        val activeHours: Set<Int> = emptySet(), // 用户活跃的小时段
+        val activeHours: Set<Int> = emptySet(),
         val preferredNotificationTypes: Set<NotificationType> = emptySet(),
     )
 

@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
 class FlightBookingFragment : Fragment() {
 
     private var _binding: FragmentFlightBookingBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val viewModel: FlightBookingViewModel by viewModels()
     private val weatherViewModel: WeatherViewModel by viewModels()

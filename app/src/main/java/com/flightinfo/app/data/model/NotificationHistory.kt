@@ -29,7 +29,7 @@ data class NotificationHistory(
 
     // 时间信息
     val timestamp: Long = System.currentTimeMillis(),
-    val scheduledTime: Long? = null, // 定时通知的计划时间
+    val scheduledTime: Long? = null,
 
     // 通知状态
     val isRead: Boolean = false,

@@ -95,7 +95,7 @@ class FlightScheduleRepository @Inject constructor(
             OfflineDataStatus(
                 hasFlightSchedules = schedules > 0,
                 scheduleCount = schedules,
-                airlineCount = 0, // Airline info removed
+                airlineCount = 0,
                 airportCount = airports,
                 packageCount = packages,
                 lastUpdated = System.currentTimeMillis(),

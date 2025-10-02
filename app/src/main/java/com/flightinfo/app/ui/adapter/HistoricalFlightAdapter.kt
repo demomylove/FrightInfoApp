@@ -15,8 +15,7 @@ import java.util.Locale
 
 class HistoricalFlightAdapter : ListAdapter<HistoricalFlight, HistoricalFlightAdapter.ViewHolder>(HistoricalFlightDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-        ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_historical_flight, parent, false)
         return ViewHolder(view)
@@ -41,13 +40,11 @@ class HistoricalFlightAdapter : ListAdapter<HistoricalFlight, HistoricalFlightAd
 }
 
 class HistoricalFlightDiffCallback : DiffUtil.ItemCallback<HistoricalFlight>() {
-    override fun areItemsTheSame(oldItem: HistoricalFlight, newItem: HistoricalFlight):
-        Boolean {
+    override fun areItemsTheSame(oldItem: HistoricalFlight, newItem: HistoricalFlight): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: HistoricalFlight, newItem: HistoricalFlight):
-        Boolean {
+    override fun areContentsTheSame(oldItem: HistoricalFlight, newItem: HistoricalFlight): Boolean {
         return oldItem == newItem
     }
 }

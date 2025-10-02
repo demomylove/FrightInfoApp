@@ -63,7 +63,7 @@ class RecommendationEngine(
                 cacheKey = cacheKey,
                 recommendations = uniqueRecommendations,
                 timestamp = System.currentTimeMillis(),
-                ttl = 6 * 60 * 60 * 1000, // 6小时
+                ttl = 6 * 60 * 60 * 1000,
             ),
         )
 
@@ -156,7 +156,7 @@ class RecommendationEngine(
             .take(2)
             .map { flight ->
                 FlightRecommendation(
-                    flight = flight.copy(price = flight.price!! * 0.8), // 模拟20%折扣
+                    flight = flight.copy(price = flight.price!! * 0.8),
                     recommendationType = RecommendationType.PRICE_DROP,
                     confidenceScore = 0.8 + Random.nextDouble(0.1),
                     reasons = listOf("限时优惠", "价格下降20%"),
@@ -263,7 +263,7 @@ class RecommendationEngine(
 
     suspend fun trackRecommendationInteraction(
         recommendation: FlightRecommendation,
-        interactionType: String, // "click", "book", "ignore"
+        interactionType: String,
     ) {
         when (interactionType) {
             "click" -> userBehaviorTracker.trackRecommendationClick(recommendation)
@@ -312,7 +312,7 @@ class RecommendationEngine(
             totalRecommendations = totalRecommendations,
             clickThroughRate = clickThroughRate,
             conversionRate = conversionRate,
-            averageConfidence = 0.75, // 模拟平均置信度
+            averageConfidence = 0.75,
             topRecommendationTypes = recommendationTypes,
         )
     }

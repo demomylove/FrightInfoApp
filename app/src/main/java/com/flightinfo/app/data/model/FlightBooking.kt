@@ -6,18 +6,18 @@ data class FlightBooking(
     val passengerEmail: String,
     val passengerPhone: String,
     val seat: String,
-    val passengerId: String = "", // 乘客身份证号
-    val specialRequests: String = "", // 特殊需求
-    val baggageInfo: BaggageInfo = BaggageInfo(), // 行李信息
-    val mealPreference: MealPreference = MealPreference.NONE, // 餐食选择
-    val insuranceOption: InsuranceOption = InsuranceOption.NONE, // 保险选项
+    val passengerId: String = "",
+    val specialRequests: String = "",
+    val baggageInfo: BaggageInfo = BaggageInfo(),
+    val mealPreference: MealPreference = MealPreference.NONE,
+    val insuranceOption: InsuranceOption = InsuranceOption.NONE,
 )
 
 // 行李信息数据类
 data class BaggageInfo(
-    val checkedBaggage: Int = 0, // 托运行李数量
-    val cabinBaggage: Int = 1, // 随身行李数量
-    val specialBaggage: String = "", // 特殊行李描述
+    val checkedBaggage: Int = 0,
+    val cabinBaggage: Int = 1,
+    val specialBaggage: String = "",
 )
 
 // 餐食选择枚举

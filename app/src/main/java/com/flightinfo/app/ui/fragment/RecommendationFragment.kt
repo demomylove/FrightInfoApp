@@ -24,7 +24,7 @@ import kotlinx.coroutines.launch
 class RecommendationFragment : Fragment() {
 
     private var _binding: FragmentRecommendationBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val viewModel: RecommendationViewModel by viewModels()
     private lateinit var recommendationAdapter: RecommendationAdapter

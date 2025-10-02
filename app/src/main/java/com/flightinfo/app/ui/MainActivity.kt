@@ -123,10 +123,12 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.action_theme -> {
-                showThemeDialog(); true
+                showThemeDialog()
+                true
             }
             R.id.action_language -> {
-                showLanguageDialog(); true
+                showLanguageDialog()
+                true
             }
             R.id.action_recommendations -> {
                 navController.navigate(R.id.recommendationFragment)

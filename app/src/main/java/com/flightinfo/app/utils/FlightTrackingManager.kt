@@ -7,11 +7,11 @@ import com.flightinfo.app.service.FlightStatusCheckService
 class FlightTrackingManager private constructor() {
     companion object {
         @Volatile
-        private var INSTANCE: FlightTrackingManager? = null
+        private var instance: FlightTrackingManager? = null
 
         fun getInstance(): FlightTrackingManager {
-            return INSTANCE ?: synchronized(this) {
-                INSTANCE ?: FlightTrackingManager().also { INSTANCE = it }
+            return instance ?: synchronized(this) {
+                instance ?: FlightTrackingManager().also { instance = it }
             }
         }
     }

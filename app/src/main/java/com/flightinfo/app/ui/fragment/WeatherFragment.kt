@@ -22,7 +22,7 @@ import kotlinx.coroutines.flow.onEach
 class WeatherFragment : Fragment() {
 
     private var _binding: FragmentWeatherBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val viewModel: WeatherViewModel by viewModels()
     private lateinit var forecastAdapter: ForecastAdapter

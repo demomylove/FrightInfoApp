@@ -10,14 +10,14 @@ import com.google.gson.reflect.TypeToken
 data class UserBehavior(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val actionType: String, // "search", "bookmark", "track", "view", "book"
+    val actionType: String,
     val flightNumber: String?,
     val departureAirport: String?,
     val arrivalAirport: String?,
     val airline: String?,
     val priceRange: String?,
     val timestamp: Long,
-    val metadata: String? = null, // JSON格式的额外数据
+    val metadata: String? = null,
 )
 
 @Entity(tableName = "user_preferences")
@@ -28,7 +28,7 @@ data class UserPreferences(
     val favoriteAirports: List<String> = emptyList(),
     val preferredPriceRange: PriceRange? = null,
     val preferredAirlines: List<String> = emptyList(),
-    val travelFrequency: Int = 0, // 每月旅行次数
+    val travelFrequency: Int = 0,
     val lastUpdated: Long = System.currentTimeMillis(),
 )
 
@@ -44,13 +44,13 @@ data class RecommendationCache(
     val cacheKey: String,
     val recommendations: List<FlightRecommendation>,
     val timestamp: Long,
-    val ttl: Long = 24 * 60 * 60 * 1000, // 24小时缓存
+    val ttl: Long = 24 * 60 * 60 * 1000,
 )
 
 data class FlightRecommendation(
     val flight: FlightInfo,
     val recommendationType: RecommendationType,
-    val confidenceScore: Double, // 0.0 - 1.0
+    val confidenceScore: Double,
     val reasons: List<String>,
     val personalizedScore: Double = 0.0,
 )

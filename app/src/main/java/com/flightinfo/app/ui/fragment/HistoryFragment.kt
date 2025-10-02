@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     private val viewModel: HistoryViewModel by viewModels()
     private lateinit var adapter: HistoricalFlightAdapter
