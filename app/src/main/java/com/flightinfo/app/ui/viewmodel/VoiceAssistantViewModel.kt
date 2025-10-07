@@ -6,6 +6,7 @@ import com.flightinfo.app.data.model.VoiceIntent
 import com.flightinfo.app.data.model.VoiceRecognitionResult
 import com.flightinfo.app.data.model.VoiceSettings
 import com.flightinfo.app.data.repository.FlightRepository
+import com.flightinfo.app.data.repository.WeatherRepository
 import com.flightinfo.app.utils.Resource
 import com.flightinfo.app.utils.VoiceRecognitionManager
 import com.flightinfo.app.utils.VoiceRecognitionManager.RecognitionState
@@ -22,6 +23,7 @@ class VoiceAssistantViewModel @Inject constructor(
     private val voiceRecognitionManager: VoiceRecognitionManager,
     private val voiceSynthesisManager: VoiceSynthesisManager,
     private val flightRepository: FlightRepository,
+    private val weatherRepository: WeatherRepository,
 ) : ViewModel() {
 
     private val _voiceSettings = MutableStateFlow(VoiceSettings())
@@ -266,11 +268,36 @@ class VoiceAssistantViewModel @Inject constructor(
 
     private fun handleWeatherInfo(parameters: Map<String, String>) {
         val location = parameters["location"] ?: "当前城市"
-        val response = "正在查询${location}的天气信息..."
-        _assistantResponse.value = response
+        _assistantResponse.value = "正在查询${location}的天气信息..."
 
-        if (_voiceSettings.value.voiceFeedbackEnabled) {
-            voiceSynthesisManager.speakWeatherInfo(location, "晴朗", "25度")
+        viewModelScope.launch {
+            weatherRepository.getCurrentWeather(location).collect { result ->
+                when (result) {
+                    is Resource.Loading -> {
+                        _assistantResponse.value = "正在查询${location}的天气信息..."
+                    }
+                    is Resource.Success -> {
+                        val weather = result.data?.current
+                        if (weather != null) {
+                            val msg = "${weather.location}：${weather.condition}，${weather.temperature}°C，风速${weather.windSpeed}km/h"
+                            _assistantResponse.value = msg
+                            if (_voiceSettings.value.voiceFeedbackEnabled) {
+                                voiceSynthesisManager.speakWeatherInfo(weather.location, weather.condition, "${weather.temperature}度")
+                            }
+                        } else {
+                            _assistantResponse.value = "未获取到${location}的天气信息"
+                        }
+                    }
+                    is Resource.Error -> {
+                        val msg = "获取${location}天气失败：${result.message}"
+                        _assistantResponse.value = msg
+                        if (_voiceSettings.value.voiceFeedbackEnabled) {
+                            voiceSynthesisManager.speakError("${location}天气查询失败")
+                        }
+                    }
+                    is Resource.Idle -> Unit
+                }
+            }
         }
     }
 
