@@ -3,6 +3,7 @@ package com.flightinfo.app.di
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import com.flightinfo.app.data.api.FlightApiService
+import com.flightinfo.app.data.api.FlightPathWeatherApiService
 import com.flightinfo.app.utils.network.CacheInterceptor
 import com.flightinfo.app.utils.network.NetworkInterceptor
 import com.flightinfo.app.utils.network.OfflineCacheInterceptor
@@ -80,6 +81,17 @@ object NetworkModule {
     @Singleton
     fun provideFlightApiService(retrofit: Retrofit): FlightApiService {
         return retrofit.create(FlightApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFlightPathWeatherApiService(okHttpClient: OkHttpClient): FlightPathWeatherApiService {
+        val weatherRetrofit = Retrofit.Builder()
+            .baseUrl(FlightPathWeatherApiService.MOCK_BASE_URL)
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        return weatherRetrofit.create(FlightPathWeatherApiService::class.java)
     }
 
     @Provides

@@ -291,6 +291,17 @@
             android:layout_marginTop="16dp"
             android:visibility="gone" />
 
+        <!-- 总价显示 -->
+        <TextView
+            android:id="@+id/totalPriceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="总价：--"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:gravity="end"
+            android:layout_marginTop="12dp" />
+
         <Button
             android:id="@+id/bookButton"
             android:layout_width="match_parent"

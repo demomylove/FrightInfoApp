@@ -18,6 +18,7 @@ import com.flightinfo.app.databinding.FragmentFlightBookingBinding
 import com.flightinfo.app.ui.WeatherActivity
 import com.flightinfo.app.ui.dialog.SeatSelectionDialog
 import com.flightinfo.app.ui.viewmodel.FlightBookingViewModel
+import com.flightinfo.app.ui.viewmodel.FlightPathWeatherViewModel
 import com.flightinfo.app.ui.viewmodel.WeatherViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,11 +32,13 @@ class FlightBookingFragment : Fragment() {
 
     private val viewModel: FlightBookingViewModel by viewModels()
     private val weatherViewModel: WeatherViewModel by viewModels()
+    private val flightPathWeatherViewModel: FlightPathWeatherViewModel by viewModels()
     private var selectedSeat: Seat? = null
     private var flightNumber: String? = null
     private var departureAirport: String? = null
     private var arrivalAirport: String? = null
     private var flightDate: String? = null
+    private var currency: String = "CNY"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,11 +61,30 @@ class FlightBookingFragment : Fragment() {
         // 加载航班天气信息
         loadFlightWeather()
 
+        // 加载票价并监听总价变化
+        arguments?.getString("flightId")?.let { id ->
+            viewModel.loadFlightPrice(id)
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.currency.collect { curr ->
+                currency = curr
+                updateTotalPriceText(viewModel.totalPrice.value)
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.totalPrice.collect { total ->
+                updateTotalPriceText(total)
+            }
+        }
+
         // 设置座位选择按钮点击事件
         binding.selectSeatButton.setOnClickListener {
             val seatSelectionDialog = SeatSelectionDialog(requireContext()) { seat ->
                 selectedSeat = seat
                 binding.seatEditText.setText(seat.seatNumber)
+                recalcTotal()
             }
             seatSelectionDialog.show()
         }
@@ -91,6 +113,12 @@ class FlightBookingFragment : Fragment() {
         val mealAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, mealOptions)
         mealAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.mealPreferenceSpinner.adapter = mealAdapter
+        binding.mealPreferenceSpinner.setOnItemSelectedListener(object : android.widget.AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: android.widget.AdapterView<*>, view: View?, position: Int, id: Long) {
+                recalcTotal()
+            }
+            override fun onNothingSelected(parent: android.widget.AdapterView<*>) {}
+        })
 
         // 设置行李信息数字选择器
         setupBaggagePickers()
@@ -98,6 +126,7 @@ class FlightBookingFragment : Fragment() {
         // 设置保险选项单选按钮组
         binding.insuranceRadioGroup.setOnCheckedChangeListener { _, _ ->
             // 处理保险选项选择
+            recalcTotal()
         }
 
         binding.bookButton.setOnClickListener {
@@ -247,11 +276,54 @@ class FlightBookingFragment : Fragment() {
         binding.checkedBaggagePicker.minValue = 0
         binding.checkedBaggagePicker.maxValue = 5
         binding.checkedBaggagePicker.value = 0
+        binding.checkedBaggagePicker.setOnValueChangedListener { _, _, _ -> recalcTotal() }
 
         // 设置随身行李数量选择器
         binding.cabinBaggagePicker.minValue = 0
         binding.cabinBaggagePicker.maxValue = 2
         binding.cabinBaggagePicker.value = 1
+        binding.cabinBaggagePicker.setOnValueChangedListener { _, _, _ -> recalcTotal() }
+    }
+
+    private fun recalcTotal() {
+        val basePrice = viewModel.basePrice.value
+        val mealPreference = when (binding.mealPreferenceSpinner.selectedItemPosition) {
+            1 -> MealPreference.STANDARD
+            2 -> MealPreference.VEGETARIAN
+            3 -> MealPreference.VEGAN
+            4 -> MealPreference.GLUTEN_FREE
+            5 -> MealPreference.CHILD
+            6 -> MealPreference.DIABETIC
+            else -> MealPreference.NONE
+        }
+
+        val insuranceOption = when (binding.insuranceRadioGroup.checkedRadioButtonId) {
+            R.id.noInsuranceRadioButton -> InsuranceOption.NONE
+            R.id.basicInsuranceRadioButton -> InsuranceOption.BASIC
+            R.id.comprehensiveInsuranceRadioButton -> InsuranceOption.COMPREHENSIVE
+            R.id.premiumInsuranceRadioButton -> InsuranceOption.PREMIUM
+            else -> InsuranceOption.NONE
+        }
+
+        val baggageInfo = com.flightinfo.app.data.model.BaggageInfo(
+            checkedBaggage = binding.checkedBaggagePicker.value,
+            cabinBaggage = binding.cabinBaggagePicker.value,
+            specialBaggage = binding.specialBaggageEditText.text.toString(),
+        )
+
+        viewModel.calculateTotalPrice(
+            basePrice = basePrice,
+            seat = selectedSeat,
+            mealPreference = mealPreference,
+            insuranceOption = insuranceOption,
+            baggageInfo = baggageInfo,
+        )
+    }
+
+    private fun updateTotalPriceText(total: Double) {
+        binding.totalPriceTextView?.let { tv ->
+            tv.text = "总价：${"%.2f".format(total)} $currency"
+        }
     }
 
     override fun onDestroyView() {

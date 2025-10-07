@@ -35,6 +35,12 @@ class FlightBookingViewModel @Inject constructor(
     private val _totalPrice = MutableStateFlow(0.0)
     val totalPrice: StateFlow<Double> = _totalPrice.asStateFlow()
 
+    private val _basePrice = MutableStateFlow(0.0)
+    val basePrice: StateFlow<Double> = _basePrice.asStateFlow()
+
+    private val _currency = MutableStateFlow("CNY")
+    val currency: StateFlow<String> = _currency.asStateFlow()
+
     fun bookFlight(flightId: String, bookingInfo: FlightBooking) {
         viewModelScope.launch {
             _bookingUiState.value = BookingUiState.Loading
@@ -55,6 +61,31 @@ class FlightBookingViewModel @Inject constructor(
                         }
                     }
                 }
+        }
+    }
+
+    /**
+     * 加载航班基础票价
+     */
+    fun loadFlightPrice(flightId: String) {
+        viewModelScope.launch {
+            repository.getFlightPrice(flightId).collect { resource ->
+                when (resource) {
+                    is Resource.Success -> {
+                        val priceInfo = resource.data
+                        if (priceInfo != null) {
+                            _basePrice.value = priceInfo.price
+                            _currency.value = priceInfo.currency
+                            // 初始化总价为基础票价
+                            _totalPrice.value = priceInfo.price
+                        }
+                    }
+                    is Resource.Error -> {
+                        // 保持默认价格0，交给UI提示或继续计算附加项
+                    }
+                    else -> Unit
+                }
+            }
         }
     }
 

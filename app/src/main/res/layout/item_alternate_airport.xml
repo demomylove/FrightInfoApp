@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/priorityTextView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:background="@drawable/ic_circle_background"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                tools:text="1" />
+
+            <TextView
+                android:id="@+id/airportCodeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"
+                tools:text="HGH" />
+
+            <TextView
+                android:id="@+id/distanceTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:textColor="?attr/colorOnSecondary"
+                android:gravity="end"
+                tools:text="85海里" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/airportNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            tools:text="杭州萧山国际机场" />
+
+        <TextView
+            android:id="@+id/weatherConditionsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"
+            tools:text="天气: 晴，能见度10公里以上" />
+
+        <TextView
+            android:id="@+id/runwayConditionsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp"
+            tools:text="跑道: 干燥，状况良好" />
+
+        <TextView
+            android:id="@+id/reasonTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="?attr/colorOnSecondary"
+            android:textStyle="italic"
+            android:layout_marginTop="4dp"
+            tools:text="距离适中，天气条件优秀" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
