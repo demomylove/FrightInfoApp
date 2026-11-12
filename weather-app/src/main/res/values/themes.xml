@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.SimpleWeather" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#2563A6</item>
+        <item name="colorSecondary">#2563A6</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">#173B64</item>
+    </style>
+</resources>

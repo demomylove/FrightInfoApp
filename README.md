@@ -245,3 +245,27 @@ FlightInfoApp 是一个功能完整、架构清晰的现代化 Android 应用程
 ## 许可证
 
 本项目采用 **MIT 许可证**。
+
+## 简明天气（独立试用 APK）
+
+新增 `:weather-app`，包名 `com.flightinfo.weather`，与航班应用分别安装。中文手动搜索中国城市，点选行政区候选后获取当前天气和北京时间明日起 7 天预报；支持刷新、重试、城市切换与跨午夜更新。不使用定位、登录或离线天气缓存。数据来自 Open-Meteo / GeoNames，仅供个人、非商业试用，应用内附数据署名与许可链接。
+
+构建需要 JDK 17、Android SDK 34 和 Build Tools 33.0.1（AGP 默认）。在 `local.properties` 配置 `sdk.dir`，使用仓库 Gradle 8.0 wrapper。签名路径必须显式提供，后续升级复用同一试用证书；不要提交证书。
+
+```bash
+export JAVA_HOME=/path/to/jdk17
+export GRADLE_USER_HOME=/persistent/task/.gradle-user-home
+export WEATHER_DEBUG_KEYSTORE=/persistent/task/signing/weather-debug.keystore
+# 仅首次生成；不要覆盖已有证书。
+keytool -genkeypair -keystore "$WEATHER_DEBUG_KEYSTORE" -storepass android \
+  -keypass android -alias androiddebugkey -dname "CN=Weather Trial,O=Development,C=CN" \
+  -keyalg RSA -keysize 2048 -validity 10000
+./gradlew :weather-app:testDebugUnitTest :weather-app:lintDebug :weather-app:assembleDebug
+./gradlew :weather-app:connectedDebugAndroidTest
+# 若设备的统一测试平台无法启动测试，可用同一测试集的兼容运行器：
+./gradlew :weather-app:connectedDebugAndroidTest -Pandroid.experimental.androidTest.useUnifiedTestPlatform=false
+```
+
+输出：`weather-app/build/outputs/apk/debug/weather-app-debug.apk`。支持范围为 API 24 起，具体已验证系统以交付报告为准。设备测试包含受控错误/恢复/旋转流程与真实网络三城市检查；真实网络测试要求 Open-Meteo 可达。单元测试覆盖乱序响应、日期边界、空值、短数组、缺日期、单位错误和失败恢复。缺少数据时不以 0、晴天或旧字段补全；网络整体失败才保留注明“上次数据”的同城快照。
+
+更新需使用相同签名并递增 versionCode；签名不同或降级不可直接覆盖，卸载会清除应用状态。初版不包含数据库迁移。恢复旧版应使用之前验证过、签名匹配的 APK，并遵守 Android 的版本约束。

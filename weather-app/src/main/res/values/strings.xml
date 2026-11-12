@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">简明天气</string>
+    <string name="subtitle">中国城市 · 北京时间 · 试用版</string>
+    <string name="city_hint">输入城市名称，例如北京</string>
+    <string name="search">搜索</string>
+    <string name="refresh">刷新天气</string>
+    <string name="search_retry">重试搜索</string>
+    <string name="future">未来 7 天 · 从明天起</string>
+    <string name="empty_city">请选择城市</string>
+    <string name="initial">搜索并选择城市，查看当前天气和未来预报</string>
+    <string name="sources">天气数据：&lt;a href="https://open-meteo.com/"&gt;Open-Meteo&lt;/a&gt;\n城市数据：&lt;a href="https://www.geonames.org/"&gt;GeoNames&lt;/a&gt;\n&lt;a href="https://open-meteo.com/en/licence"&gt;数据许可&lt;/a&gt; · &lt;a href="https://creativecommons.org/licenses/by/4.0/"&gt;CC BY 4.0&lt;/a&gt;\n天气文字由应用按 WMO 码转换；数据为最新可用模型数据。仅供个人/非商业试用。</string>
+</resources>
