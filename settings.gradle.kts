@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "FlightTrackerApp"
 include(":app")
+include(":weather-app")
